@@ -30,7 +30,7 @@ fausse_base_ticket_client <- function(vol, split = FALSE, seed = 2811){
                        point_fidelite = sample(1:10000, vol, replace = TRUE),
                        an = sample(2010:2015, vol, replace = TRUE),
                        mois = sample(1:12, vol, replace = TRUE),
-                       jour = sample(1:15, vol, replace = TRUE),
+                       jour = sample(1:28, vol, replace = TRUE),
                        timestamp = paste(an, mois, jour, sep = "-"),
                        prise_en_charge = sample(c("Oui","Non"), vol, TRUE),
                        prise_en_charge_encoded = recode(prise_en_charge, Oui = 1L, Non = 0L),
