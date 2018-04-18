@@ -16,6 +16,7 @@ use_package("tidyr")
 use_package("dplyr")
 use_package("magrittr")
 use_package("attempt")
+use_package("lubridate")
 
 # Readme and stuffs
 use_readme_rmd()

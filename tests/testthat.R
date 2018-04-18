@@ -1,4 +1,4 @@
 library(testthat)
-library(fakethis)
+library(fakir)
 
-test_check("fakethis")
+test_check("fakir")

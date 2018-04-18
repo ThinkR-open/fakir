@@ -23,7 +23,7 @@ sample_type <- function(vol, local){
 
 sample_state <- function(vol, local){
   if (local == "en_US") vec <- c("Running","Over","technician", "Waiting for internal validation", "Waiting for client feedback")
-  if (local == "fr_FR") vec <- c("En cours","Terminé","Intervention technicien", "Attente validation", "Attente confirmation client")
+  if (local == "fr_FR") vec <- c("En cours","Cloture","Intervention technicien", "Attente validation", "Attente confirmation client")
   sample(vec, vol, TRUE)
 }
 sample_priority <- function(vol, local){

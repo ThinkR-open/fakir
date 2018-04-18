@@ -4,7 +4,7 @@
 \alias{fake_support_tickets}
 \title{Create a fake base of tickets}
 \usage{
-fake_support_tickets(vol, local = c("fr_FR", "en_US"), seed = 2811)
+fake_support_tickets(vol, local = c("en_US", "fr_FR"), seed = 2811)
 }
 \arguments{
 \item{vol}{the number of observations to return}

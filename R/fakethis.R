@@ -15,8 +15,8 @@
 #'
 #' @export
 
-fake_support_tickets <- function(vol, local = c("fr_FR", "en_US"), seed = 2811){
-  stop_if_note(vol, is.numeric, "Please provide a numeric value for `vol`")
+fake_support_tickets <- function(vol, local = c("en_US", "fr_FR"), seed = 2811){
+  stop_if_not(vol, is.numeric, "Please provide a numeric value for `vol`")
   local <- match.arg(local)
   with_seed(seed = seed,
             res <- suppressWarnings(
@@ -74,18 +74,23 @@ fake_support_tickets <- function(vol, local = c("fr_FR", "en_US"), seed = 2811){
 #' @param from,to the date to cover
 #'
 #' @importFrom withr with_seed
-#' @importFrom attempt attempt stop_if_any
+#' @importFrom attempt attempt stop_if_any stop_if
 #' @importFrom dplyr tibble rename
+#' @importFrom lubridate ymd day month year
+#'
 #' @export
 #'
 #' @examples
+#' fake_visits()
 
 fake_visits <- function(from = "2017-01-01", to = "2017-12-31",
-                                 local = c("fr_FR", "en_US"), seed = 2811){
+                                 local = c("en_US", "fr_FR"), seed = 2811){
 
-  from <- attempt(ymd(from), "Please provide a date format")
-  to <- attempt(ymd(to), "Please provide a date format")
+  from <- attempt(ymd(from), "Please provide a date format", silent = TRUE)
+  to <- attempt(ymd(to), "Please provide a date format", silent = TRUE)
   stop_if_any(list(from, to), ~ inherits(.x, "try-error"), "Please provide a date format")
+
+  stop_if(from > to, msg = "`from` should be before `to`")
 
   local <- match.arg(local)
 

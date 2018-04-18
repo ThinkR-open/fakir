@@ -4,8 +4,8 @@
 \alias{fake_visits}
 \title{Title}
 \usage{
-fake_visits(from = "2017-01-01", to = "2017-12-31", local = c("fr_FR",
-  "en_US"), seed = 2811)
+fake_visits(from = "2017-01-01", to = "2017-12-31", local = c("en_US",
+  "fr_FR"), seed = 2811)
 }
 \arguments{
 \item{from, to}{the date to cover}
@@ -16,4 +16,7 @@ fake_visits(from = "2017-01-01", to = "2017-12-31", local = c("fr_FR",
 }
 \description{
 Title
+}
+\examples{
+fake_visits()
 }
