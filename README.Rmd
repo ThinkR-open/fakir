@@ -12,14 +12,49 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 ```
-# fakethis
 
-Génération de faux jeux de données
+[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](http://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip)
+
+# fakir
+
+The goal of {fakir} is to provide fake datasets that can be used to teach R.  
+
+As it is designed for teaching data wrangling and data visualisation, some datasets follow the tidy-data principles, other don't. 
+
+Supported languages are, for now, French and US English.
 
 ## Example
 
+### Fake support ticket base : 
+
 ```{r}
-library(fakethis)
-fausse_base_ticket_client(vol = 10)
+library(fakir)
+fake_support_tickets(vol = 10)
 ```
 
+## Prior work 
+
+This package is heavily inspired by [{charlatan}](https://github.com/ropensci/charlatan). 
+
+Scott Chamberlain (2017). charlatan: Make Fake Data. R package version 0.1.0.
+https://CRAN.R-project.org/package=charlatan
+
+## Contribute 
+
+You can contribute to {fakir} in two ways: 
+
+### Translate 
+
+You can translate to other locales by providing : 
+
++ new `vec` in "R/utils"
++ new `local` in "R/fakethis"
+
+### New dataset
+
+Feel free to create new dataset generators.
+
+## COC
+
+Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md).
+By participating in this project you agree to abide by its terms.

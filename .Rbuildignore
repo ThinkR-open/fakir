@@ -2,3 +2,5 @@
 ^\.Rproj\.user$
 ^data-raw$
 ^README\.Rmd$
+^LICENSE\.md$
+^CODE_OF_CONDUCT\.md$

@@ -1,53 +1,117 @@
-#' Base ticket client
+#' Create a fake base of tickets
 #'
-#' Une fausse base client de ticket télécom
+#' A fake base of customer support tickets
 #'
-#' @param vol le nombre de lignes à retourner
-#' @param split la base doit elle être séparée en deux ?
-#' @param seed fixe la graine aléatoire
+#' @param vol the number of observations to return
+#' @param local the local of the base. Currently supported : "fr_FR" and "en_US".
+#' @param seed the random seed, default is 2811
 #'
 #' @importFrom glue glue
 #' @importFrom withr with_seed
-#' @importFrom tibble tibble
-#' @importFrom dplyr select recode
+#' @importFrom dplyr select rename tibble
 #' @importFrom charlatan ch_name ch_credit_card_provider ch_job
-#' @importFrom purrr map rerun as_vector
-#' @importFrom magrittr %>%
 #' @importFrom tidyr separate
+#' @importFrom attempt stop_if_not
 #'
 #' @export
 
-fausse_base_ticket_client <- function(vol, split = FALSE, seed = 2811){
-  withr::with_seed(seed = seed,
-                   res <- suppressWarnings(
-                     tibble(
-                       num_client = as.character(1:vol),
-                       name = ch_name(n = vol, locale = "fr_FR"),
-                       job = with_random_na(ch_job(n = vol, locale = "fr_FR")),
-                       age = sample(18:75, vol, replace = TRUE),
-                       departement = with_random_na(sample(c(01:95, NA), vol, replace = TRUE)),
-                       cb_provider = with_random_na(ch_credit_card_provider(n = vol)),
-                       point_fidelite = sample(1:10000, vol, replace = TRUE),
-                       an = sample(2010:2015, vol, replace = TRUE),
-                       mois = sample(1:12, vol, replace = TRUE),
-                       jour = sample(1:28, vol, replace = TRUE),
-                       timestamp = paste(an, mois, jour, sep = "-"),
-                       prise_en_charge = sample(c("Oui","Non"), vol, TRUE),
-                       prise_en_charge_encoded = recode(prise_en_charge, Oui = 1L, Non = 0L),
-                       ref = paste0("DOSS-", as_vector(rerun(vol, sample(LETTERS, 4)) %>% map(paste0, collapse = ""))),
-                       type = with_random_na(sample(c("Installation","Box","Ligne"), vol, replace = TRUE)),
-                       type_encoded = recode(type, Installation = 1L, Box = 2L, Ligne = 3L),
-                       etat = sample(c("En cours","Terminé","Intervention technicien", "Attente validation", "Attente confirmation client"), vol, replace = TRUE),
-                       priorite = sample(c("Gold","Silver","Bronze", "Platinium"), vol, replace = TRUE),
-                       priorite_encoded = recode(priorite, Bronze = 1L, Silver = 2L, Gold = 3L, Platinium = 4L),
-                       source_appel = sample(c("Local","France","Europe", "International"), vol, replace = TRUE)
-                     ) %>% separate(col = name, into = c("Prénom", "Nom"), sep = " ")
-                   )
+fake_support_tickets <- function(vol, local = c("fr_FR", "en_US"), seed = 2811){
+  stop_if_note(vol, is.numeric, "Please provide a numeric value for `vol`")
+  local <- match.arg(local)
+  with_seed(seed = seed,
+            res <- suppressWarnings(
+              tibble(
+                num = as.character(1:vol),
+                name = ch_name(n = vol, locale = local),
+                job = with_random_na(ch_job(n = vol, locale = local)),
+                age = sample(18:75, vol, replace = TRUE),
+                dep = with_random_na(sample(c(01:95, NA), vol, replace = TRUE)),
+                cb_provider = with_random_na(ch_credit_card_provider(n = vol)),
+                points = sample(1:10000, vol, replace = TRUE),
+                year = sample(2010:2015, vol, replace = TRUE),
+                month = sample(1:12, vol, replace = TRUE),
+                day = sample(1:28, vol, replace = TRUE),
+                timestamp = paste(year, month, day, sep = "-"),
+                supported = sample_yes(vol, local),
+                supported_encoded = recode_it(supported),
+                ref = sample_doss(vol),
+                type = with_random_na(sample_type(vol, local)),
+                type_encoded = recode_it(type),
+                state = sample_state(vol, local),
+                priority = sample_priority(vol, local),
+                priority_encoded = recode_it(priority),
+                source = sample_source(vol, local)
+              ) %>% separate(col = name, into = c("first", "last"), sep = " ")
+            )
   )
-  if (!split) return(res)
-  list(base = select(res, num_client, Prénom, Nom, job, age, departement, cb_provider),
-       tickets = select(res, num_client, an, mois, jour, timestamp, prise_en_charge, ref, type, etat, priorite, source_appel))
+  if (local == "fr_FR"){
+    res %>%
+      rename(num_client = num,
+             prenom = first,
+             nom = last,
+             departement = dep,
+             points_fidelite = points,
+             an = year,
+             mois = month,
+             jour  = day,
+             prise_en_charge = supported,
+             prise_en_charge_encoded = supported_encoded,
+             etat = state,
+             priorite = priority,
+             priorite_encoded = priority_encoded,
+             source_appel = source)
+  } else if (local == "en_US") {
+    res
+  }
 }
+# fake_support_tickets(10, "fr_FR")
 
+#' Title
+#'
+#' @inheritParams fake_support_tickets
+#'
+#' @inheritParams fake_support_tickets
+#' @param from,to the date to cover
+#'
+#' @importFrom withr with_seed
+#' @importFrom attempt attempt stop_if_any
+#' @importFrom dplyr tibble rename
+#' @export
+#'
+#' @examples
 
+fake_visits <- function(from = "2017-01-01", to = "2017-12-31",
+                                 local = c("fr_FR", "en_US"), seed = 2811){
 
+  from <- attempt(ymd(from), "Please provide a date format")
+  to <- attempt(ymd(to), "Please provide a date format")
+  stop_if_any(list(from, to), ~ inherits(.x, "try-error"), "Please provide a date format")
+
+  local <- match.arg(local)
+
+  dates <- seq(from, to, by = 1)
+  vol <- length(dates)
+  with_seed(seed = seed,
+            res <- tibble(
+                timestamp = dates,
+                year = year(timestamp),
+                month = month(timestamp),
+                day = day(timestamp),
+                home = sample(100:500, vol, replace = TRUE),
+                about = sample(50:300, vol, replace = TRUE),
+                blog = sample(300:700, vol, replace = TRUE),
+                contact = sample(50:500, vol, replace = TRUE)
+              )
+  )
+  if (local == "fr_FR"){
+    res %>%
+      rename(dates = timestamp,
+             an = year,
+             mois = month,
+             jour = day,
+             accueil = home,
+             a_propos = about)
+  } else if (local == "en_US") {
+    res
+  }
+}
