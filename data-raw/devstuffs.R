@@ -6,6 +6,7 @@ library(glue)
 library(withr)
 library(tidyr)
 library(dplyr)
+library(attempt)
 
 # dependencies
 use_package("charlatan")

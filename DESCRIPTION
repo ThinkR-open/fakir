@@ -6,8 +6,6 @@ Description: Create fake data frame for various themes.
 License: MIT + file LICENSE
 Imports: 
     charlatan,
-    glue,
-    tidyr,
     withr,
     attempt,
     lubridate

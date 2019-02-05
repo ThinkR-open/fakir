@@ -6,10 +6,8 @@
 #' @param local the local of the base. Currently supported : "fr_FR" and "en_US".
 #' @param seed the random seed, default is 2811
 #'
-#' @importFrom glue glue
 #' @importFrom withr with_seed
 #' @importFrom charlatan ch_name ch_credit_card_provider ch_job
-#' @importFrom tidyr separate
 #' @importFrom attempt stop_if_not
 #'
 #' @export
@@ -41,12 +39,15 @@ fake_support_tickets <- function(vol, local = c("en_US", "fr_FR"), seed = 2811){
         )
       )
 
-      res <- separate(res, col = name, into = c("first", "last"), sep = " ")
+      res$first <- gsub("([^ ]*).*","\\1", res$name)
+      res$last <- gsub("[^ ]* ([^ ]*)","\\1", res$name)
       res$timestamp = paste(res$year, res$month, res$day, sep = "-")
       res$supported_encoded = recode_it(res$supported)
       res$type_encoded = recode_it(res$type)
       res$priority_encoded = recode_it(res$priority)
-      res <- res[, c(1:11, 18, 12, 19, 13:14, 20, 15:16, 21, 17)]
+
+      res <- res[, c("num", "first", "last", "job", "age", "dep", "cb_provider", "points", "year", "month", "day", "timestamp", "supported", "supported_encoded", "ref", "type", "type_encoded", "state", "priority", "priority_encoded", "source")
+]
     }
   )
   if (local == "fr_FR"){
