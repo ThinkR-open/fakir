@@ -4,9 +4,9 @@ with_random_na <- function(vec){
 }
 
 sample_doss <- function(vol){
- replicate(vol, sample(LETTERS, 4) , simplify = FALSE) %>%
-    lapply(paste, collapse = "") %>%
-    paste0("DOSS-", .)
+  res <- replicate(vol, sample(LETTERS, 4) , simplify = FALSE)
+  res <- lapply(res, paste, collapse = "")
+  paste0("DOSS-", res)
 }
 
 sample_yes <- function(vol, local){
@@ -43,6 +43,6 @@ recode_it <- function(vec){
   unname(codes[vec])
 }
 
-a <- sample_priority(10, "fr_FR")
-recode_it(a)
-?recode
+# a <- sample_priority(10, "fr_FR")
+# recode_it(a)
+# ?recode
