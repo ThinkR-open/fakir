@@ -35,7 +35,7 @@ fake_support_tickets(vol = 10)
 ### Fake visits : 
 
 ```{r}
-fake_visits(from = "2017-01-01", to = "2017-01-10")
+fake_visits(from = "2017-01-01", to = "2017-01-31")
 ```
 
 
