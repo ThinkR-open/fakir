@@ -12,7 +12,7 @@ fake_visits(from = "2017-01-01", to = "2017-12-31",
 
 \item{local}{the local of the base. Currently supported : "fr_FR" and "en_US".}
 
-\item{seed}{the random seed, default is 2811}
+\item{seed}{fixe la graine aleatoire}
 }
 \description{
 Create a fake support ticket base

@@ -1,8 +1,6 @@
 #' Create a fake support ticket base
 #'
-#' @inheritParams fake_support_tickets
-#'
-#' @inheritParams fake_support_tickets
+#' @inheritParams fake_ticket_client
 #' @param from,to the date to cover
 #'
 #' @importFrom withr with_seed

@@ -1,16 +1,38 @@
 Package: fakir
-Title: Create Fake Data 
-Version: 0.1.0
-Authors@R: person("Colin", "Fay", email = "colin@thinkr.fr", role = c("aut", "cre"))
-Description: Create fake data frame for various themes.
+Title: Create Fake Data
+Version: 0.2.0
+Authors@R: 
+    c(person(given = "Colin",
+             family = "Fay",
+             role = c("aut", "cre"),
+             email = "colin@thinkr.fr",
+             comment = c(ORCID = "0000-0001-7343-1846")),
+      person(given = "Sebastien",
+             family = "Rochette",
+             role = "aut",
+             email = "sebastien@thinkr.fr",
+             comment = c(ORCID = "0000-0002-1565-9313")),
+      person(given = "ThinkR",
+             role = "cph"))
+Description: Create fake datasets for various themes.
 License: MIT + file LICENSE
+Depends: 
+    R (>= 2.10)
 Imports: 
-    charlatan,
-    withr,
     attempt,
-    lubridate
-Encoding: UTF-8
-LazyData: true
-RoxygenNote: 6.1.0
+    charlatan,
+    dplyr,
+    fakethis,
+    glue,
+    lubridate,
+    magrittr,
+    purrr,
+    stats,
+    tibble,
+    tidyr,
+    withr
 Suggests: 
     testthat
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1

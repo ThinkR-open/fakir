@@ -27,15 +27,35 @@ Supported languages are, for now, French and US English.
 
 ### Fake support ticket base : 
 
+- All tickets
 ```{r}
 library(fakir)
-fake_support_tickets(vol = 10)
+fake_ticket_client(vol = 10)
 ```
+
+- Separate tickets and client databases
+```{r}
+fake_ticket_client(vol = 10, split = TRUE)
+```
+
 
 ### Fake visits : 
 
 ```{r}
 fake_visits(from = "2017-01-01", to = "2017-01-31")
+```
+
+### Fake questionnaire on mean of transport / goal
+
+- All answers
+
+```{r}
+fake_sondage_answers(n = 10)
+```
+
+- Separate individuals and their answers
+```{r}
+fake_sondage_answers(n = 10, split = TRUE)
 ```
 
 
