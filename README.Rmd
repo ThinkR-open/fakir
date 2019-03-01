@@ -11,6 +11,7 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
+library(ggplot2)
 ```
 
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](http://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip)
@@ -35,7 +36,14 @@ fake_ticket_client(vol = 10)
 
 - Separate tickets and client databases
 ```{r}
-fake_ticket_client(vol = 10, split = TRUE)
+tickets_db <- fake_ticket_client(vol = 100, split = TRUE)
+tickets_db
+ggplot(tickets_db$clients) +
+  aes(entry_date, fidelity_points) +
+  geom_point() +
+  geom_smooth()
+ggplot(tickets_db$tickets) + aes(type) + geom_bar()
+ggplot(tickets_db$tickets) + aes(state) + geom_bar()
 ```
 
 
@@ -56,6 +64,16 @@ fake_sondage_answers(n = 10)
 - Separate individuals and their answers
 ```{r}
 fake_sondage_answers(n = 10, split = TRUE)
+```
+
+### fake transport use
+
+```{r}
+answers <- fake_sondage_answers(n = 30)
+answers
+
+ggplot(answers) + aes(age, log(distance_km), colour = type) + geom_point() +
+  geom_smooth() + facet_wrap(~type, scales = "free_y")
 ```
 
 

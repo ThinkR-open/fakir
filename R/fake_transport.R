@@ -57,7 +57,7 @@ fake_sondage_people <- function(n, seed = 2811, local = c("fr_FR")) {
                              formatC(1:n, width = nchar(n) + 1, flag = "0")),
         # job = with_random_na(ch_job(n = n, locale = "fr_FR")),
         sexe = with_random_na(sample(c("F", "M", "O"), n, replace = TRUE)),
-        age = with_random_na(sample(18:75, n, replace = TRUE)),
+        age = with_random_na(sample(18:95, n, replace = TRUE)),
         region = reg_dpt$region,
         id_departement = reg_dpt$id_dpt,
         nom_departement = reg_dpt$departement,
@@ -72,7 +72,7 @@ fake_sondage_people <- function(n, seed = 2811, local = c("fr_FR")) {
 #' Create fake transport sondage
 #'
 #' @param n Number of sondage
-#' @param x Optionnal. fake client data base
+#' @param x Optionnal. fake client data base with "age" column
 #' @param seed fixe la graine aleatoire
 #' @param split Logical. Split database in individuals and answers
 #' @param local the local of the base. Currently supported : "fr_FR" and "en_US".
@@ -85,13 +85,17 @@ fake_sondage_people <- function(n, seed = 2811, local = c("fr_FR")) {
 #' @details
 #' \itemize{
 #'   \item 3 types for each individuals: travail, commerces, loisirs
-#'   \item distance_km. Average distance (km) to target location
+#'   \item distance_km. Average distance (km) to target location. Distance is related to age.
 #'   \item transport. Mean of transport to go to target location. Depends on distance.
 #'   \item time_travel_hours. Average duration (hours) to target location. Depends on distance and transport.
 #' }
 #' 
 #' @examples 
-#' fake_sondage_answers()
+#' answers <- fake_sondage_answers()
+#' \dontrun{
+#' ggplot(answers) + aes(age, log(distance_km), colour = type) + geom_point() +
+#'  geom_smooth() + facet_wrap(~type, scales = "free_y")
+#' }
 #' 
 #' @export
 fake_sondage_answers <- function(n = 200, x, seed = 2811, split = FALSE, local = c("fr_FR")) {
@@ -115,15 +119,13 @@ fake_sondage_answers <- function(n = 200, x, seed = 2811, split = FALSE, local =
         mutate(answers = list(
           tibble(
             type = names(types)
-          ) %>% 
-            mutate(
-              distance_km = rlnorm(nrow(.), log(types[type]), 0.6),
-              transport = cut(distance_km, breaks = c(0, transports), labels = names(transports), include.lowest = TRUE),
-              time_travel_hours = round(distance_km / rlnorm(nrow(.), log(transports[transport]), 0.05), digits = 2)
-            )
+          ))) %>%
+        unnest(answers) %>% 
+        mutate(
+          distance_km = rlnorm(nrow(.), log(types[type]*(1 + (100 - ifelse(is.na(age), 0, age))/100)), 0.6),
+          transport = cut(distance_km, breaks = c(0, transports), labels = names(transports), include.lowest = TRUE),
+          time_travel_hours = round(distance_km / rlnorm(nrow(.), log(transports[transport]), 0.05), digits = 2)
         )
-        ) %>% 
-        unnest(answers)
     )
   )
   

@@ -10,7 +10,7 @@ fake_sondage_answers(n = 200, x, seed = 2811, split = FALSE,
 \arguments{
 \item{n}{Number of sondage}
 
-\item{x}{Optionnal. fake client data base}
+\item{x}{Optionnal. fake client data base with "age" column}
 
 \item{seed}{fixe la graine aleatoire}
 
@@ -24,12 +24,16 @@ Create fake transport sondage
 \details{
 \itemize{
   \item 3 types for each individuals: travail, commerces, loisirs
-  \item distance_km. Average distance (km) to target location
+  \item distance_km. Average distance (km) to target location. Distance is related to age.
   \item transport. Mean of transport to go to target location. Depends on distance.
   \item time_travel_hours. Average duration (hours) to target location. Depends on distance and transport.
 }
 }
 \examples{
-fake_sondage_answers()
+answers <- fake_sondage_answers()
+\dontrun{
+ggplot(answers) + aes(age, log(distance_km), colour = type) + geom_point() +
+ geom_smooth() + facet_wrap(~type, scales = "free_y")
+}
 
 }
