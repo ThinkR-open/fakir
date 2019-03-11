@@ -75,7 +75,7 @@ fake_base_clients <- function(n, local = c("en_US", "fr_FR"), seed = 2811) {
               n,
               (5 * fidelity_points/max(.$fidelity_points))/
                 (1 - fidelity_points/max(.$fidelity_points)),
-              5)),
+              5)) %>% with_random_na(),
             # priorite = sample(c("Gold","Silver","Bronze", "Platinium"), vol, replace = TRUE),
             # priorite_encoded = recode(priorite, Bronze = 1L, Silver = 2L, Gold = 3L, Platinium = 4L),
             # priorite depending on fidelite

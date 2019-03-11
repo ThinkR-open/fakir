@@ -1,22 +1,35 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](http://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip)
 
-fakir
-=====
+[![Project Status: WIP – Initial development is in progress, but there
+has not yet been a stable, usable release suitable for the
+public.](http://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip)
 
-The goal of {fakir} is to provide fake datasets that can be used to teach R.
+# fakir
 
-As it is designed for teaching data wrangling and data visualisation, some datasets follow the tidy-data principles, other don't.
+The goal of {fakir} is to provide fake datasets that can be used to
+teach R.
 
+## Characteristics
+
+This package is designed for teaching data wrangling and data
+visualisation:
+
+  - some datasets follow the tidy-data principles, others don’t.
+  - Some missing values are set for numeric and categorical variables
+  - Some variables values are correlated
+
+These datasets are suitable to introduce to the {tidyverse} and to
+provide examples for main functions.  
 Supported languages are, for now, French and US English.
 
-Example
--------
+## Examples
 
 ### Fake support ticket base :
 
--   All tickets
+  - All tickets
+
+<!-- end list -->
 
 ``` r
 library(fakir)
@@ -24,16 +37,16 @@ fake_ticket_client(vol = 10)
 #> # A tibble: 10 x 25
 #>    ref   num_client first last  job     age region id_dpt departement
 #>    <chr> <chr>      <chr> <chr> <chr> <dbl> <chr>  <chr>  <chr>      
-#>  1 DOSS… 31         Debi  Smith Film…    34 Midi-… 81     Tarn       
-#>  2 DOSS… 79         Josh… Murr… Cont…    40 Île-d… 95     Val-d'Oise 
-#>  3 DOSS… 65         Dayne Mann  Educ…    18 Auver… 03     Allier     
-#>  4 DOSS… 77         Carl… Goye… Poli…    38 Pays … 49     Maine-et-L…
-#>  5 DOSS… 59         Cole  Lemke Musi…    39 Centre 18     Cher       
-#>  6 DOSS… 141        Betha Kuva… Adve…    30 Île-d… 91     Essonne    
-#>  7 DOSS… 182        Mrs.  Kile… Yout…    19 Poito… 86     Vienne     
-#>  8 DOSS… 69         Maxi… Sipes Engi…    27 Langu… 66     Pyrénées-O…
-#>  9 DOSS… 120        Mari… Hoppe Cyto…    26 Aquit… 47     Lot-et-Gar…
-#> 10 DOSS… 118        Mr.   Clem… Medi…    23 Lorra… 57     Moselle    
+#>  1 DOSS… 31         Debi  Smith Film…    34 Rhône… 07     Ardèche    
+#>  2 DOSS… 79         Josh… Murr… Cont…    40 Auver… 03     Allier     
+#>  3 DOSS… 65         Dayne Mann  Educ…    18 Picar… 80     Somme      
+#>  4 DOSS… 77         Carl… Goye… Poli…    38 Aquit… 47     Lot-et-Gar…
+#>  5 DOSS… 59         Cole  Lemke Musi…    39 Prove… 83     Var        
+#>  6 DOSS… 141        Betha Kuva… Adve…    30 Rhône… 69     Rhône      
+#>  7 DOSS… 182        Mrs.  Kile… Yout…    19 Basse… 14     Calvados   
+#>  8 DOSS… 69         Maxi… Sipes Engi…    27 Prove… 05     Hautes-Alp…
+#>  9 DOSS… 120        Mari… Hoppe Cyto…    26 Prove… 05     Hautes-Alp…
+#> 10 DOSS… 118        Mr.   Clem… Medi…    23 Champ… 10     Aube       
 #> # … with 16 more variables: cb_provider <chr>, name <chr>,
 #> #   entry_date <dttm>, fidelity_points <dbl>, priority_encoded <dbl>,
 #> #   priority <fct>, timestamp <date>, year <dbl>, month <dbl>, day <int>,
@@ -41,7 +54,9 @@ fake_ticket_client(vol = 10)
 #> #   type_encoded <int>, state <fct>, source_call <fct>
 ```
 
--   Separate tickets and client databases
+  - Separate tickets and client databases
+
+<!-- end list -->
 
 ``` r
 tickets_db <- fake_ticket_client(vol = 100, split = TRUE)
@@ -50,16 +65,16 @@ tickets_db
 #> # A tibble: 200 x 14
 #>    num_client first last  job     age region id_dpt departement cb_provider
 #>  * <chr>      <chr> <chr> <chr> <dbl> <chr>  <chr>  <chr>       <chr>      
-#>  1 1          Sere… Dool… Medi…    78 Île-d… 75     Paris       Diners Clu…
-#>  2 2          Mrs.  Rich… Psyc…    34 Pays … 72     Sarthe      Voyager    
-#>  3 3          Dr.   Juli… Reta…    26 Prove… 84     Vaucluse    Mastercard 
-#>  4 4          Lucie Moen  Chie…    28 Rhône… 73     Savoie      JCB 16 dig…
-#>  5 5          Hake… Kiehn Scie…    66 Pays … 72     Sarthe      VISA 16 di…
-#>  6 6          Mrs.  Lemp… Buye…    20 Langu… 30     Gard        VISA 13 di…
-#>  7 7          Marg… Rowe  Mark…    63 Franc… 25     Doubs       Mastercard 
-#>  8 8          Jarv… Purdy Phar…    40 <NA>   50     Manche      VISA 16 di…
-#>  9 9          Joan… Erns… Even…    48 <NA>   89     Yonne       JCB 16 dig…
-#> 10 10         Ms.   Made… Stru…    44 Poito… 86     Vienne      JCB 16 dig…
+#>  1 1          Sere… Dool… Medi…    78 Midi-… 46     Lot         Diners Clu…
+#>  2 2          Mrs.  Rich… Psyc…    34 <NA>   26     Drôme       Voyager    
+#>  3 3          Dr.   Juli… Reta…    26 Centre 45     Loiret      Mastercard 
+#>  4 4          Lucie Moen  Chie…    28 Midi-… 12     Aveyron     JCB 16 dig…
+#>  5 5          Hake… Kiehn Scie…    66 Prove… 04     Alpes-de-H… VISA 16 di…
+#>  6 6          Mrs.  Lemp… Buye…    20 Champ… 08     Ardennes    VISA 13 di…
+#>  7 7          Marg… Rowe  Mark…    63 Poito… 17     Charente-M… Mastercard 
+#>  8 8          Jarv… Purdy Phar…    40 Midi-… 65     Hautes-Pyr… VISA 16 di…
+#>  9 9          Joan… Erns… Even…    48 Franc… 25     Doubs       JCB 16 dig…
+#> 10 10         Ms.   Made… Stru…    44 Île-d… 92     Hauts-de-S… JCB 16 dig…
 #> # … with 190 more rows, and 5 more variables: name <chr>,
 #> #   entry_date <dttm>, fidelity_points <dbl>, priority_encoded <dbl>,
 #> #   priority <fct>
@@ -68,16 +83,16 @@ tickets_db
 #> # A tibble: 100 x 10
 #>    ref   num_client  year month   day timestamp  supported type  state
 #>    <chr> <chr>      <dbl> <dbl> <int> <date>     <chr>     <chr> <fct>
-#>  1 DOSS… 4           2015     2     3 2015-02-03 Non       <NA>  Term…
-#>  2 DOSS… 6           2015     4    25 2015-04-25 Oui       <NA>  Inte…
-#>  3 DOSS… 1           2016     3    10 2016-03-10 Non       Ligne Term…
-#>  4 DOSS… 8           2016     3    10 2016-03-10 Non       Box   Inte…
-#>  5 DOSS… 37          2016     6    27 2016-06-27 Non       Ligne En c…
-#>  6 DOSS… 29          2016     7    11 2016-07-11 Non       Ligne Inte…
-#>  7 DOSS… 37          2016     8    21 2016-08-21 Oui       Ligne Atte…
-#>  8 DOSS… 1           2016    10    13 2016-10-13 Oui       <NA>  Term…
-#>  9 DOSS… 9           2017     1     5 2017-01-05 Oui       Box   Term…
-#> 10 DOSS… 24          2017     1    15 2017-01-15 Oui       Box   Atte…
+#>  1 DOSS… 4           2015     2    13 2015-02-13 Non       <NA>  Term…
+#>  2 DOSS… 6           2015     5     5 2015-05-05 Oui       <NA>  Inte…
+#>  3 DOSS… 8           2016     3    19 2016-03-19 Non       Box   Inte…
+#>  4 DOSS… 1           2016     3    20 2016-03-20 Non       Ligne Term…
+#>  5 DOSS… 37          2016     7     7 2016-07-07 Non       Ligne En c…
+#>  6 DOSS… 29          2016     7    21 2016-07-21 Non       Ligne Inte…
+#>  7 DOSS… 37          2016     8    31 2016-08-31 Oui       Ligne Atte…
+#>  8 DOSS… 1           2016    10    23 2016-10-23 Oui       <NA>  Term…
+#>  9 DOSS… 9           2017     1    15 2017-01-15 Oui       Box   Term…
+#> 10 DOSS… 24          2017     1    25 2017-01-25 Oui       Box   Atte…
 #> # … with 90 more rows, and 1 more variable: source_call <fct>
 ggplot(tickets_db$clients) +
   aes(entry_date, fidelity_points) +
@@ -100,7 +115,7 @@ ggplot(tickets_db$tickets) + aes(state) + geom_bar()
 
 <img src="man/figures/README-unnamed-chunk-2-3.png" width="100%" />
 
-### Fake visits :
+### Fake website visits
 
 ``` r
 fake_visits(from = "2017-01-01", to = "2017-01-31")
@@ -122,29 +137,33 @@ fake_visits(from = "2017-01-01", to = "2017-01-31")
 
 ### Fake questionnaire on mean of transport / goal
 
--   All answers
+  - All answers
+
+<!-- end list -->
 
 ``` r
 fake_sondage_answers(n = 10)
 #> # A tibble: 30 x 12
 #>    id_individu   age sexe  region id_departement nom_departement
 #>    <chr>       <int> <chr> <chr>  <chr>          <chr>          
-#>  1 ID-OYCL-010    56 M     Limou… 23             Creuse         
-#>  2 ID-OYCL-010    56 M     Limou… 23             Creuse         
-#>  3 ID-OYCL-010    56 M     Limou… 23             Creuse         
-#>  4 ID-MXOJ-007    51 O     Basse… 61             Orne           
-#>  5 ID-MXOJ-007    51 O     Basse… 61             Orne           
-#>  6 ID-MXOJ-007    51 O     Basse… 61             Orne           
-#>  7 ID-OFNB-003    67 O     Midi-… 31             Haute-Garonne  
-#>  8 ID-OFNB-003    67 O     Midi-… 31             Haute-Garonne  
-#>  9 ID-OFNB-003    67 O     Midi-… 31             Haute-Garonne  
-#> 10 ID-RMIX-009    35 F     Aquit… 47             Lot-et-Garonne 
+#>  1 ID-OYCL-010    56 M     Rhône… 69             Rhône          
+#>  2 ID-OYCL-010    56 M     Rhône… 69             Rhône          
+#>  3 ID-OYCL-010    56 M     Rhône… 69             Rhône          
+#>  4 ID-MXOJ-007    51 O     Centre 28             Eure-et-Loir   
+#>  5 ID-MXOJ-007    51 O     Centre 28             Eure-et-Loir   
+#>  6 ID-MXOJ-007    51 O     Centre 28             Eure-et-Loir   
+#>  7 ID-OFNB-003    67 O     Île-d… 92             Hauts-de-Seine 
+#>  8 ID-OFNB-003    67 O     Île-d… 92             Hauts-de-Seine 
+#>  9 ID-OFNB-003    67 O     Île-d… 92             Hauts-de-Seine 
+#> 10 ID-RMIX-009    35 F     Centre 37             Indre-et-Loire 
 #> # … with 20 more rows, and 6 more variables: question_date <dttm>,
 #> #   year <dbl>, type <chr>, distance_km <dbl>, transport <fct>,
 #> #   temps_trajet_en_heures <dbl>
 ```
 
--   Separate individuals and their answers
+  - Separate individuals and their answers
+
+<!-- end list -->
 
 ``` r
 fake_sondage_answers(n = 10, split = TRUE)
@@ -152,16 +171,16 @@ fake_sondage_answers(n = 10, split = TRUE)
 #> # A tibble: 10 x 8
 #>    id_individu   age sexe  region id_departement nom_departement
 #>    <chr>       <int> <chr> <chr>  <chr>          <chr>          
-#>  1 ID-OYCL-010    56 M     Picar… 02             Aisne          
-#>  2 ID-MXOJ-007    51 O     Centre 28             Eure-et-Loir   
-#>  3 ID-OFNB-003    67 O     Île-d… 78             Yvelines       
-#>  4 ID-RMIX-009    35 F     Auver… 63             Puy-de-Dôme    
-#>  5 ID-QGAW-001    44 M     Breta… 35             Ille-et-Vilaine
-#>  6 ID-WILB-005    73 M     Haute… 27             Eure           
-#>  7 ID-PDGN-006    90 F     Centre 36             Indre          
-#>  8 ID-CJES-008    69 M     Langu… 66             Pyrénées-Orien…
-#>  9 ID-VGUJ-002    30 F     Corse  2A             Corse-du-Sud   
-#> 10 ID-ACYV-004    59 M     Breta… 56             Morbihan       
+#>  1 ID-OYCL-010    56 M     Auver… 63             Puy-de-Dôme    
+#>  2 ID-MXOJ-007    51 O     Rhône… 69             Rhône          
+#>  3 ID-OFNB-003    67 O     Basse… 50             Manche         
+#>  4 ID-RMIX-009    35 F     Rhône… 38             Isère          
+#>  5 ID-QGAW-001    44 M     Nord-… 62             Pas-de-Calais  
+#>  6 ID-WILB-005    73 M     Lorra… 57             Moselle        
+#>  7 ID-PDGN-006    90 F     Rhône… 38             Isère          
+#>  8 ID-CJES-008    69 M     Aquit… 64             Pyrénées-Atlan…
+#>  9 ID-VGUJ-002    30 F     Franc… 70             Haute-Saône    
+#> 10 ID-ACYV-004    59 M     Corse  2A             Corse-du-Sud   
 #> # … with 2 more variables: question_date <dttm>, year <dbl>
 #> 
 #> $answers
@@ -189,16 +208,16 @@ answers
 #> # A tibble: 90 x 12
 #>    id_individu   age sexe  region id_departement nom_departement
 #>    <chr>       <int> <chr> <chr>  <chr>          <chr>          
-#>  1 ID-XGRW-015    21 O     Rhône… 38             Isère          
-#>  2 ID-XGRW-015    21 O     Rhône… 38             Isère          
-#>  3 ID-XGRW-015    21 O     Rhône… 38             Isère          
-#>  4 ID-EUWP-022    NA O     Bourg… 21             Côte-d'Or      
-#>  5 ID-EUWP-022    NA O     Bourg… 21             Côte-d'Or      
-#>  6 ID-EUWP-022    NA O     Bourg… 21             Côte-d'Or      
-#>  7 ID-RAFQ-029    69 <NA>  Franc… 90             Territoire de …
-#>  8 ID-RAFQ-029    69 <NA>  Franc… 90             Territoire de …
-#>  9 ID-RAFQ-029    69 <NA>  Franc… 90             Territoire de …
-#> 10 ID-JIDO-016    93 <NA>  Nord-… 62             Pas-de-Calais  
+#>  1 ID-XGRW-015    21 O     Prove… 06             Alpes-Maritimes
+#>  2 ID-XGRW-015    21 O     Prove… 06             Alpes-Maritimes
+#>  3 ID-XGRW-015    21 O     Prove… 06             Alpes-Maritimes
+#>  4 ID-EUWP-022    NA O     Aquit… 64             Pyrénées-Atlan…
+#>  5 ID-EUWP-022    NA O     Aquit… 64             Pyrénées-Atlan…
+#>  6 ID-EUWP-022    NA O     Aquit… 64             Pyrénées-Atlan…
+#>  7 ID-RAFQ-029    69 <NA>  Lorra… 54             Meurthe-et-Mos…
+#>  8 ID-RAFQ-029    69 <NA>  Lorra… 54             Meurthe-et-Mos…
+#>  9 ID-RAFQ-029    69 <NA>  Lorra… 54             Meurthe-et-Mos…
+#> 10 ID-JIDO-016    93 <NA>  Aquit… 24             Dordogne       
 #> # … with 80 more rows, and 6 more variables: question_date <dttm>,
 #> #   year <dbl>, type <chr>, distance_km <dbl>, transport <fct>,
 #> #   temps_trajet_en_heures <dbl>
@@ -212,15 +231,15 @@ ggplot(answers) + aes(age, log(distance_km), colour = type) + geom_point() +
 
 <img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
 
-Prior work
-----------
+## Prior work
 
-This package is heavily inspired by [{charlatan}](https://github.com/ropensci/charlatan).
+This package is heavily inspired by
+[{charlatan}](https://github.com/ropensci/charlatan).
 
-Scott Chamberlain (2017). charlatan: Make Fake Data. R package version 0.1.0. <https://CRAN.R-project.org/package=charlatan>
+Scott Chamberlain (2017). charlatan: Make Fake Data. R package version
+0.1.0. <https://CRAN.R-project.org/package=charlatan>
 
-Contribute
-----------
+## Contribute
 
 You can contribute to {fakir} in two ways:
 
@@ -228,14 +247,15 @@ You can contribute to {fakir} in two ways:
 
 You can translate to other locales by providing :
 
--   new `vec` in "R/utils"
--   new `local` in "R/fakethis"
+  - new `vec` in “R/utils”
+  - new `local` in “R/fake\_client” and “R/fake\_transport”
 
 ### New dataset
 
-Feel free to create new dataset generators.
+Feel free to create new datasets generators.
 
-COC
----
+## COC
 
-Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
+Please note that this project is released with a [Contributor Code of
+Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree
+to abide by its terms.

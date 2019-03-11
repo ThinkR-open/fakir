@@ -20,11 +20,19 @@ library(ggplot2)
 
 The goal of {fakir} is to provide fake datasets that can be used to teach R.  
 
-As it is designed for teaching data wrangling and data visualisation, some datasets follow the tidy-data principles, other don't. 
 
+## Characteristics
+
+This package is designed for teaching data wrangling and data visualisation:
+
+- some datasets follow the tidy-data principles, others don't. 
+- Some missing values are set for numeric and categorical variables
+- Some variables values are correlated
+
+These datasets are suitable to introduce to the {tidyverse} and to provide examples for main functions.  
 Supported languages are, for now, French and US English.
 
-## Example
+## Examples
 
 ### Fake support ticket base : 
 
@@ -47,7 +55,7 @@ ggplot(tickets_db$tickets) + aes(state) + geom_bar()
 ```
 
 
-### Fake visits : 
+### Fake website visits
 
 ```{r}
 fake_visits(from = "2017-01-01", to = "2017-01-31")
@@ -76,7 +84,6 @@ ggplot(answers) + aes(age, log(distance_km), colour = type) + geom_point() +
   geom_smooth() + facet_wrap(~type, scales = "free_y")
 ```
 
-
 ## Prior work 
 
 This package is heavily inspired by [{charlatan}](https://github.com/ropensci/charlatan). 
@@ -93,11 +100,11 @@ You can contribute to {fakir} in two ways:
 You can translate to other locales by providing : 
 
 + new `vec` in "R/utils"
-+ new `local` in "R/fakethis"
++ new `local` in "R/fake_client" and "R/fake_transport"
 
 ### New dataset
 
-Feel free to create new dataset generators.
+Feel free to create new datasets generators.
 
 ## COC
 
