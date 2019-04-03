@@ -8,7 +8,7 @@ usethis::use_news_md()
 usethis::use_mit_license(name = "ThinkR")
 
 # dev
-attachment::att_to_description(dir.v = "")
+attachment::att_to_description()
 devtools::check()
 
 # Readme and stuffs

@@ -22,7 +22,6 @@ Imports:
     attempt,
     charlatan,
     dplyr,
-    fakethis,
     glue,
     lubridate,
     magrittr,

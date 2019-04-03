@@ -26,7 +26,7 @@ fake_base_clients <- function(n, local = c("en_US", "fr_FR"), seed = 2811) {
   # Sample region/dpt with frequency according to region
   # Comment: Best random number is when vector is size of data
   # Hence, runif on unique(.$region)
-  reg_dpt <- fakethis::fra_sf %>%
+  reg_dpt <- fakir::fra_sf %>%
     as_tibble() %>%
     select(region, departement, id_dpt) %>%
     left_join(
