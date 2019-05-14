@@ -9,7 +9,8 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.path = "man/figures/README-",
-  out.width = "50%"
+  out.width = "50%",
+  fig.align = "center"
 )
 library(ggplot2)
 ```

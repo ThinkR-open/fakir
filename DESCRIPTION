@@ -33,8 +33,9 @@ Imports:
     tidyr,
     withr
 Suggests: 
-    testthat,
-    covr
+    covr,
+    pkgdown,
+    testthat
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
