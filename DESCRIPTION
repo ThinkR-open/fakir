@@ -34,6 +34,7 @@ Imports:
     withr
 Suggests: 
     covr,
+    ggplot2,
     pkgdown,
     testthat
 Encoding: UTF-8
