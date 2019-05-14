@@ -1,9 +1,20 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+<!-- badges: start -->
+
 [![Project Status: WIP – Initial development is in progress, but there
 has not yet been a stable, usable release suitable for the
 public.](http://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip)
+[![Travis build
+status](https://travis-ci.org/ThinkR-open/fakir.svg?branch=master)](https://travis-ci.org/ThinkR-open/fakir)
+[![AppVeyor build
+status](https://ci.appveyor.com/api/projects/status/github/ThinkR-open/fakir?branch=master&svg=true)](https://ci.appveyor.com/project/ThinkR-open/fakir)
+[![Codecov test
+coverage](https://codecov.io/gh/ThinkR-open/fakir/branch/master/graph/badge.svg)](https://codecov.io/gh/ThinkR-open/fakir?branch=master)
+<!-- badges: end -->
+
+<img src="https://raw.githubusercontent.com/ThinkR-open/fakir/master/img/thinkr-hex-fakir.png" width=250px>
 
 # fakir
 
@@ -37,16 +48,16 @@ fake_ticket_client(vol = 10)
 #> # A tibble: 10 x 25
 #>    ref   num_client first last  job     age region id_dpt departement
 #>    <chr> <chr>      <chr> <chr> <chr> <dbl> <chr>  <chr>  <chr>      
-#>  1 DOSS… 31         Debi  Smith Film…    34 Rhône… 07     Ardèche    
-#>  2 DOSS… 79         Josh… Murr… Cont…    40 Auver… 03     Allier     
-#>  3 DOSS… 65         Dayne Mann  Educ…    18 Picar… 80     Somme      
-#>  4 DOSS… 77         Carl… Goye… Poli…    38 Aquit… 47     Lot-et-Gar…
-#>  5 DOSS… 59         Cole  Lemke Musi…    39 Prove… 83     Var        
-#>  6 DOSS… 141        Betha Kuva… Adve…    30 Rhône… 69     Rhône      
-#>  7 DOSS… 182        Mrs.  Kile… Yout…    19 Basse… 14     Calvados   
-#>  8 DOSS… 69         Maxi… Sipes Engi…    27 Prove… 05     Hautes-Alp…
-#>  9 DOSS… 120        Mari… Hoppe Cyto…    26 Prove… 05     Hautes-Alp…
-#> 10 DOSS… 118        Mr.   Clem… Medi…    23 Champ… 10     Aube       
+#>  1 DOSS… 79         Jovan O'Ke… Gene…    22 Lorra… 88     <NA>       
+#>  2 DOSS… 69         Miss  Lean… Emer…    68 <NA>   53     Mayenne    
+#>  3 DOSS… 120        Odell Stok… Engi…    24 Picar… 60     Oise       
+#>  4 DOSS… 31         Loren Lars… <NA>     NA Rhône… 42     Loire      
+#>  5 DOSS… 59         Mayb… Maye… Furt…    18 Champ… 10     <NA>       
+#>  6 DOSS… 118        Jama… Ober… Engi…    18 Prove… 06     Alpes-Mari…
+#>  7 DOSS… 77         Lee   Scha… Admi…    NA <NA>   10     Aube       
+#>  8 DOSS… 65         Deme… Auer  Cont…    21 <NA>   04     Alpes-de-H…
+#>  9 DOSS… 141        Wilf… Harv… Educ…    53 <NA>   74     Haute-Savo…
+#> 10 DOSS… 182        Addy… Nien… Earl…    65 Basse… 14     Calvados   
 #> # … with 16 more variables: cb_provider <chr>, name <chr>,
 #> #   entry_date <dttm>, fidelity_points <dbl>, priority_encoded <dbl>,
 #> #   priority <fct>, timestamp <date>, year <dbl>, month <dbl>, day <int>,
@@ -65,16 +76,16 @@ tickets_db
 #> # A tibble: 200 x 14
 #>    num_client first last  job     age region id_dpt departement cb_provider
 #>  * <chr>      <chr> <chr> <chr> <dbl> <chr>  <chr>  <chr>       <chr>      
-#>  1 1          Sere… Dool… Medi…    78 Midi-… 46     Lot         Diners Clu…
-#>  2 2          Mrs.  Rich… Psyc…    34 <NA>   26     Drôme       Voyager    
-#>  3 3          Dr.   Juli… Reta…    26 Centre 45     Loiret      Mastercard 
-#>  4 4          Lucie Moen  Chie…    28 Midi-… 12     Aveyron     JCB 16 dig…
-#>  5 5          Hake… Kiehn Scie…    66 Prove… 04     Alpes-de-H… VISA 16 di…
-#>  6 6          Mrs.  Lemp… Buye…    20 Champ… 08     Ardennes    VISA 13 di…
-#>  7 7          Marg… Rowe  Mark…    63 Poito… 17     Charente-M… Mastercard 
-#>  8 8          Jarv… Purdy Phar…    40 Midi-… 65     Hautes-Pyr… VISA 16 di…
-#>  9 9          Joan… Erns… Even…    48 Franc… 25     Doubs       JCB 16 dig…
-#> 10 10         Ms.   Made… Stru…    44 Île-d… 92     Hauts-de-S… JCB 16 dig…
+#>  1 1          Solo… Hean… Civi…    53 Langu… 66     Pyrénées-O… Diners Clu…
+#>  2 2          Karma Will… Scie…    81 Rhône… 42     Loire       VISA 13 di…
+#>  3 3          Press Kulas Anim…    NA Poito… 16     Charente    <NA>       
+#>  4 4          Laken McDe… <NA>     NA Langu… 34     Hérault     <NA>       
+#>  5 5          Sydn… Jask… Hort…    30 Auver… 43     Haute-Loire <NA>       
+#>  6 6          Clay… Runo… Comm…    NA Midi-… 81     Tarn        Diners Clu…
+#>  7 7          Robe… Purd… Fina…    60 Rhône… 42     Loire       <NA>       
+#>  8 8          Dr.   Rona… Astr…    30 <NA>   19     <NA>        <NA>       
+#>  9 9          Miss  Alon… Occu…    18 Poito… 16     <NA>        Diners Clu…
+#> 10 10         Vern… Ondr… Clin…    19 Basse… 14     Calvados    <NA>       
 #> # … with 190 more rows, and 5 more variables: name <chr>,
 #> #   entry_date <dttm>, fidelity_points <dbl>, priority_encoded <dbl>,
 #> #   priority <fct>
@@ -83,16 +94,16 @@ tickets_db
 #> # A tibble: 100 x 10
 #>    ref   num_client  year month   day timestamp  supported type  state
 #>    <chr> <chr>      <dbl> <dbl> <int> <date>     <chr>     <chr> <fct>
-#>  1 DOSS… 4           2015     2    13 2015-02-13 Non       <NA>  Term…
-#>  2 DOSS… 6           2015     5     5 2015-05-05 Oui       <NA>  Inte…
-#>  3 DOSS… 8           2016     3    19 2016-03-19 Non       Box   Inte…
-#>  4 DOSS… 1           2016     3    20 2016-03-20 Non       Ligne Term…
-#>  5 DOSS… 37          2016     7     7 2016-07-07 Non       Ligne En c…
-#>  6 DOSS… 29          2016     7    21 2016-07-21 Non       Ligne Inte…
-#>  7 DOSS… 37          2016     8    31 2016-08-31 Oui       Ligne Atte…
-#>  8 DOSS… 1           2016    10    23 2016-10-23 Oui       <NA>  Term…
-#>  9 DOSS… 9           2017     1    15 2017-01-15 Oui       Box   Term…
-#> 10 DOSS… 24          2017     1    25 2017-01-25 Oui       Box   Atte…
+#>  1 DOSS… 1           2013     1    22 2013-01-22 Non       Inst… Term…
+#>  2 DOSS… 22          2016    11    13 2016-11-13 Non       Inst… Atte…
+#>  3 DOSS… 9           2016    12    18 2016-12-18 Non       Inst… Term…
+#>  4 DOSS… 8           2017     1     2 2017-01-02 Non       Box   Atte…
+#>  5 DOSS… 30          2017     1    19 2017-01-19 Oui       Inst… Inte…
+#>  6 DOSS… 10          2017     1    31 2017-01-31 Oui       Inst… Atte…
+#>  7 DOSS… 37          2017     2    28 2017-02-28 Non       Ligne Atte…
+#>  8 DOSS… 37          2017     4    20 2017-04-20 Non       Box   Atte…
+#>  9 DOSS… 24          2017     4    27 2017-04-27 Non       <NA>  En c…
+#> 10 DOSS… 12          2017     5    14 2017-05-14 Non       Inst… Atte…
 #> # … with 90 more rows, and 1 more variable: source_call <fct>
 ggplot(tickets_db$clients) +
   aes(entry_date, fidelity_points) +
@@ -101,19 +112,19 @@ ggplot(tickets_db$clients) +
 #> `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-2-1.png" width="50%" />
 
 ``` r
 ggplot(tickets_db$tickets) + aes(type) + geom_bar()
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-2.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-2-2.png" width="50%" />
 
 ``` r
 ggplot(tickets_db$tickets) + aes(state) + geom_bar()
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-3.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-2-3.png" width="50%" />
 
 ### Fake website visits
 
@@ -122,16 +133,16 @@ fake_visits(from = "2017-01-01", to = "2017-01-31")
 #> # A tibble: 31 x 8
 #>    timestamp   year month   day  home about  blog contact
 #>  * <date>     <dbl> <dbl> <int> <int> <int> <int>   <int>
-#>  1 2017-01-01  2017     1     1   352   184   673     434
-#>  2 2017-01-02  2017     1     2   203   147   567      NA
-#>  3 2017-01-03  2017     1     3   103    81   499     453
-#>  4 2017-01-04  2017     1     4   484   281   582     181
-#>  5 2017-01-05  2017     1     5   438   190   663     385
-#>  6 2017-01-06  2017     1     6   209   116   455     310
-#>  7 2017-01-07  2017     1     7   439   138   364     369
-#>  8 2017-01-08  2017     1     8   273   151   514     358
-#>  9 2017-01-09  2017     1     9   316   164   322     273
-#> 10 2017-01-10  2017     1    10   193   103    NA     261
+#>  1 2017-01-01  2017     1     1   369   220   404     210
+#>  2 2017-01-02  2017     1     2   159   250   414     490
+#>  3 2017-01-03  2017     1     3   436   170   498     456
+#>  4 2017-01-04  2017     1     4    NA   258   526     392
+#>  5 2017-01-05  2017     1     5   362    NA   407     291
+#>  6 2017-01-06  2017     1     6   245   145   576      90
+#>  7 2017-01-07  2017     1     7    NA    NA   484     167
+#>  8 2017-01-08  2017     1     8   461   103   441      NA
+#>  9 2017-01-09  2017     1     9   337   113   673     379
+#> 10 2017-01-10  2017     1    10    NA   169   308     139
 #> # … with 21 more rows
 ```
 
@@ -146,16 +157,16 @@ fake_sondage_answers(n = 10)
 #> # A tibble: 30 x 12
 #>    id_individu   age sexe  region id_departement nom_departement
 #>    <chr>       <int> <chr> <chr>  <chr>          <chr>          
-#>  1 ID-OYCL-010    56 M     Rhône… 69             Rhône          
-#>  2 ID-OYCL-010    56 M     Rhône… 69             Rhône          
-#>  3 ID-OYCL-010    56 M     Rhône… 69             Rhône          
-#>  4 ID-MXOJ-007    51 O     Centre 28             Eure-et-Loir   
-#>  5 ID-MXOJ-007    51 O     Centre 28             Eure-et-Loir   
-#>  6 ID-MXOJ-007    51 O     Centre 28             Eure-et-Loir   
-#>  7 ID-OFNB-003    67 O     Île-d… 92             Hauts-de-Seine 
-#>  8 ID-OFNB-003    67 O     Île-d… 92             Hauts-de-Seine 
-#>  9 ID-OFNB-003    67 O     Île-d… 92             Hauts-de-Seine 
-#> 10 ID-RMIX-009    35 F     Centre 37             Indre-et-Loire 
+#>  1 ID-NYDZ-010    NA <NA>  Basse… 50             Manche         
+#>  2 ID-NYDZ-010    NA <NA>  Basse… 50             Manche         
+#>  3 ID-NYDZ-010    NA <NA>  Basse… 50             Manche         
+#>  4 ID-PWLB-009    71 F     Rhône… 26             <NA>           
+#>  5 ID-PWLB-009    71 F     Rhône… 26             <NA>           
+#>  6 ID-PWLB-009    71 F     Rhône… 26             <NA>           
+#>  7 ID-NMQG-001    42 M     Limou… 87             Haute-Vienne   
+#>  8 ID-NMQG-001    42 M     Limou… 87             Haute-Vienne   
+#>  9 ID-NMQG-001    42 M     Limou… 87             Haute-Vienne   
+#> 10 ID-RJXN-002    71 O     Centre 37             Indre-et-Loire 
 #> # … with 20 more rows, and 6 more variables: question_date <dttm>,
 #> #   year <dbl>, type <chr>, distance_km <dbl>, transport <fct>,
 #> #   temps_trajet_en_heures <dbl>
@@ -171,32 +182,32 @@ fake_sondage_answers(n = 10, split = TRUE)
 #> # A tibble: 10 x 8
 #>    id_individu   age sexe  region id_departement nom_departement
 #>    <chr>       <int> <chr> <chr>  <chr>          <chr>          
-#>  1 ID-OYCL-010    56 M     Auver… 63             Puy-de-Dôme    
-#>  2 ID-MXOJ-007    51 O     Rhône… 69             Rhône          
-#>  3 ID-OFNB-003    67 O     Basse… 50             Manche         
-#>  4 ID-RMIX-009    35 F     Rhône… 38             Isère          
-#>  5 ID-QGAW-001    44 M     Nord-… 62             Pas-de-Calais  
-#>  6 ID-WILB-005    73 M     Lorra… 57             Moselle        
-#>  7 ID-PDGN-006    90 F     Rhône… 38             Isère          
-#>  8 ID-CJES-008    69 M     Aquit… 64             Pyrénées-Atlan…
-#>  9 ID-VGUJ-002    30 F     Franc… 70             Haute-Saône    
-#> 10 ID-ACYV-004    59 M     Corse  2A             Corse-du-Sud   
+#>  1 ID-NYDZ-010    NA <NA>  Bourg… 89             Yonne          
+#>  2 ID-PWLB-009    71 F     Rhône… 73             Savoie         
+#>  3 ID-NMQG-001    42 M     Basse… 61             Orne           
+#>  4 ID-RJXN-002    71 O     Auver… 43             Haute-Loire    
+#>  5 ID-MROK-007    41 M     Île-d… 91             Essonne        
+#>  6 ID-VMKS-004    33 O     Rhône… 01             Ain            
+#>  7 ID-XEMZ-003    81 O     Midi-… 82             Tarn-et-Garonne
+#>  8 ID-EUDQ-005    44 M     <NA>   62             Pas-de-Calais  
+#>  9 ID-DCIZ-008    92 O     Aquit… 40             <NA>           
+#> 10 ID-KPUS-006    57 O     Île-d… 94             Val-de-Marne   
 #> # … with 2 more variables: question_date <dttm>, year <dbl>
 #> 
 #> $answers
 #> # A tibble: 30 x 5
 #>    id_individu type      distance_km transport temps_trajet_en_heures
 #>    <chr>       <chr>           <dbl> <fct>                      <dbl>
-#>  1 ID-OYCL-010 travail          8.77 bus                         0.89
-#>  2 ID-OYCL-010 commerces        6.92 mobylette                   0.91
-#>  3 ID-OYCL-010 loisirs        395.   train                       0.79
-#>  4 ID-MXOJ-007 travail         13.8  voiture                     0.16
-#>  5 ID-MXOJ-007 commerces       31.7  voiture                     0.39
-#>  6 ID-MXOJ-007 loisirs        242.   train                       0.48
-#>  7 ID-OFNB-003 travail          2.01 velo                        0.36
-#>  8 ID-OFNB-003 commerces       12.5  voiture                     0.15
-#>  9 ID-OFNB-003 loisirs        376.   train                       0.75
-#> 10 ID-RMIX-009 travail          7.90 mobylette                   0.95
+#>  1 ID-NYDZ-010 travail         12.2  voiture                     0.15
+#>  2 ID-NYDZ-010 commerces        9.61 bus                         1.01
+#>  3 ID-NYDZ-010 loisirs        549.   avion                       0.27
+#>  4 ID-PWLB-009 travail         11.9  voiture                     0.14
+#>  5 ID-PWLB-009 commerces       27.4  voiture                     0.34
+#>  6 ID-PWLB-009 loisirs        210.   train                       0.42
+#>  7 ID-NMQG-001 travail          2.38 velo                        0.43
+#>  8 ID-NMQG-001 commerces       14.9  voiture                     0.18
+#>  9 ID-NMQG-001 loisirs        446.   train                       0.89
+#> 10 ID-RJXN-002 travail          6.18 mobylette                   0.75
 #> # … with 20 more rows
 ```
 
@@ -208,16 +219,16 @@ answers
 #> # A tibble: 90 x 12
 #>    id_individu   age sexe  region id_departement nom_departement
 #>    <chr>       <int> <chr> <chr>  <chr>          <chr>          
-#>  1 ID-XGRW-015    21 O     Prove… 06             Alpes-Maritimes
-#>  2 ID-XGRW-015    21 O     Prove… 06             Alpes-Maritimes
-#>  3 ID-XGRW-015    21 O     Prove… 06             Alpes-Maritimes
-#>  4 ID-EUWP-022    NA O     Aquit… 64             Pyrénées-Atlan…
-#>  5 ID-EUWP-022    NA O     Aquit… 64             Pyrénées-Atlan…
-#>  6 ID-EUWP-022    NA O     Aquit… 64             Pyrénées-Atlan…
-#>  7 ID-RAFQ-029    69 <NA>  Lorra… 54             Meurthe-et-Mos…
-#>  8 ID-RAFQ-029    69 <NA>  Lorra… 54             Meurthe-et-Mos…
-#>  9 ID-RAFQ-029    69 <NA>  Lorra… 54             Meurthe-et-Mos…
-#> 10 ID-JIDO-016    93 <NA>  Aquit… 24             Dordogne       
+#>  1 ID-MROK-007    NA M     Prove… 83             Var            
+#>  2 ID-MROK-007    NA M     Prove… 83             Var            
+#>  3 ID-MROK-007    NA M     Prove… 83             Var            
+#>  4 ID-NYDZ-010    49 M     Rhône… 73             Savoie         
+#>  5 ID-NYDZ-010    49 M     Rhône… 73             Savoie         
+#>  6 ID-NYDZ-010    49 M     Rhône… 73             Savoie         
+#>  7 ID-HXOG-015    50 M     Midi-… 82             Tarn-et-Garonne
+#>  8 ID-HXOG-015    50 M     Midi-… 82             Tarn-et-Garonne
+#>  9 ID-HXOG-015    50 M     Midi-… 82             Tarn-et-Garonne
+#> 10 ID-MZNB-024    70 F     Bourg… 58             Nièvre         
 #> # … with 80 more rows, and 6 more variables: question_date <dttm>,
 #> #   year <dbl>, type <chr>, distance_km <dbl>, transport <fct>,
 #> #   temps_trajet_en_heures <dbl>
@@ -225,11 +236,11 @@ answers
 ggplot(answers) + aes(age, log(distance_km), colour = type) + geom_point() +
   geom_smooth() + facet_wrap(~type, scales = "free_y")
 #> `geom_smooth()` using method = 'loess' and formula 'y ~ x'
-#> Warning: Removed 3 rows containing non-finite values (stat_smooth).
-#> Warning: Removed 3 rows containing missing values (geom_point).
+#> Warning: Removed 6 rows containing non-finite values (stat_smooth).
+#> Warning: Removed 6 rows containing missing values (geom_point).
 ```
 
-<img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-6-1.png" width="50%" />
 
 ## Prior work
 

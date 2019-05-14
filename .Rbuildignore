@@ -5,3 +5,10 @@
 ^README\.Rmd$
 ^LICENSE\.md$
 ^CODE_OF_CONDUCT\.md$
+^\.travis\.yml$
+^codecov\.yml$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^appveyor\.yml$
+^img$

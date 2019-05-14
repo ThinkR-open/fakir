@@ -1,4 +1,4 @@
-# fakethis 0.2.0
+# fakir 0.2.0
 
 * New fake dataset with `fake_sondage_answers`: answers to location-transport habits.
 

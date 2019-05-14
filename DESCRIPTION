@@ -1,5 +1,5 @@
 Package: fakir
-Title: Create Fake Data
+Title: Create Fake Data in R for tutorials
 Version: 0.2.0
 Authors@R: 
     c(person(given = "Colin",
@@ -14,8 +14,10 @@ Authors@R:
              comment = c(ORCID = "0000-0002-1565-9313")),
       person(given = "ThinkR",
              role = "cph"))
-Description: Create fake datasets for various themes.
+Description: Create fake datasets that can be used to teach R.
 License: MIT + file LICENSE
+URL: https://github.com/Thinkr-open/fakir
+BugReports: https://github.com/Thinkr-open/fakir/issues
 Depends: 
     R (>= 2.10)
 Imports: 
@@ -31,7 +33,8 @@ Imports:
     tidyr,
     withr
 Suggests: 
-    testthat
+    testthat,
+    covr
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
