@@ -21,6 +21,9 @@ coverage](https://codecov.io/gh/ThinkR-open/fakir/branch/master/graph/badge.svg)
 The goal of {fakir} is to provide fake datasets that can be used to
 teach R.
 
+The full documentation is in this {pkgdown} site:
+<https://thinkr-open.github.io/fakir/>
+
 ## Characteristics
 
 This package is designed for teaching data wrangling and data
@@ -48,16 +51,16 @@ fake_ticket_client(vol = 10)
 #> # A tibble: 10 x 25
 #>    ref   num_client first last  job     age region id_dpt departement
 #>    <chr> <chr>      <chr> <chr> <chr> <dbl> <chr>  <chr>  <chr>      
-#>  1 DOSS… 79         Jovan O'Ke… Gene…    22 Langu… 66     Pyrénées-O…
-#>  2 DOSS… 69         Miss  Lean… Emer…    68 Lorra… 57     <NA>       
-#>  3 DOSS… 120        Odell Stok… Engi…    24 Corse  2A     Corse-du-S…
-#>  4 DOSS… 31         Loren Lars… <NA>     NA Rhône… 38     Isère      
-#>  5 DOSS… 59         Mayb… Maye… Furt…    18 Alsace 68     <NA>       
-#>  6 DOSS… 118        Jama… Ober… Engi…    18 Alsace 68     <NA>       
-#>  7 DOSS… 77         Lee   Scha… Admi…    NA Île-d… 94     Val-de-Mar…
-#>  8 DOSS… 65         Deme… Auer  Cont…    21 Aquit… 24     Dordogne   
-#>  9 DOSS… 141        Wilf… Harv… Educ…    53 Lorra… 54     <NA>       
-#> 10 DOSS… 182        Addy… Nien… Earl…    65 Nord-… 59     <NA>       
+#>  1 DOSS… 79         Jovan O'Ke… Gene…    22 Île-d… 77     Seine-et-M…
+#>  2 DOSS… 69         Miss  Lean… Emer…    68 <NA>   49     Maine-et-L…
+#>  3 DOSS… 120        Odell Stok… Engi…    24 Picar… 02     Aisne      
+#>  4 DOSS… 31         Loren Lars… <NA>     NA Franc… 25     <NA>       
+#>  5 DOSS… 59         Mayb… Maye… Furt…    18 Midi-… 46     Lot        
+#>  6 DOSS… 118        Jama… Ober… Engi…    18 Basse… 50     Manche     
+#>  7 DOSS… 77         Lee   Scha… Admi…    NA <NA>   42     Loire      
+#>  8 DOSS… 65         Deme… Auer  Cont…    21 Breta… 56     Morbihan   
+#>  9 DOSS… 141        Wilf… Harv… Educ…    53 Rhône… 01     Ain        
+#> 10 DOSS… 182        Addy… Nien… Earl…    65 Rhône… 69     <NA>       
 #> # … with 16 more variables: cb_provider <chr>, name <chr>,
 #> #   entry_date <dttm>, fidelity_points <dbl>, priority_encoded <dbl>,
 #> #   priority <fct>, timestamp <date>, year <dbl>, month <dbl>, day <int>,
@@ -76,16 +79,16 @@ tickets_db
 #> # A tibble: 200 x 14
 #>    num_client first last  job     age region id_dpt departement cb_provider
 #>  * <chr>      <chr> <chr> <chr> <dbl> <chr>  <chr>  <chr>       <chr>      
-#>  1 1          Solo… Hean… Civi…    53 Champ… 08     Ardennes    Diners Clu…
-#>  2 2          Karma Will… Scie…    81 Basse… 61     Orne        VISA 13 di…
-#>  3 3          Press Kulas Anim…    NA Aquit… 64     Pyrénées-A… <NA>       
-#>  4 4          Laken McDe… <NA>     NA <NA>   58     Nièvre      <NA>       
-#>  5 5          Sydn… Jask… Hort…    30 Centre 37     Indre-et-L… <NA>       
-#>  6 6          Clay… Runo… Comm…    NA Centre 28     Eure-et-Lo… Diners Clu…
-#>  7 7          Robe… Purd… Fina…    60 Aquit… 47     <NA>        <NA>       
-#>  8 8          Dr.   Rona… Astr…    30 Prove… 06     <NA>        <NA>       
-#>  9 9          Miss  Alon… Occu…    18 Poito… 79     Deux-Sèvres Diners Clu…
-#> 10 10         Vern… Ondr… Clin…    19 Prove… 05     Hautes-Alp… <NA>       
+#>  1 1          Solo… Hean… Civi…    53 <NA>   35     Ille-et-Vi… Diners Clu…
+#>  2 2          Karma Will… Scie…    81 Auver… 03     Allier      VISA 13 di…
+#>  3 3          Press Kulas Anim…    NA Breta… 35     <NA>        <NA>       
+#>  4 4          Laken McDe… <NA>     NA Basse… 61     Orne        <NA>       
+#>  5 5          Sydn… Jask… Hort…    30 Langu… 30     Gard        <NA>       
+#>  6 6          Clay… Runo… Comm…    NA Nord-… 59     <NA>        Diners Clu…
+#>  7 7          Robe… Purd… Fina…    60 <NA>   85     Vendée      <NA>       
+#>  8 8          Dr.   Rona… Astr…    30 <NA>   90     Territoire… <NA>       
+#>  9 9          Miss  Alon… Occu…    18 Breta… 29     Finistère   Diners Clu…
+#> 10 10         Vern… Ondr… Clin…    19 Picar… 60     Oise        <NA>       
 #> # … with 190 more rows, and 5 more variables: name <chr>,
 #> #   entry_date <dttm>, fidelity_points <dbl>, priority_encoded <dbl>,
 #> #   priority <fct>
@@ -109,7 +112,6 @@ ggplot(tickets_db$clients) +
   aes(entry_date, fidelity_points) +
   geom_point() +
   geom_smooth()
-#> `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
 <img src="man/figures/README-unnamed-chunk-2-1.png" width="50%" style="display: block; margin: auto;" />
@@ -157,16 +159,16 @@ fake_sondage_answers(n = 10)
 #> # A tibble: 30 x 12
 #>    id_individu   age sexe  region id_departement nom_departement
 #>    <chr>       <int> <chr> <chr>  <chr>          <chr>          
-#>  1 ID-NYDZ-010    NA <NA>  Breta… 35             Ille-et-Vilaine
-#>  2 ID-NYDZ-010    NA <NA>  Breta… 35             Ille-et-Vilaine
-#>  3 ID-NYDZ-010    NA <NA>  Breta… 35             Ille-et-Vilaine
-#>  4 ID-PWLB-009    71 F     Midi-… 65             Hautes-Pyrénées
-#>  5 ID-PWLB-009    71 F     Midi-… 65             Hautes-Pyrénées
-#>  6 ID-PWLB-009    71 F     Midi-… 65             Hautes-Pyrénées
-#>  7 ID-NMQG-001    42 M     <NA>   81             Tarn           
-#>  8 ID-NMQG-001    42 M     <NA>   81             Tarn           
-#>  9 ID-NMQG-001    42 M     <NA>   81             Tarn           
-#> 10 ID-RJXN-002    71 O     <NA>   91             Essonne        
+#>  1 ID-NYDZ-010    NA <NA>  Franc… 90             Territoire de …
+#>  2 ID-NYDZ-010    NA <NA>  Franc… 90             Territoire de …
+#>  3 ID-NYDZ-010    NA <NA>  Franc… 90             Territoire de …
+#>  4 ID-PWLB-009    71 F     Franc… 90             Territoire de …
+#>  5 ID-PWLB-009    71 F     Franc… 90             Territoire de …
+#>  6 ID-PWLB-009    71 F     Franc… 90             Territoire de …
+#>  7 ID-NMQG-001    42 M     Langu… 11             Aude           
+#>  8 ID-NMQG-001    42 M     Langu… 11             Aude           
+#>  9 ID-NMQG-001    42 M     Langu… 11             Aude           
+#> 10 ID-RJXN-002    71 O     Prove… 06             <NA>           
 #> # … with 20 more rows, and 6 more variables: question_date <dttm>,
 #> #   year <dbl>, type <chr>, distance_km <dbl>, transport <fct>,
 #> #   temps_trajet_en_heures <dbl>
@@ -182,16 +184,16 @@ fake_sondage_answers(n = 10, split = TRUE)
 #> # A tibble: 10 x 8
 #>    id_individu   age sexe  region id_departement nom_departement
 #>    <chr>       <int> <chr> <chr>  <chr>          <chr>          
-#>  1 ID-NYDZ-010    NA <NA>  Corse  2A             Corse-du-Sud   
-#>  2 ID-PWLB-009    71 F     Aquit… 40             Landes         
-#>  3 ID-NMQG-001    42 M     Picar… 80             Somme          
-#>  4 ID-RJXN-002    71 O     Bourg… 89             Yonne          
-#>  5 ID-MROK-007    41 M     <NA>   63             Puy-de-Dôme    
-#>  6 ID-VMKS-004    33 O     <NA>   43             Haute-Loire    
-#>  7 ID-XEMZ-003    81 O     Aquit… 40             <NA>           
-#>  8 ID-EUDQ-005    44 M     Aquit… 64             Pyrénées-Atlan…
-#>  9 ID-DCIZ-008    92 O     <NA>   09             Ariège         
-#> 10 ID-KPUS-006    57 O     Rhône… 07             Ardèche        
+#>  1 ID-NYDZ-010    NA <NA>  <NA>   92             Hauts-de-Seine 
+#>  2 ID-PWLB-009    71 F     Breta… 56             Morbihan       
+#>  3 ID-NMQG-001    42 M     Limou… 87             Haute-Vienne   
+#>  4 ID-RJXN-002    71 O     <NA>   71             <NA>           
+#>  5 ID-MROK-007    41 M     Midi-… 32             Gers           
+#>  6 ID-VMKS-004    33 O     Auver… 03             Allier         
+#>  7 ID-XEMZ-003    81 O     Aquit… 40             Landes         
+#>  8 ID-EUDQ-005    44 M     Auver… 15             Cantal         
+#>  9 ID-DCIZ-008    92 O     Auver… 15             Cantal         
+#> 10 ID-KPUS-006    57 O     Midi-… 32             Gers           
 #> # … with 2 more variables: question_date <dttm>, year <dbl>
 #> 
 #> $answers
@@ -219,23 +221,22 @@ answers
 #> # A tibble: 90 x 12
 #>    id_individu   age sexe  region id_departement nom_departement
 #>    <chr>       <int> <chr> <chr>  <chr>          <chr>          
-#>  1 ID-MROK-007    NA M     Midi-… 82             Tarn-et-Garonne
-#>  2 ID-MROK-007    NA M     Midi-… 82             Tarn-et-Garonne
-#>  3 ID-MROK-007    NA M     Midi-… 82             Tarn-et-Garonne
-#>  4 ID-NYDZ-010    49 M     <NA>   28             Eure-et-Loir   
-#>  5 ID-NYDZ-010    49 M     <NA>   28             Eure-et-Loir   
-#>  6 ID-NYDZ-010    49 M     <NA>   28             Eure-et-Loir   
-#>  7 ID-HXOG-015    50 M     Midi-… 82             Tarn-et-Garonne
-#>  8 ID-HXOG-015    50 M     Midi-… 82             Tarn-et-Garonne
-#>  9 ID-HXOG-015    50 M     Midi-… 82             Tarn-et-Garonne
-#> 10 ID-MZNB-024    70 F     Midi-… 46             Lot            
+#>  1 ID-MROK-007    NA M     Centre 41             Loir-et-Cher   
+#>  2 ID-MROK-007    NA M     Centre 41             Loir-et-Cher   
+#>  3 ID-MROK-007    NA M     Centre 41             Loir-et-Cher   
+#>  4 ID-NYDZ-010    49 M     Franc… 25             Doubs          
+#>  5 ID-NYDZ-010    49 M     Franc… 25             Doubs          
+#>  6 ID-NYDZ-010    49 M     Franc… 25             Doubs          
+#>  7 ID-HXOG-015    50 M     Île-d… 94             Val-de-Marne   
+#>  8 ID-HXOG-015    50 M     Île-d… 94             Val-de-Marne   
+#>  9 ID-HXOG-015    50 M     Île-d… 94             Val-de-Marne   
+#> 10 ID-MZNB-024    70 F     Rhône… 07             Ardèche        
 #> # … with 80 more rows, and 6 more variables: question_date <dttm>,
 #> #   year <dbl>, type <chr>, distance_km <dbl>, transport <fct>,
 #> #   temps_trajet_en_heures <dbl>
 
 ggplot(answers) + aes(age, log(distance_km), colour = type) + geom_point() +
   geom_smooth() + facet_wrap(~type, scales = "free_y")
-#> `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 #> Warning: Removed 6 rows containing non-finite values (stat_smooth).
 #> Warning: Removed 6 rows containing missing values (geom_point).
 ```

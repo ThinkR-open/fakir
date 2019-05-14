@@ -10,7 +10,8 @@ knitr::opts_chunk$set(
   comment = "#>",
   fig.path = "man/figures/README-",
   out.width = "50%",
-  fig.align = "center"
+  fig.align = "center",
+  message = FALSE
 )
 library(ggplot2)
 ```
@@ -28,6 +29,7 @@ library(ggplot2)
 
 The goal of {fakir} is to provide fake datasets that can be used to teach R.  
 
+The full documentation is in this {pkgdown} site: <https://thinkr-open.github.io/fakir/>
 
 ## Characteristics
 

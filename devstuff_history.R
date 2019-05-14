@@ -10,7 +10,7 @@ usethis::use_mit_license(name = "ThinkR")
 usethis::use_package_doc()
 
 # dev
-attachment::att_to_description(extra.suggests = c("pkgdown", "covr"))
+attachment::att_to_description(extra.suggests = c("pkgdown", "covr", "ggplot2"))
 devtools::check()
 
 # Readme and stuffs
