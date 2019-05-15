@@ -2,12 +2,11 @@
 % Please edit documentation in R/fakir-package.R
 \docType{package}
 \name{fakir-package}
-\alias{fakir-package}
-\alias{_PACKAGE}
 \alias{fakir}
-\title{Create Fake Data in R for tutorials}
+\alias{fakir-package}
+\title{fakir: Create Fake Data in R for tutorials}
 \description{
-The goal of {fakir} is to provide fake datasets that can be used to teach R.
+Create fake datasets that can be used to teach R.
 }
 \seealso{
 Useful links:
@@ -18,8 +17,17 @@ Useful links:
 
 }
 \author{
-Colin Fay <colin@thinkr.fr>
+\strong{Maintainer}: Colin Fay \email{colin@thinkr.fr} (0000-0001-7343-1846)
 
-Sébastien Rochette <sebastien@thinkr.fr>
+Authors:
+\itemize{
+  \item Sebastien Rochette \email{sebastien@thinkr.fr} (0000-0002-1565-9313)
+}
+
+Other contributors:
+\itemize{
+  \item ThinkR [copyright holder]
+}
+
 }
 \keyword{internal}
