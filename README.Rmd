@@ -14,6 +14,8 @@ knitr::opts_chunk$set(
   message = FALSE
 )
 library(ggplot2)
+library(dplyr)
+library(sf)
 ```
 
 <!-- badges: start -->
@@ -30,6 +32,8 @@ library(ggplot2)
 The goal of {fakir} is to provide fake datasets that can be used to teach R.  
 
 The full documentation is in this {pkgdown} site: <https://thinkr-open.github.io/fakir/>
+
+- Video presentation of {fakir} by [Abdul Majed](https://twitter.com/1littlecoder): https://www.youtube.com/watch?v=EhhljL5zaWs
 
 ## Characteristics
 
@@ -63,6 +67,27 @@ ggplot(tickets_db$clients) +
 ggplot(tickets_db$tickets) + aes(type) + geom_bar()
 ggplot(tickets_db$tickets) + aes(state) + geom_bar()
 ```
+
+- Join with internal {sf} spatial dataset
+```{r}
+clients_map <- tickets_db$clients %>% 
+  group_by(id_dpt) %>% 
+  summarise(
+    number_of_clients = n(),
+    average_fidelity = mean(fidelity_points, na.rm = TRUE)
+  ) %>% 
+  full_join(fra_sf, by = "id_dpt") %>% 
+  st_sf()
+
+ggplot(clients_map) +
+  geom_sf(aes(fill = average_fidelity)) +
+  scale_fill_viridis_c() +
+  coord_sf(
+    crs = 2154,
+    datum = 4326
+  )
+```
+
 
 
 ### Fake website visits
