@@ -17,7 +17,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
@@ -30,9 +31,9 @@
 <script src="../pkgdown.js"></script>
 
 <meta property="og:title" content="Base ticket client — fake_ticket_client" />
-
 <meta property="og:description" content="Une fausse base client de ticket Telecom" />
 <meta name="twitter:card" content="summary" />
+
 
 
 
@@ -66,6 +67,7 @@
  gtag('config', 'UA-115082821-1');
 </script>
 -->
+
   </head>
 
   <body>
@@ -90,7 +92,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -101,14 +103,13 @@
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
           <div id="code-folding-buttons" class="btn-group"><button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-_extension-text-contrast=""><span>Show/Hide all code</span><span class="caret"></span></button><ul class="dropdown-menu" style="min-width: 50px;"><li><a id="rmd-show-all-code" href="#">Show All Code</a></li><li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li></ul></div>
         </li>
         <li>
-  <a href="https://github.com/Thinkr-open/fakir">
-    <span class="fa fa-github fa-lg"></span>
+  <a href="https://github.com/Thinkr-open/fakir/">
+    <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -119,6 +120,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -130,14 +132,12 @@
     </div>
 
     <div class="ref-description">
-    
     <p>Une fausse base client de ticket Telecom</p>
-    
     </div>
 
     <pre class="usage"><span class='fu'>fake_ticket_client</span>(<span class='no'>vol</span>, <span class='no'>x</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>200</span>, <span class='kw'>split</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>seed</span> <span class='kw'>=</span> <span class='fl'>2811</span>,
-  <span class='kw'>local</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"en_US"</span>, <span class='st'>"fr_FR"</span>))</pre>
-    
+  <span class='kw'>local</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"en_US"</span>, <span class='st'>"fr_FR"</span>))</pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -166,34 +166,30 @@
       <td><p>the local of the base. Currently supported : "fr_FR" and "en_US".</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <ul>
+    
+<ul>
 <li><p>Same client can have multiple tickets</p></li>
 <li><p>Some clients are more sampled than others</p></li>
 <li><p>Some types are more sampled than others</p></li>
 <li><p>Some etat are more sampled than others</p></li>
 </ul>
-    
+
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>fake_ticket_client</span>(<span class='fl'>1000</span>, <span class='kw'>split</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>x</span>$<span class='no'>clients</span>$<span class='no'>entry_date</span>, <span class='no'>x</span>$<span class='no'>clients</span>$<span class='no'>fidelity_points</span>)</div><div class='img'><img src='fake_ticket_client-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/barplot'>barplot</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/table'>table</a></span>(<span class='no'>x</span>$<span class='no'>tickets</span>$<span class='no'>type</span>))</div><div class='img'><img src='fake_ticket_client-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/barplot'>barplot</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/table'>table</a></span>(<span class='no'>x</span>$<span class='no'>tickets</span>$<span class='no'>state</span>))</div><div class='img'><img src='fake_ticket_client-3.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>x</span>$<span class='no'>clients</span>$<span class='no'>entry_date</span>, <span class='no'>x</span>$<span class='no'>clients</span>$<span class='no'>fidelity_points</span>)</div><div class='img'><img src='fake_ticket_client-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/barplot.html'>barplot</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='no'>x</span>$<span class='no'>tickets</span>$<span class='no'>type</span>))</div><div class='img'><img src='fake_ticket_client-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/barplot.html'>barplot</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='no'>x</span>$<span class='no'>tickets</span>$<span class='no'>state</span>))</div><div class='img'><img src='fake_ticket_client-3.png' alt='' width='700' height='433' /></div><div class='input'>
 </div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#details">Details</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="thinkr">
@@ -206,11 +202,14 @@
     Site built by <a href="https://pkgdown.r-lib.org">pkgdown</a>.
   </p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 
