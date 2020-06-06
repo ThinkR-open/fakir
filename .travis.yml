@@ -12,6 +12,7 @@ matrix:
   - r: release
     env: VDIFFR_RUN_TESTS=true
     before_cache:
+    - apt update -qq && apt install -y libgdal-dev libproj-dev libgeos-dev libudunits2-dev libnode-dev libcairo2-dev libnetcdf-dev
     - Rscript -e 'remotes::install_cran("pkgdown")'
     - Rscript -e 'remotes::install_github("ThinkR-open/thinkrtemplate")'
     deploy:
