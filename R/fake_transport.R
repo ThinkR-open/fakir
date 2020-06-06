@@ -32,8 +32,8 @@ fake_sondage_people <- function(n, seed = 2811, local = c("fr_FR")) {
   # Comment: Best random number is when vector is size of data
   # Hence, runif on unique(.$region)
   reg_dpt <- fakir::fra_sf %>%
-    as_tibble() %>%
     select(region, departement, id_dpt) %>%
+    as_tibble() %>%
     left_join(
       tibble(
         region = unique(.$region),

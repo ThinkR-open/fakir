@@ -6,6 +6,8 @@
 \alias{fakir-package}
 \title{fakir: Create Fake Data in R for tutorials}
 \description{
+\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
+
 Create fake datasets that can be used to teach R.
 }
 \seealso{
@@ -17,11 +19,11 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Colin Fay \email{colin@thinkr.fr} (0000-0001-7343-1846)
+\strong{Maintainer}: Colin Fay \email{colin@thinkr.fr} (\href{https://orcid.org/0000-0001-7343-1846}{ORCID})
 
 Authors:
 \itemize{
-  \item Sebastien Rochette \email{sebastien@thinkr.fr} (0000-0002-1565-9313)
+  \item Sebastien Rochette \email{sebastien@thinkr.fr} (\href{https://orcid.org/0000-0002-1565-9313}{ORCID})
 }
 
 Other contributors:

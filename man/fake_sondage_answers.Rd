@@ -4,8 +4,13 @@
 \alias{fake_sondage_answers}
 \title{Create fake transport sondage}
 \usage{
-fake_sondage_answers(n = 200, x, seed = 2811, split = FALSE,
-  local = c("fr_FR"))
+fake_sondage_answers(
+  n = 200,
+  x,
+  seed = 2811,
+  split = FALSE,
+  local = c("fr_FR")
+)
 }
 \arguments{
 \item{n}{Number of sondage}

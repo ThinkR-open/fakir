@@ -4,8 +4,12 @@
 \alias{fake_visits}
 \title{Create a fake support ticket base}
 \usage{
-fake_visits(from = "2017-01-01", to = "2017-12-31",
-  local = c("en_US", "fr_FR"), seed = 2811)
+fake_visits(
+  from = "2017-01-01",
+  to = "2017-12-31",
+  local = c("en_US", "fr_FR"),
+  seed = 2811
+)
 }
 \arguments{
 \item{from, to}{the date to cover}

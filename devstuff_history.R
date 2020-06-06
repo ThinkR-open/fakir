@@ -4,10 +4,12 @@ usethis::use_build_ignore("img")
 usethis::use_git_ignore("docs")
 usethis::use_pipe()
 
+# Doc
 use_readme_rmd()
 usethis::use_news_md()
 usethis::use_mit_license(name = "ThinkR")
 usethis::use_package_doc()
+usethis::use_vignette("fake-client-database")
 
 # dev
 attachment::att_to_description(extra.suggests = c("pkgdown", "covr", "ggplot2"))

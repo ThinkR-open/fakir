@@ -4,8 +4,14 @@
 \alias{fake_ticket_client}
 \title{Base ticket client}
 \usage{
-fake_ticket_client(vol, x, n = 200, split = FALSE, seed = 2811,
-  local = c("en_US", "fr_FR"))
+fake_ticket_client(
+  vol,
+  x,
+  n = 200,
+  split = FALSE,
+  seed = 2811,
+  local = c("en_US", "fr_FR")
+)
 }
 \arguments{
 \item{vol}{le nombre de tickets a retourner}

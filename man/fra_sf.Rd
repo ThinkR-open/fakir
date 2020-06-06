@@ -4,7 +4,8 @@
 \name{fra_sf}
 \alias{fra_sf}
 \title{Map of France}
-\format{A data frame with 96 rows, 5 variables and a spatial geometry (MULTIPOLYGON):
+\format{
+A data frame with 96 rows, 5 variables and a spatial geometry (MULTIPOLYGON):
 \describe{
   \item{OBJECTID}{polygon identifier}
   \item{pays}{country: France}
@@ -12,7 +13,8 @@
   \item{departement}{departement name}
   \item{id_dpt}{departement id}
   \item{geometry}{polygon geometry}
-}}
+}
+}
 \source{
 \url{GADM}
 }

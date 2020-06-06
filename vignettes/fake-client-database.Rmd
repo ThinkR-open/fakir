@@ -1,0 +1,74 @@
+---
+title: "fake client service database"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{fake-client-database}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.align = "center"
+)
+```
+
+```{r, message=FALSE}
+library(fakir)
+library(dplyr)
+library(ggplot2)
+library(sf)
+```
+
+The database fakes an after-sale client database for a Phone company. There is: 
+
+- a client database with all characteristics of the clients.
+- a ticket database which contains all calls to the after-sale service of some clients having problems
+
+- Ticket centered dataset with already joined client characteristics
+```{r}
+fake_ticket_client(vol = 10)
+```
+
+- Separate tickets and client databases
+```{r}
+tickets_db <- fake_ticket_client(vol = 100, split = TRUE)
+tickets_db
+```
+
+- Explore datasets
+```{r}
+ggplot(tickets_db$clients) +
+  aes(x = entry_date, y = fidelity_points) +
+  geom_point() +
+  geom_smooth()
+ggplot(tickets_db$tickets) +
+  aes(x = type) +
+  geom_bar()
+ggplot(tickets_db$tickets) + 
+  aes(x = state) + 
+  geom_bar()
+```
+
+- Join with internal {sf} spatial dataset `fra_sf`. _{sf} package must be loaded._
+
+```{r}
+clients_map <- tickets_db$clients %>% 
+  group_by(id_dpt) %>% 
+  summarise(
+    number_of_clients = n(),
+    average_fidelity = mean(fidelity_points, na.rm = TRUE)
+  ) %>% 
+  full_join(fra_sf, by = "id_dpt") %>% 
+  st_sf()
+
+ggplot(clients_map) +
+  geom_sf(aes(fill = average_fidelity)) +
+  scale_fill_viridis_c() +
+  coord_sf(
+    crs = 2154,
+    datum = 4326
+  )
+```
