@@ -1,14 +1,21 @@
 # R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
 language: R
-sudo: false
+sudo: required
 cache: packages
 
 r_github_packages:
   - ThinkR-open/fakir  # pre-install to avoid vignette package errors
 
-before_install:
-  - sudo apt update
-  - sudo apt install -y libgdal-dev libproj-dev libgeos-dev libudunits2-dev libnode-dev libcairo2-dev libnetcdf-dev
+addons:
+  apt:
+    packages:
+      - libgdal-dev 
+      - libproj-dev 
+      - libgeos-dev 
+      - libudunits2-dev 
+      - libnode-dev 
+      - libcairo2-dev 
+      - libnetcdf-dev
   
 # build matrix; turn on vdiffr only on r release
 matrix:
