@@ -53,16 +53,16 @@ fake_ticket_client(vol = 10)
 #> # A tibble: 10 x 25
 #>    ref   num_client first last  job     age region id_dpt departement
 #>    <chr> <chr>      <chr> <chr> <chr> <dbl> <chr>  <chr>  <chr>      
-#>  1 DOSS… 79         Jovan O'Ke… Gene…    22 <NA>   83     Var        
-#>  2 DOSS… 69         Miss  Lean… Emer…    68 Prove… 04     Alpes-de-H…
-#>  3 DOSS… 120        Odell Stok… Engi…    24 Breta… 29     Finistère  
-#>  4 DOSS… 31         Loren Lars… <NA>     NA Bourg… 71     Saône-et-L…
-#>  5 DOSS… 59         Mayb… Maye… Furt…    18 Midi-… 31     Haute-Garo…
-#>  6 DOSS… 118        Jama… Ober… Engi…    18 <NA>   51     Marne      
-#>  7 DOSS… 77         Lee   Scha… Admi…    NA Nord-… 59     Nord       
-#>  8 DOSS… 65         Deme… Auer  Cont…    21 Prove… 05     Hautes-Alp…
-#>  9 DOSS… 141        Wilf… Harv… Educ…    53 Prove… 83     <NA>       
-#> 10 DOSS… 182        Addy… Nien… Earl…    65 <NA>   46     Lot        
+#>  1 DOSS… 79         Jovan O'Ke… Gene…    22 <NA>   68     Haut-Rhin  
+#>  2 DOSS… 69         Miss  Lean… Emer…    68 Midi-… 32     Gers       
+#>  3 DOSS… 120        Odell Stok… Engi…    24 Rhône… 01     Ain        
+#>  4 DOSS… 31         Loren Lars… <NA>     NA Midi-… 31     Haute-Garo…
+#>  5 DOSS… 59         Mayb… Maye… Furt…    18 Poito… 86     Vienne     
+#>  6 DOSS… 118        Jama… Ober… Engi…    18 Rhône… 07     Ardèche    
+#>  7 DOSS… 77         Lee   Scha… Admi…    NA Alsace 68     Haut-Rhin  
+#>  8 DOSS… 65         Deme… Auer  Cont…    21 Poito… 17     Charente-M…
+#>  9 DOSS… 141        Wilf… Harv… Educ…    53 Pays … 53     Mayenne    
+#> 10 DOSS… 182        Addy… Nien… Earl…    65 Basse… 14     Calvados   
 #> # … with 16 more variables: cb_provider <chr>, name <chr>, entry_date <dttm>,
 #> #   fidelity_points <dbl>, priority_encoded <dbl>, priority <fct>,
 #> #   timestamp <date>, year <dbl>, month <dbl>, day <int>, supported <chr>,
@@ -81,16 +81,16 @@ tickets_db
 #> # A tibble: 200 x 14
 #>    num_client first last  job     age region id_dpt departement cb_provider
 #>  * <chr>      <chr> <chr> <chr> <dbl> <chr>  <chr>  <chr>       <chr>      
-#>  1 1          Solo… Hean… Civi…    53 Franc… 90     Territoire… Diners Clu…
+#>  1 1          Solo… Hean… Civi…    53 Midi-… 82     <NA>        Diners Clu…
 #>  2 2          Karma Will… Scie…    81 Midi-… 81     Tarn        VISA 13 di…
-#>  3 3          Press Kulas Anim…    NA Poito… 86     Vienne      <NA>       
-#>  4 4          Laken McDe… <NA>     NA Basse… 61     <NA>        <NA>       
-#>  5 5          Sydn… Jask… Hort…    30 Centre 37     <NA>        <NA>       
-#>  6 6          Clay… Runo… Comm…    NA Île-d… 95     Val-d'Oise  Diners Clu…
-#>  7 7          Robe… Purd… Fina…    60 Haute… 27     <NA>        <NA>       
-#>  8 8          Dr.   Rona… Astr…    30 Prove… 06     <NA>        <NA>       
-#>  9 9          Miss  Alon… Occu…    18 <NA>   72     Sarthe      Diners Clu…
-#> 10 10         Vern… Ondr… Clin…    19 Midi-… 82     Tarn-et-Ga… <NA>       
+#>  3 3          Press Kulas Anim…    NA Haute… 27     Eure        <NA>       
+#>  4 4          Laken McDe… <NA>     NA Breta… 29     Finistère   <NA>       
+#>  5 5          Sydn… Jask… Hort…    30 Centre 37     Indre-et-L… <NA>       
+#>  6 6          Clay… Runo… Comm…    NA Rhône… 42     Loire       Diners Clu…
+#>  7 7          Robe… Purd… Fina…    60 Prove… 04     Alpes-de-H… <NA>       
+#>  8 8          Dr.   Rona… Astr…    30 <NA>   24     Dordogne    <NA>       
+#>  9 9          Miss  Alon… Occu…    18 Langu… 30     Gard        Diners Clu…
+#> 10 10         Vern… Ondr… Clin…    19 <NA>   01     Ain         <NA>       
 #> # … with 190 more rows, and 5 more variables: name <chr>, entry_date <dttm>,
 #> #   fidelity_points <dbl>, priority_encoded <dbl>, priority <fct>
 #> 
@@ -98,16 +98,16 @@ tickets_db
 #> # A tibble: 100 x 10
 #>    ref   num_client  year month   day timestamp  supported type  state
 #>    <chr> <chr>      <dbl> <dbl> <int> <date>     <chr>     <chr> <fct>
-#>  1 DOSS… 1           2014     2    15 2014-02-15 Non       Inst… Term…
-#>  2 DOSS… 22          2017    12     7 2017-12-07 Non       Inst… Atte…
-#>  3 DOSS… 9           2018     1    11 2018-01-11 Non       Inst… Term…
-#>  4 DOSS… 8           2018     1    25 2018-01-25 Non       Box   Atte…
-#>  5 DOSS… 30          2018     2    12 2018-02-12 Oui       Inst… Inte…
-#>  6 DOSS… 10          2018     2    24 2018-02-24 Oui       Inst… Atte…
-#>  7 DOSS… 37          2018     3    24 2018-03-24 Non       Ligne Atte…
-#>  8 DOSS… 37          2018     5    14 2018-05-14 Non       Box   Atte…
-#>  9 DOSS… 24          2018     5    21 2018-05-21 Non       <NA>  En c…
-#> 10 DOSS… 12          2018     6     7 2018-06-07 Non       Inst… Atte…
+#>  1 DOSS… 1           2014     4     1 2014-04-01 Non       Inst… Term…
+#>  2 DOSS… 22          2018     1    21 2018-01-21 Non       Inst… Atte…
+#>  3 DOSS… 9           2018     2    25 2018-02-25 Non       Inst… Term…
+#>  4 DOSS… 8           2018     3    11 2018-03-11 Non       Box   Atte…
+#>  5 DOSS… 30          2018     3    29 2018-03-29 Oui       Inst… Inte…
+#>  6 DOSS… 10          2018     4    10 2018-04-10 Oui       Inst… Atte…
+#>  7 DOSS… 37          2018     5     8 2018-05-08 Non       Ligne Atte…
+#>  8 DOSS… 37          2018     6    28 2018-06-28 Non       Box   Atte…
+#>  9 DOSS… 24          2018     7     5 2018-07-05 Non       <NA>  En c…
+#> 10 DOSS… 12          2018     7    22 2018-07-22 Non       Inst… Atte…
 #> # … with 90 more rows, and 1 more variable: source_call <fct>
 ggplot(tickets_db$clients) +
   aes(entry_date, fidelity_points) +
@@ -154,6 +154,29 @@ ggplot(clients_map) +
 
 <img src="man/figures/README-unnamed-chunk-3-1.png" width="50%" style="display: block; margin: auto;" />
 
+### Fake products
+
+  - Create a fake dataset of connected wearables
+
+<!-- end list -->
+
+``` r
+fake_products(10)
+#> # A tibble: 10 x 8
+#>    name          brand     color   price body_location category  sent_from    id
+#>    <chr>         <chr>     <chr>   <int> <chr>         <chr>     <chr>     <int>
+#>  1 Step and Dis… Larkin, … Pink        3 Waist         Industri… Taiwan        1
+#>  2 Biking Track… Larkin, … OliveD…     5 Waist         Pets and… United S…     2
+#>  3 Wearable Tra… Moen, Mo… Beige       4 Feet          Lifestyle Netherla…     3
+#>  4 Multifunctio… Weimann,… Yellow…     5 Head          Lifestyle China         4
+#>  5 Action Camer… Blanda, … Moccas…    10 Brain         Lifestyle Italy         5
+#>  6 Strapless He… Mann and… DeepPi…     4 Head          Medical   Finland       6
+#>  7 Action Camer… Mann and… Maroon      5 Feet          Entertai… Finland       7
+#>  8 Microcontrol… Moen, Mo… Pink        3 Neck          Fitness   Finland       8
+#>  9 Microcontrol… Moen, Mo… Plum        5 Arms          Awesome   France        9
+#> 10 Wearable AUS… Moen, Mo… DarkRed     9 Torso         Medical   Italy        10
+```
+
 ### Fake website visits
 
 ``` r
@@ -185,16 +208,16 @@ fake_sondage_answers(n = 10)
 #> # A tibble: 30 x 12
 #>    id_individu   age sexe  region id_departement nom_departement
 #>    <chr>       <int> <chr> <chr>  <chr>          <chr>          
-#>  1 ID-NYDZ-010    NA <NA>  Rhône… 38             Isère          
-#>  2 ID-NYDZ-010    NA <NA>  Rhône… 38             Isère          
-#>  3 ID-NYDZ-010    NA <NA>  Rhône… 38             Isère          
-#>  4 ID-PWLB-009    71 F     Picar… 60             Oise           
-#>  5 ID-PWLB-009    71 F     Picar… 60             Oise           
-#>  6 ID-PWLB-009    71 F     Picar… 60             Oise           
-#>  7 ID-NMQG-001    42 M     Langu… 11             Aude           
-#>  8 ID-NMQG-001    42 M     Langu… 11             Aude           
-#>  9 ID-NMQG-001    42 M     Langu… 11             Aude           
-#> 10 ID-RJXN-002    71 O     Pays … 44             Loire-Atlantiq…
+#>  1 ID-NYDZ-010    NA <NA>  <NA>   36             Indre          
+#>  2 ID-NYDZ-010    NA <NA>  <NA>   36             Indre          
+#>  3 ID-NYDZ-010    NA <NA>  <NA>   36             Indre          
+#>  4 ID-PWLB-009    71 F     Rhône… 26             Drôme          
+#>  5 ID-PWLB-009    71 F     Rhône… 26             Drôme          
+#>  6 ID-PWLB-009    71 F     Rhône… 26             Drôme          
+#>  7 ID-NMQG-001    42 M     Rhône… 74             Haute-Savoie   
+#>  8 ID-NMQG-001    42 M     Rhône… 74             Haute-Savoie   
+#>  9 ID-NMQG-001    42 M     Rhône… 74             Haute-Savoie   
+#> 10 ID-RJXN-002    71 O     Picar… 80             <NA>           
 #> # … with 20 more rows, and 6 more variables: question_date <dttm>, year <dbl>,
 #> #   type <chr>, distance_km <dbl>, transport <fct>,
 #> #   temps_trajet_en_heures <dbl>
@@ -210,16 +233,16 @@ fake_sondage_answers(n = 10, split = TRUE)
 #> # A tibble: 10 x 8
 #>    id_individu   age sexe  region id_departement nom_departement
 #>    <chr>       <int> <chr> <chr>  <chr>          <chr>          
-#>  1 ID-NYDZ-010    NA <NA>  Auver… 43             <NA>           
-#>  2 ID-PWLB-009    71 F     Lorra… 88             Vosges         
-#>  3 ID-NMQG-001    42 M     Lorra… 54             Meurthe-et-Mos…
-#>  4 ID-RJXN-002    71 O     Auver… 43             Haute-Loire    
-#>  5 ID-MROK-007    41 M     Auver… 15             Cantal         
-#>  6 ID-VMKS-004    33 O     Pays … 85             Vendée         
-#>  7 ID-XEMZ-003    81 O     Basse… 61             Orne           
-#>  8 ID-EUDQ-005    44 M     Bourg… 71             Saône-et-Loire 
-#>  9 ID-DCIZ-008    92 O     <NA>   88             Vosges         
-#> 10 ID-KPUS-006    57 O     Poito… 17             Charente-Marit…
+#>  1 ID-NYDZ-010    NA <NA>  Haute… 76             Seine-Maritime 
+#>  2 ID-PWLB-009    71 F     Prove… 84             <NA>           
+#>  3 ID-NMQG-001    42 M     Breta… 29             Finistère      
+#>  4 ID-RJXN-002    71 O     Aquit… 33             Gironde        
+#>  5 ID-MROK-007    41 M     Breta… 35             Ille-et-Vilaine
+#>  6 ID-VMKS-004    33 O     Rhône… 26             Drôme          
+#>  7 ID-XEMZ-003    81 O     Midi-… 82             Tarn-et-Garonne
+#>  8 ID-EUDQ-005    44 M     Prove… 84             Vaucluse       
+#>  9 ID-DCIZ-008    92 O     Centre 18             Cher           
+#> 10 ID-KPUS-006    57 O     <NA>   67             Bas-Rhin       
 #> # … with 2 more variables: question_date <dttm>, year <dbl>
 #> 
 #> $answers
@@ -247,16 +270,16 @@ answers
 #> # A tibble: 90 x 12
 #>    id_individu   age sexe  region id_departement nom_departement
 #>    <chr>       <int> <chr> <chr>  <chr>          <chr>          
-#>  1 ID-MROK-007    NA M     Limou… 87             Haute-Vienne   
-#>  2 ID-MROK-007    NA M     Limou… 87             Haute-Vienne   
-#>  3 ID-MROK-007    NA M     Limou… 87             Haute-Vienne   
-#>  4 ID-NYDZ-010    49 M     Prove… 04             Alpes-de-Haute…
-#>  5 ID-NYDZ-010    49 M     Prove… 04             Alpes-de-Haute…
-#>  6 ID-NYDZ-010    49 M     Prove… 04             Alpes-de-Haute…
-#>  7 ID-HXOG-015    50 M     Langu… 48             Lozère         
-#>  8 ID-HXOG-015    50 M     Langu… 48             Lozère         
-#>  9 ID-HXOG-015    50 M     Langu… 48             Lozère         
-#> 10 ID-MZNB-024    70 F     Bourg… 71             Saône-et-Loire 
+#>  1 ID-MROK-007    NA M     <NA>   87             Haute-Vienne   
+#>  2 ID-MROK-007    NA M     <NA>   87             Haute-Vienne   
+#>  3 ID-MROK-007    NA M     <NA>   87             Haute-Vienne   
+#>  4 ID-NYDZ-010    49 M     <NA>   23             Creuse         
+#>  5 ID-NYDZ-010    49 M     <NA>   23             Creuse         
+#>  6 ID-NYDZ-010    49 M     <NA>   23             Creuse         
+#>  7 ID-HXOG-015    50 M     Île-d… 95             Val-d'Oise     
+#>  8 ID-HXOG-015    50 M     Île-d… 95             Val-d'Oise     
+#>  9 ID-HXOG-015    50 M     Île-d… 95             Val-d'Oise     
+#> 10 ID-MZNB-024    70 F     Franc… 90             Territoire de …
 #> # … with 80 more rows, and 6 more variables: question_date <dttm>, year <dbl>,
 #> #   type <chr>, distance_km <dbl>, transport <fct>,
 #> #   temps_trajet_en_heures <dbl>
@@ -267,7 +290,7 @@ ggplot(answers) + aes(age, log(distance_km), colour = type) + geom_point() +
 #> Warning: Removed 6 rows containing missing values (geom_point).
 ```
 
-<img src="man/figures/README-unnamed-chunk-7-1.png" width="50%" style="display: block; margin: auto;" />
+<img src="man/figures/README-unnamed-chunk-8-1.png" width="50%" style="display: block; margin: auto;" />
 
 ## Prior work
 

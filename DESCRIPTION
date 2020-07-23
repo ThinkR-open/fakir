@@ -1,6 +1,6 @@
 Package: fakir
 Title: Create Fake Data in R for tutorials
-Version: 0.2.0
+Version: 0.2.0.9000
 Authors@R: 
     c(person(given = "Colin",
              family = "Fay",

@@ -53,14 +53,15 @@ fake_name <- function() {
 #' @export
 #' @importFrom withr with_seed
 #' @importFrom charlatan ch_company ch_color_name
+#' @importFrom tibble tibble
+#' 
 #' @examples
 #' fake_products(10)
 fake_products <- function(n, seed = 2811){
   with_seed(
     seed = seed,
     {
-      res <- data.frame(
-        stringsAsFactors = FALSE, 
+      res <- tibble::tibble(
         name = vapply(1:n, function(x) fake_name(), character(1)),
         brand = sample(ch_company(13), n, TRUE),
         color = ch_color_name(n), 
