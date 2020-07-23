@@ -43,7 +43,7 @@
 </script>
 -->
 </head>
-<body>
+<body data-spy="scroll" data-target="#toc">
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -56,7 +56,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">fakir</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0.9000</span>
       </span>
     </div>
 
@@ -152,16 +152,16 @@ Supported languages are, for now, French and US English.</p>
 <span class="co">#&gt; # A tibble: 10 x 25</span>
 <span class="co">#&gt;    ref   num_client first last  job     age region id_dpt departement</span>
 <span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;      </span>
-<span class="co">#&gt;  1 DOSS… 79         Jovan O'Ke… Gene…    22 &lt;NA&gt;   83     Var        </span>
-<span class="co">#&gt;  2 DOSS… 69         Miss  Lean… Emer…    68 Prove… 04     Alpes-de-H…</span>
-<span class="co">#&gt;  3 DOSS… 120        Odell Stok… Engi…    24 Breta… 29     Finistère  </span>
-<span class="co">#&gt;  4 DOSS… 31         Loren Lars… &lt;NA&gt;     NA Bourg… 71     Saône-et-L…</span>
-<span class="co">#&gt;  5 DOSS… 59         Mayb… Maye… Furt…    18 Midi-… 31     Haute-Garo…</span>
-<span class="co">#&gt;  6 DOSS… 118        Jama… Ober… Engi…    18 &lt;NA&gt;   51     Marne      </span>
-<span class="co">#&gt;  7 DOSS… 77         Lee   Scha… Admi…    NA Nord-… 59     Nord       </span>
-<span class="co">#&gt;  8 DOSS… 65         Deme… Auer  Cont…    21 Prove… 05     Hautes-Alp…</span>
-<span class="co">#&gt;  9 DOSS… 141        Wilf… Harv… Educ…    53 Prove… 83     &lt;NA&gt;       </span>
-<span class="co">#&gt; 10 DOSS… 182        Addy… Nien… Earl…    65 &lt;NA&gt;   46     Lot        </span>
+<span class="co">#&gt;  1 DOSS… 79         Jovan O'Ke… Gene…    22 &lt;NA&gt;   68     Haut-Rhin  </span>
+<span class="co">#&gt;  2 DOSS… 69         Miss  Lean… Emer…    68 Midi-… 32     Gers       </span>
+<span class="co">#&gt;  3 DOSS… 120        Odell Stok… Engi…    24 Rhône… 01     Ain        </span>
+<span class="co">#&gt;  4 DOSS… 31         Loren Lars… &lt;NA&gt;     NA Midi-… 31     Haute-Garo…</span>
+<span class="co">#&gt;  5 DOSS… 59         Mayb… Maye… Furt…    18 Poito… 86     Vienne     </span>
+<span class="co">#&gt;  6 DOSS… 118        Jama… Ober… Engi…    18 Rhône… 07     Ardèche    </span>
+<span class="co">#&gt;  7 DOSS… 77         Lee   Scha… Admi…    NA Alsace 68     Haut-Rhin  </span>
+<span class="co">#&gt;  8 DOSS… 65         Deme… Auer  Cont…    21 Poito… 17     Charente-M…</span>
+<span class="co">#&gt;  9 DOSS… 141        Wilf… Harv… Educ…    53 Pays … 53     Mayenne    </span>
+<span class="co">#&gt; 10 DOSS… 182        Addy… Nien… Earl…    65 Basse… 14     Calvados   </span>
 <span class="co">#&gt; # … with 16 more variables: cb_provider &lt;chr&gt;, name &lt;chr&gt;, entry_date &lt;dttm&gt;,</span>
 <span class="co">#&gt; #   fidelity_points &lt;dbl&gt;, priority_encoded &lt;dbl&gt;, priority &lt;fct&gt;,</span>
 <span class="co">#&gt; #   timestamp &lt;date&gt;, year &lt;dbl&gt;, month &lt;dbl&gt;, day &lt;int&gt;, supported &lt;chr&gt;,</span>
@@ -176,16 +176,16 @@ Supported languages are, for now, French and US English.</p>
 <span class="co">#&gt; # A tibble: 200 x 14</span>
 <span class="co">#&gt;    num_client first last  job     age region id_dpt departement cb_provider</span>
 <span class="co">#&gt;  * &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;       &lt;chr&gt;      </span>
-<span class="co">#&gt;  1 1          Solo… Hean… Civi…    53 Franc… 90     Territoire… Diners Clu…</span>
+<span class="co">#&gt;  1 1          Solo… Hean… Civi…    53 Midi-… 82     &lt;NA&gt;        Diners Clu…</span>
 <span class="co">#&gt;  2 2          Karma Will… Scie…    81 Midi-… 81     Tarn        VISA 13 di…</span>
-<span class="co">#&gt;  3 3          Press Kulas Anim…    NA Poito… 86     Vienne      &lt;NA&gt;       </span>
-<span class="co">#&gt;  4 4          Laken McDe… &lt;NA&gt;     NA Basse… 61     &lt;NA&gt;        &lt;NA&gt;       </span>
-<span class="co">#&gt;  5 5          Sydn… Jask… Hort…    30 Centre 37     &lt;NA&gt;        &lt;NA&gt;       </span>
-<span class="co">#&gt;  6 6          Clay… Runo… Comm…    NA Île-d… 95     Val-d'Oise  Diners Clu…</span>
-<span class="co">#&gt;  7 7          Robe… Purd… Fina…    60 Haute… 27     &lt;NA&gt;        &lt;NA&gt;       </span>
-<span class="co">#&gt;  8 8          Dr.   Rona… Astr…    30 Prove… 06     &lt;NA&gt;        &lt;NA&gt;       </span>
-<span class="co">#&gt;  9 9          Miss  Alon… Occu…    18 &lt;NA&gt;   72     Sarthe      Diners Clu…</span>
-<span class="co">#&gt; 10 10         Vern… Ondr… Clin…    19 Midi-… 82     Tarn-et-Ga… &lt;NA&gt;       </span>
+<span class="co">#&gt;  3 3          Press Kulas Anim…    NA Haute… 27     Eure        &lt;NA&gt;       </span>
+<span class="co">#&gt;  4 4          Laken McDe… &lt;NA&gt;     NA Breta… 29     Finistère   &lt;NA&gt;       </span>
+<span class="co">#&gt;  5 5          Sydn… Jask… Hort…    30 Centre 37     Indre-et-L… &lt;NA&gt;       </span>
+<span class="co">#&gt;  6 6          Clay… Runo… Comm…    NA Rhône… 42     Loire       Diners Clu…</span>
+<span class="co">#&gt;  7 7          Robe… Purd… Fina…    60 Prove… 04     Alpes-de-H… &lt;NA&gt;       </span>
+<span class="co">#&gt;  8 8          Dr.   Rona… Astr…    30 &lt;NA&gt;   24     Dordogne    &lt;NA&gt;       </span>
+<span class="co">#&gt;  9 9          Miss  Alon… Occu…    18 Langu… 30     Gard        Diners Clu…</span>
+<span class="co">#&gt; 10 10         Vern… Ondr… Clin…    19 &lt;NA&gt;   01     Ain         &lt;NA&gt;       </span>
 <span class="co">#&gt; # … with 190 more rows, and 5 more variables: name &lt;chr&gt;, entry_date &lt;dttm&gt;,</span>
 <span class="co">#&gt; #   fidelity_points &lt;dbl&gt;, priority_encoded &lt;dbl&gt;, priority &lt;fct&gt;</span>
 <span class="co">#&gt; </span>
@@ -193,16 +193,16 @@ Supported languages are, for now, French and US English.</p>
 <span class="co">#&gt; # A tibble: 100 x 10</span>
 <span class="co">#&gt;    ref   num_client  year month   day timestamp  supported type  state</span>
 <span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;date&gt;     &lt;chr&gt;     &lt;chr&gt; &lt;fct&gt;</span>
-<span class="co">#&gt;  1 DOSS… 1           2014     2    15 2014-02-15 Non       Inst… Term…</span>
-<span class="co">#&gt;  2 DOSS… 22          2017    12     7 2017-12-07 Non       Inst… Atte…</span>
-<span class="co">#&gt;  3 DOSS… 9           2018     1    11 2018-01-11 Non       Inst… Term…</span>
-<span class="co">#&gt;  4 DOSS… 8           2018     1    25 2018-01-25 Non       Box   Atte…</span>
-<span class="co">#&gt;  5 DOSS… 30          2018     2    12 2018-02-12 Oui       Inst… Inte…</span>
-<span class="co">#&gt;  6 DOSS… 10          2018     2    24 2018-02-24 Oui       Inst… Atte…</span>
-<span class="co">#&gt;  7 DOSS… 37          2018     3    24 2018-03-24 Non       Ligne Atte…</span>
-<span class="co">#&gt;  8 DOSS… 37          2018     5    14 2018-05-14 Non       Box   Atte…</span>
-<span class="co">#&gt;  9 DOSS… 24          2018     5    21 2018-05-21 Non       &lt;NA&gt;  En c…</span>
-<span class="co">#&gt; 10 DOSS… 12          2018     6     7 2018-06-07 Non       Inst… Atte…</span>
+<span class="co">#&gt;  1 DOSS… 1           2014     4     1 2014-04-01 Non       Inst… Term…</span>
+<span class="co">#&gt;  2 DOSS… 22          2018     1    21 2018-01-21 Non       Inst… Atte…</span>
+<span class="co">#&gt;  3 DOSS… 9           2018     2    25 2018-02-25 Non       Inst… Term…</span>
+<span class="co">#&gt;  4 DOSS… 8           2018     3    11 2018-03-11 Non       Box   Atte…</span>
+<span class="co">#&gt;  5 DOSS… 30          2018     3    29 2018-03-29 Oui       Inst… Inte…</span>
+<span class="co">#&gt;  6 DOSS… 10          2018     4    10 2018-04-10 Oui       Inst… Atte…</span>
+<span class="co">#&gt;  7 DOSS… 37          2018     5     8 2018-05-08 Non       Ligne Atte…</span>
+<span class="co">#&gt;  8 DOSS… 37          2018     6    28 2018-06-28 Non       Box   Atte…</span>
+<span class="co">#&gt;  9 DOSS… 24          2018     7     5 2018-07-05 Non       &lt;NA&gt;  En c…</span>
+<span class="co">#&gt; 10 DOSS… 12          2018     7    22 2018-07-22 Non       Inst… Atte…</span>
 <span class="co">#&gt; # … with 90 more rows, and 1 more variable: source_call &lt;fct&gt;</span>
 <span class="fu">ggplot</span>(<span class="no">tickets_db</span>$<span class="no">clients</span>) +
   <span class="fu">aes</span>(<span class="no">entry_date</span>, <span class="no">fidelity_points</span>) +
@@ -234,10 +234,31 @@ Supported languages are, for now, French and US English.</p>
   )</pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-3-1.png" width="50%" style="display: block; margin: auto;"></p>
 </div>
+<div id="fake-products" class="section level3">
+<h3 class="hasAnchor">
+<a href="#fake-products" class="anchor"></a>Fake products</h3>
+<ul>
+<li>Create a fake dataset of connected wearables</li>
+</ul>
+<!-- end list --><div class="sourceCode" id="cb6"><pre class="r"><span class="fu"><a href="reference/fake_products.html">fake_products</a></span>(<span class="fl">10</span>)
+<span class="co">#&gt; # A tibble: 10 x 8</span>
+<span class="co">#&gt;    name          brand     color   price body_location category  sent_from    id</span>
+<span class="co">#&gt;    &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;   &lt;int&gt; &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;     &lt;int&gt;</span>
+<span class="co">#&gt;  1 Step and Dis… Larkin, … Pink        3 Waist         Industri… Taiwan        1</span>
+<span class="co">#&gt;  2 Biking Track… Larkin, … OliveD…     5 Waist         Pets and… United S…     2</span>
+<span class="co">#&gt;  3 Wearable Tra… Moen, Mo… Beige       4 Feet          Lifestyle Netherla…     3</span>
+<span class="co">#&gt;  4 Multifunctio… Weimann,… Yellow…     5 Head          Lifestyle China         4</span>
+<span class="co">#&gt;  5 Action Camer… Blanda, … Moccas…    10 Brain         Lifestyle Italy         5</span>
+<span class="co">#&gt;  6 Strapless He… Mann and… DeepPi…     4 Head          Medical   Finland       6</span>
+<span class="co">#&gt;  7 Action Camer… Mann and… Maroon      5 Feet          Entertai… Finland       7</span>
+<span class="co">#&gt;  8 Microcontrol… Moen, Mo… Pink        3 Neck          Fitness   Finland       8</span>
+<span class="co">#&gt;  9 Microcontrol… Moen, Mo… Plum        5 Arms          Awesome   France        9</span>
+<span class="co">#&gt; 10 Wearable AUS… Moen, Mo… DarkRed     9 Torso         Medical   Italy        10</span></pre></div>
+</div>
 <div id="fake-website-visits" class="section level3">
 <h3 class="hasAnchor">
 <a href="#fake-website-visits" class="anchor"></a>Fake website visits</h3>
-<div class="sourceCode" id="cb6"><pre class="r"><span class="fu"><a href="reference/fake_visits.html">fake_visits</a></span>(<span class="kw">from</span> <span class="kw">=</span> <span class="st">"2017-01-01"</span>, <span class="kw">to</span> <span class="kw">=</span> <span class="st">"2017-01-31"</span>)
+<div class="sourceCode" id="cb7"><pre class="r"><span class="fu"><a href="reference/fake_visits.html">fake_visits</a></span>(<span class="kw">from</span> <span class="kw">=</span> <span class="st">"2017-01-01"</span>, <span class="kw">to</span> <span class="kw">=</span> <span class="st">"2017-01-31"</span>)
 <span class="co">#&gt; # A tibble: 31 x 8</span>
 <span class="co">#&gt;    timestamp   year month   day  home about  blog contact</span>
 <span class="co">#&gt;  * &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;   &lt;int&gt;</span>
@@ -259,41 +280,41 @@ Supported languages are, for now, French and US English.</p>
 <ul>
 <li>All answers</li>
 </ul>
-<!-- end list --><div class="sourceCode" id="cb7"><pre class="r"><span class="fu"><a href="reference/fake_sondage_answers.html">fake_sondage_answers</a></span>(<span class="kw">n</span> <span class="kw">=</span> <span class="fl">10</span>)
+<!-- end list --><div class="sourceCode" id="cb8"><pre class="r"><span class="fu"><a href="reference/fake_sondage_answers.html">fake_sondage_answers</a></span>(<span class="kw">n</span> <span class="kw">=</span> <span class="fl">10</span>)
 <span class="co">#&gt; # A tibble: 30 x 12</span>
 <span class="co">#&gt;    id_individu   age sexe  region id_departement nom_departement</span>
 <span class="co">#&gt;    &lt;chr&gt;       &lt;int&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;          &lt;chr&gt;          </span>
-<span class="co">#&gt;  1 ID-NYDZ-010    NA &lt;NA&gt;  Rhône… 38             Isère          </span>
-<span class="co">#&gt;  2 ID-NYDZ-010    NA &lt;NA&gt;  Rhône… 38             Isère          </span>
-<span class="co">#&gt;  3 ID-NYDZ-010    NA &lt;NA&gt;  Rhône… 38             Isère          </span>
-<span class="co">#&gt;  4 ID-PWLB-009    71 F     Picar… 60             Oise           </span>
-<span class="co">#&gt;  5 ID-PWLB-009    71 F     Picar… 60             Oise           </span>
-<span class="co">#&gt;  6 ID-PWLB-009    71 F     Picar… 60             Oise           </span>
-<span class="co">#&gt;  7 ID-NMQG-001    42 M     Langu… 11             Aude           </span>
-<span class="co">#&gt;  8 ID-NMQG-001    42 M     Langu… 11             Aude           </span>
-<span class="co">#&gt;  9 ID-NMQG-001    42 M     Langu… 11             Aude           </span>
-<span class="co">#&gt; 10 ID-RJXN-002    71 O     Pays … 44             Loire-Atlantiq…</span>
+<span class="co">#&gt;  1 ID-NYDZ-010    NA &lt;NA&gt;  &lt;NA&gt;   36             Indre          </span>
+<span class="co">#&gt;  2 ID-NYDZ-010    NA &lt;NA&gt;  &lt;NA&gt;   36             Indre          </span>
+<span class="co">#&gt;  3 ID-NYDZ-010    NA &lt;NA&gt;  &lt;NA&gt;   36             Indre          </span>
+<span class="co">#&gt;  4 ID-PWLB-009    71 F     Rhône… 26             Drôme          </span>
+<span class="co">#&gt;  5 ID-PWLB-009    71 F     Rhône… 26             Drôme          </span>
+<span class="co">#&gt;  6 ID-PWLB-009    71 F     Rhône… 26             Drôme          </span>
+<span class="co">#&gt;  7 ID-NMQG-001    42 M     Rhône… 74             Haute-Savoie   </span>
+<span class="co">#&gt;  8 ID-NMQG-001    42 M     Rhône… 74             Haute-Savoie   </span>
+<span class="co">#&gt;  9 ID-NMQG-001    42 M     Rhône… 74             Haute-Savoie   </span>
+<span class="co">#&gt; 10 ID-RJXN-002    71 O     Picar… 80             &lt;NA&gt;           </span>
 <span class="co">#&gt; # … with 20 more rows, and 6 more variables: question_date &lt;dttm&gt;, year &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   type &lt;chr&gt;, distance_km &lt;dbl&gt;, transport &lt;fct&gt;,</span>
 <span class="co">#&gt; #   temps_trajet_en_heures &lt;dbl&gt;</span></pre></div>
 <ul>
 <li>Separate individuals and their answers</li>
 </ul>
-<!-- end list --><div class="sourceCode" id="cb8"><pre class="r"><span class="fu"><a href="reference/fake_sondage_answers.html">fake_sondage_answers</a></span>(<span class="kw">n</span> <span class="kw">=</span> <span class="fl">10</span>, <span class="kw">split</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
+<!-- end list --><div class="sourceCode" id="cb9"><pre class="r"><span class="fu"><a href="reference/fake_sondage_answers.html">fake_sondage_answers</a></span>(<span class="kw">n</span> <span class="kw">=</span> <span class="fl">10</span>, <span class="kw">split</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
 <span class="co">#&gt; $individus</span>
 <span class="co">#&gt; # A tibble: 10 x 8</span>
 <span class="co">#&gt;    id_individu   age sexe  region id_departement nom_departement</span>
 <span class="co">#&gt;    &lt;chr&gt;       &lt;int&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;          &lt;chr&gt;          </span>
-<span class="co">#&gt;  1 ID-NYDZ-010    NA &lt;NA&gt;  Auver… 43             &lt;NA&gt;           </span>
-<span class="co">#&gt;  2 ID-PWLB-009    71 F     Lorra… 88             Vosges         </span>
-<span class="co">#&gt;  3 ID-NMQG-001    42 M     Lorra… 54             Meurthe-et-Mos…</span>
-<span class="co">#&gt;  4 ID-RJXN-002    71 O     Auver… 43             Haute-Loire    </span>
-<span class="co">#&gt;  5 ID-MROK-007    41 M     Auver… 15             Cantal         </span>
-<span class="co">#&gt;  6 ID-VMKS-004    33 O     Pays … 85             Vendée         </span>
-<span class="co">#&gt;  7 ID-XEMZ-003    81 O     Basse… 61             Orne           </span>
-<span class="co">#&gt;  8 ID-EUDQ-005    44 M     Bourg… 71             Saône-et-Loire </span>
-<span class="co">#&gt;  9 ID-DCIZ-008    92 O     &lt;NA&gt;   88             Vosges         </span>
-<span class="co">#&gt; 10 ID-KPUS-006    57 O     Poito… 17             Charente-Marit…</span>
+<span class="co">#&gt;  1 ID-NYDZ-010    NA &lt;NA&gt;  Haute… 76             Seine-Maritime </span>
+<span class="co">#&gt;  2 ID-PWLB-009    71 F     Prove… 84             &lt;NA&gt;           </span>
+<span class="co">#&gt;  3 ID-NMQG-001    42 M     Breta… 29             Finistère      </span>
+<span class="co">#&gt;  4 ID-RJXN-002    71 O     Aquit… 33             Gironde        </span>
+<span class="co">#&gt;  5 ID-MROK-007    41 M     Breta… 35             Ille-et-Vilaine</span>
+<span class="co">#&gt;  6 ID-VMKS-004    33 O     Rhône… 26             Drôme          </span>
+<span class="co">#&gt;  7 ID-XEMZ-003    81 O     Midi-… 82             Tarn-et-Garonne</span>
+<span class="co">#&gt;  8 ID-EUDQ-005    44 M     Prove… 84             Vaucluse       </span>
+<span class="co">#&gt;  9 ID-DCIZ-008    92 O     Centre 18             Cher           </span>
+<span class="co">#&gt; 10 ID-KPUS-006    57 O     &lt;NA&gt;   67             Bas-Rhin       </span>
 <span class="co">#&gt; # … with 2 more variables: question_date &lt;dttm&gt;, year &lt;dbl&gt;</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $answers</span>
@@ -315,21 +336,21 @@ Supported languages are, for now, French and US English.</p>
 <div id="fake-transport-use" class="section level3">
 <h3 class="hasAnchor">
 <a href="#fake-transport-use" class="anchor"></a>fake transport use</h3>
-<div class="sourceCode" id="cb9"><pre class="r"><span class="no">answers</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/fake_sondage_answers.html">fake_sondage_answers</a></span>(<span class="kw">n</span> <span class="kw">=</span> <span class="fl">30</span>)
+<div class="sourceCode" id="cb10"><pre class="r"><span class="no">answers</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/fake_sondage_answers.html">fake_sondage_answers</a></span>(<span class="kw">n</span> <span class="kw">=</span> <span class="fl">30</span>)
 <span class="no">answers</span>
 <span class="co">#&gt; # A tibble: 90 x 12</span>
 <span class="co">#&gt;    id_individu   age sexe  region id_departement nom_departement</span>
 <span class="co">#&gt;    &lt;chr&gt;       &lt;int&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;          &lt;chr&gt;          </span>
-<span class="co">#&gt;  1 ID-MROK-007    NA M     Limou… 87             Haute-Vienne   </span>
-<span class="co">#&gt;  2 ID-MROK-007    NA M     Limou… 87             Haute-Vienne   </span>
-<span class="co">#&gt;  3 ID-MROK-007    NA M     Limou… 87             Haute-Vienne   </span>
-<span class="co">#&gt;  4 ID-NYDZ-010    49 M     Prove… 04             Alpes-de-Haute…</span>
-<span class="co">#&gt;  5 ID-NYDZ-010    49 M     Prove… 04             Alpes-de-Haute…</span>
-<span class="co">#&gt;  6 ID-NYDZ-010    49 M     Prove… 04             Alpes-de-Haute…</span>
-<span class="co">#&gt;  7 ID-HXOG-015    50 M     Langu… 48             Lozère         </span>
-<span class="co">#&gt;  8 ID-HXOG-015    50 M     Langu… 48             Lozère         </span>
-<span class="co">#&gt;  9 ID-HXOG-015    50 M     Langu… 48             Lozère         </span>
-<span class="co">#&gt; 10 ID-MZNB-024    70 F     Bourg… 71             Saône-et-Loire </span>
+<span class="co">#&gt;  1 ID-MROK-007    NA M     &lt;NA&gt;   87             Haute-Vienne   </span>
+<span class="co">#&gt;  2 ID-MROK-007    NA M     &lt;NA&gt;   87             Haute-Vienne   </span>
+<span class="co">#&gt;  3 ID-MROK-007    NA M     &lt;NA&gt;   87             Haute-Vienne   </span>
+<span class="co">#&gt;  4 ID-NYDZ-010    49 M     &lt;NA&gt;   23             Creuse         </span>
+<span class="co">#&gt;  5 ID-NYDZ-010    49 M     &lt;NA&gt;   23             Creuse         </span>
+<span class="co">#&gt;  6 ID-NYDZ-010    49 M     &lt;NA&gt;   23             Creuse         </span>
+<span class="co">#&gt;  7 ID-HXOG-015    50 M     Île-d… 95             Val-d'Oise     </span>
+<span class="co">#&gt;  8 ID-HXOG-015    50 M     Île-d… 95             Val-d'Oise     </span>
+<span class="co">#&gt;  9 ID-HXOG-015    50 M     Île-d… 95             Val-d'Oise     </span>
+<span class="co">#&gt; 10 ID-MZNB-024    70 F     Franc… 90             Territoire de …</span>
 <span class="co">#&gt; # … with 80 more rows, and 6 more variables: question_date &lt;dttm&gt;, year &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   type &lt;chr&gt;, distance_km &lt;dbl&gt;, transport &lt;fct&gt;,</span>
 <span class="co">#&gt; #   temps_trajet_en_heures &lt;dbl&gt;</span>
@@ -338,7 +359,7 @@ Supported languages are, for now, French and US English.</p>
   <span class="fu">geom_smooth</span>() + <span class="fu">facet_wrap</span>(~<span class="no">type</span>, <span class="kw">scales</span> <span class="kw">=</span> <span class="st">"free_y"</span>)
 <span class="co">#&gt; Warning: Removed 6 rows containing non-finite values (stat_smooth).</span>
 <span class="co">#&gt; Warning: Removed 6 rows containing missing values (geom_point).</span></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-7-1.png" width="50%" style="display: block; margin: auto;"></p>
+<p><img src="reference/figures/README-unnamed-chunk-8-1.png" width="50%" style="display: block; margin: auto;"></p>
 </div>
 </div>
 <div id="prior-work" class="section level2">

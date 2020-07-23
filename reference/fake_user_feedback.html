@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Pipe operator — %&gt;% • fakir</title>
+<title>Fake user feedbacks — fake_user_feedback • fakir</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,8 +42,8 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script>
 
-<meta property="og:title" content="Pipe operator — %&gt;%" />
-<meta property="og:description" content="See magrittr::%&amp;gt;% for details." />
+<meta property="og:title" content="Fake user feedbacks — fake_user_feedback" />
+<meta property="og:description" content="Fake user feedbacks" />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -151,19 +151,59 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Pipe operator</h1>
-    <small class="dont-index">Source: <a href='https://github.com/Thinkr-open/fakir/blob/master/R/utils-pipe.R'><code>R/utils-pipe.R</code></a></small>
-    <div class="hidden name"><code>pipe.Rd</code></div>
+    <h1>Fake user feedbacks</h1>
+    <small class="dont-index">Source: <a href='https://github.com/Thinkr-open/fakir/blob/master/R/fake_products.R'><code>R/fake_products.R</code></a></small>
+    <div class="hidden name"><code>fake_user_feedback.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>See <code>magrittr::%&gt;%</code> for details.</p>
+    <p>Fake user feedbacks</p>
     </div>
 
-    <pre class="usage"><span class='no'>lhs</span> <span class='kw'>%&gt;%</span> <span class='no'>rhs</span></pre>
+    <pre class="usage"><span class='fu'>fake_user_feedback</span>(
+  <span class='no'>n</span>,
+  <span class='kw'>seed</span> <span class='kw'>=</span> <span class='fl'>2811</span>,
+  <span class='kw'>from</span> <span class='kw'>=</span> <span class='st'>"2012-01-01 00:00:01"</span>,
+  <span class='kw'>to</span> <span class='kw'>=</span> <span class='st'>"2020-01-01 00:00:01"</span>
+)</pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>n</th>
+      <td><p>Number of feedbacks to generate</p></td>
+    </tr>
+    <tr>
+      <th>seed</th>
+      <td><p>the random seed, default is 2811</p></td>
+    </tr>
+    <tr>
+      <th>from</th>
+      <td><p>the date to cover</p></td>
+    </tr>
+    <tr>
+      <th>to</th>
+      <td><p>the date to cover</p></td>
+    </tr>
+    </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
+    <p>a dataframe</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>fake_user_feedback</span>(<span class='fl'>10</span>)</div><div class='output co'>#&gt;                  user star                date
+#&gt; 1     Carlisle Cassin    4 2012-06-07 00:41:14
+#&gt; 2     Leeroy Beatty V    2 2016-06-13 23:47:37
+#&gt; 3  Dr. Talan Zieme MD    1 2016-11-23 08:50:08
+#&gt; 4    Sierra Hettinger    4 2019-02-27 22:30:40
+#&gt; 5       Ammon Dickens    2 2017-08-20 18:50:12
+#&gt; 6         Laney Adams    4 2018-06-06 04:40:47
+#&gt; 7    Jadiel Feest III    2 2017-11-03 00:46:52
+#&gt; 8       Cade Turcotte    3 2013-03-04 19:01:38
+#&gt; 9  Ophelia Wintheiser    1 2014-07-30 11:03:34
+#&gt; 10    Sydnee Nitzsche    1 2012-04-14 12:47:05</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

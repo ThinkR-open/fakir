@@ -43,7 +43,7 @@
 </script>
 -->
 </head>
-<body>
+<body data-spy="scroll" data-target="#toc">
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -56,7 +56,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">fakir</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0.9000</span>
       </span>
     </div>
 
@@ -115,7 +115,7 @@
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>fake client service database</h1>
+      <h1 data-toc-skip>fake client service database</h1>
             
       
       <small class="dont-index">Source: <a href="https://github.com/Thinkr-open/fakir/blob/master/vignettes/fake-client-database.Rmd"><code>vignettes/fake-client-database.Rmd</code></a></small>
@@ -139,16 +139,16 @@
 <span class="co">#&gt; # A tibble: 10 x 25</span>
 <span class="co">#&gt;    ref   num_client first last  job     age region id_dpt departement</span>
 <span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;      </span>
-<span class="co">#&gt;  1 DOSS… 79         Jovan O'Ke… Gene…    22 Langu… 66     Pyrénées-O…</span>
-<span class="co">#&gt;  2 DOSS… 69         Miss  Lean… Emer…    68 Champ… 51     &lt;NA&gt;       </span>
-<span class="co">#&gt;  3 DOSS… 120        Odell Stok… Engi…    24 &lt;NA&gt;   37     Indre-et-L…</span>
-<span class="co">#&gt;  4 DOSS… 31         Loren Lars… &lt;NA&gt;     NA Pays … 85     Vendée     </span>
+<span class="co">#&gt;  1 DOSS… 79         Jovan O'Ke… Gene…    22 Basse… 61     Orne       </span>
+<span class="co">#&gt;  2 DOSS… 69         Miss  Lean… Emer…    68 Langu… 66     Pyrénées-O…</span>
+<span class="co">#&gt;  3 DOSS… 120        Odell Stok… Engi…    24 Langu… 30     &lt;NA&gt;       </span>
+<span class="co">#&gt;  4 DOSS… 31         Loren Lars… &lt;NA&gt;     NA Picar… 02     Aisne      </span>
 <span class="co">#&gt;  5 DOSS… 59         Mayb… Maye… Furt…    18 Auver… 43     Haute-Loire</span>
-<span class="co">#&gt;  6 DOSS… 118        Jama… Ober… Engi…    18 Poito… 16     Charente   </span>
-<span class="co">#&gt;  7 DOSS… 77         Lee   Scha… Admi…    NA Lorra… 57     Moselle    </span>
-<span class="co">#&gt;  8 DOSS… 65         Deme… Auer  Cont…    21 Langu… 48     Lozère     </span>
-<span class="co">#&gt;  9 DOSS… 141        Wilf… Harv… Educ…    53 Poito… 86     Vienne     </span>
-<span class="co">#&gt; 10 DOSS… 182        Addy… Nien… Earl…    65 Breta… 29     Finistère  </span>
+<span class="co">#&gt;  6 DOSS… 118        Jama… Ober… Engi…    18 Langu… 66     Pyrénées-O…</span>
+<span class="co">#&gt;  7 DOSS… 77         Lee   Scha… Admi…    NA Langu… 11     Aude       </span>
+<span class="co">#&gt;  8 DOSS… 65         Deme… Auer  Cont…    21 Midi-… 81     &lt;NA&gt;       </span>
+<span class="co">#&gt;  9 DOSS… 141        Wilf… Harv… Educ…    53 Langu… 30     Gard       </span>
+<span class="co">#&gt; 10 DOSS… 182        Addy… Nien… Earl…    65 Midi-… 82     Tarn-et-Ga…</span>
 <span class="co">#&gt; # … with 16 more variables: cb_provider &lt;chr&gt;, name &lt;chr&gt;, entry_date &lt;dttm&gt;,</span>
 <span class="co">#&gt; #   fidelity_points &lt;dbl&gt;, priority_encoded &lt;dbl&gt;, priority &lt;fct&gt;,</span>
 <span class="co">#&gt; #   timestamp &lt;date&gt;, year &lt;dbl&gt;, month &lt;dbl&gt;, day &lt;int&gt;, supported &lt;chr&gt;,</span>
@@ -163,16 +163,16 @@
 <span class="co">#&gt; # A tibble: 200 x 14</span>
 <span class="co">#&gt;    num_client first last  job     age region id_dpt departement cb_provider</span>
 <span class="co">#&gt;  * &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;       &lt;chr&gt;      </span>
-<span class="co">#&gt;  1 1          Solo… Hean… Civi…    53 &lt;NA&gt;   52     &lt;NA&gt;        Diners Clu…</span>
-<span class="co">#&gt;  2 2          Karma Will… Scie…    81 &lt;NA&gt;   68     Haut-Rhin   VISA 13 di…</span>
-<span class="co">#&gt;  3 3          Press Kulas Anim…    NA &lt;NA&gt;   29     Finistère   &lt;NA&gt;       </span>
-<span class="co">#&gt;  4 4          Laken McDe… &lt;NA&gt;     NA Picar… 60     Oise        &lt;NA&gt;       </span>
-<span class="co">#&gt;  5 5          Sydn… Jask… Hort…    30 Pays … 72     Sarthe      &lt;NA&gt;       </span>
-<span class="co">#&gt;  6 6          Clay… Runo… Comm…    NA Île-d… 77     Seine-et-M… Diners Clu…</span>
-<span class="co">#&gt;  7 7          Robe… Purd… Fina…    60 Auver… 43     Haute-Loire &lt;NA&gt;       </span>
-<span class="co">#&gt;  8 8          Dr.   Rona… Astr…    30 Picar… 60     Oise        &lt;NA&gt;       </span>
-<span class="co">#&gt;  9 9          Miss  Alon… Occu…    18 Picar… 60     Oise        Diners Clu…</span>
-<span class="co">#&gt; 10 10         Vern… Ondr… Clin…    19 Corse  2A     Corse-du-S… &lt;NA&gt;       </span>
+<span class="co">#&gt;  1 1          Solo… Hean… Civi…    53 &lt;NA&gt;   47     Lot-et-Gar… Diners Clu…</span>
+<span class="co">#&gt;  2 2          Karma Will… Scie…    81 Franc… 25     Doubs       VISA 13 di…</span>
+<span class="co">#&gt;  3 3          Press Kulas Anim…    NA Auver… 63     Puy-de-Dôme &lt;NA&gt;       </span>
+<span class="co">#&gt;  4 4          Laken McDe… &lt;NA&gt;     NA Aquit… 40     Landes      &lt;NA&gt;       </span>
+<span class="co">#&gt;  5 5          Sydn… Jask… Hort…    30 Rhône… 26     Drôme       &lt;NA&gt;       </span>
+<span class="co">#&gt;  6 6          Clay… Runo… Comm…    NA Breta… 22     Côtes-d'Ar… Diners Clu…</span>
+<span class="co">#&gt;  7 7          Robe… Purd… Fina…    60 Langu… 11     Aude        &lt;NA&gt;       </span>
+<span class="co">#&gt;  8 8          Dr.   Rona… Astr…    30 Aquit… 33     Gironde     &lt;NA&gt;       </span>
+<span class="co">#&gt;  9 9          Miss  Alon… Occu…    18 Nord-… 59     Nord        Diners Clu…</span>
+<span class="co">#&gt; 10 10         Vern… Ondr… Clin…    19 Picar… 60     Oise        &lt;NA&gt;       </span>
 <span class="co">#&gt; # … with 190 more rows, and 5 more variables: name &lt;chr&gt;, entry_date &lt;dttm&gt;,</span>
 <span class="co">#&gt; #   fidelity_points &lt;dbl&gt;, priority_encoded &lt;dbl&gt;, priority &lt;fct&gt;</span>
 <span class="co">#&gt; </span>
@@ -180,16 +180,16 @@
 <span class="co">#&gt; # A tibble: 100 x 10</span>
 <span class="co">#&gt;    ref   num_client  year month   day timestamp  supported type  state</span>
 <span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;date&gt;     &lt;chr&gt;     &lt;chr&gt; &lt;fct&gt;</span>
-<span class="co">#&gt;  1 DOSS… 1           2014     2    15 2014-02-15 Non       Inst… Term…</span>
-<span class="co">#&gt;  2 DOSS… 22          2017    12     7 2017-12-07 Non       Inst… Atte…</span>
-<span class="co">#&gt;  3 DOSS… 9           2018     1    11 2018-01-11 Non       Inst… Term…</span>
-<span class="co">#&gt;  4 DOSS… 8           2018     1    26 2018-01-26 Non       Box   Atte…</span>
-<span class="co">#&gt;  5 DOSS… 30          2018     2    12 2018-02-12 Oui       Inst… Inte…</span>
-<span class="co">#&gt;  6 DOSS… 10          2018     2    24 2018-02-24 Oui       Inst… Atte…</span>
-<span class="co">#&gt;  7 DOSS… 37          2018     3    24 2018-03-24 Non       Ligne Atte…</span>
-<span class="co">#&gt;  8 DOSS… 37          2018     5    14 2018-05-14 Non       Box   Atte…</span>
-<span class="co">#&gt;  9 DOSS… 24          2018     5    21 2018-05-21 Non       &lt;NA&gt;  En c…</span>
-<span class="co">#&gt; 10 DOSS… 12          2018     6     7 2018-06-07 Non       Inst… Atte…</span>
+<span class="co">#&gt;  1 DOSS… 1           2014     4     2 2014-04-02 Non       Inst… Term…</span>
+<span class="co">#&gt;  2 DOSS… 22          2018     1    23 2018-01-23 Non       Inst… Atte…</span>
+<span class="co">#&gt;  3 DOSS… 9           2018     2    27 2018-02-27 Non       Inst… Term…</span>
+<span class="co">#&gt;  4 DOSS… 8           2018     3    13 2018-03-13 Non       Box   Atte…</span>
+<span class="co">#&gt;  5 DOSS… 30          2018     3    30 2018-03-30 Oui       Inst… Inte…</span>
+<span class="co">#&gt;  6 DOSS… 10          2018     4    12 2018-04-12 Oui       Inst… Atte…</span>
+<span class="co">#&gt;  7 DOSS… 37          2018     5    10 2018-05-10 Non       Ligne Atte…</span>
+<span class="co">#&gt;  8 DOSS… 37          2018     6    30 2018-06-30 Non       Box   Atte…</span>
+<span class="co">#&gt;  9 DOSS… 24          2018     7     7 2018-07-07 Non       &lt;NA&gt;  En c…</span>
+<span class="co">#&gt; 10 DOSS… 12          2018     7    24 2018-07-24 Non       Inst… Atte…</span>
 <span class="co">#&gt; # … with 90 more rows, and 1 more variable: source_call &lt;fct&gt;</span></pre></body></html></div>
 <ul>
 <li>Explore datasets</li>
@@ -232,7 +232,7 @@
 <p><img src="fake-client-database_files/figure-html/unnamed-chunk-6-1.png" width="700" style="display: block; margin: auto;"></p>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
       </div>
 
