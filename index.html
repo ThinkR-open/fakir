@@ -44,6 +44,8 @@
 -->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -56,23 +58,17 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">fakir</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.0.9000</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -97,8 +93,8 @@
 </div>
         </li>
         <li>
-  <a href="https://github.com/Thinkr-open/fakir/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+  <a href="https://github.com/Thinkr-open/fakir/" class="external-link">
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -114,21 +110,32 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="fakir" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#fakir" class="anchor"></a>fakir <img src="reference/figures/logo.png" align="right" alt="" width="120">
+<div class="section level1">
+<div class="page-header"><h1 id="fakir-">fakir <img src="reference/figures/logo.png" align="right" alt="" width="120"><a class="anchor" aria-label="anchor" href="#fakir-"></a>
 </h1></div>
 <!-- badges: start -->
 
 <p>The goal of {fakir} is to provide fake datasets that can be used to teach R.</p>
-<p>The full documentation is in this {pkgdown} site: <a href="https://thinkr-open.github.io/fakir/" class="uri">https://thinkr-open.github.io/fakir/</a></p>
+<p>The full documentation is in this {pkgdown} site: <a href="https://thinkr-open.github.io/fakir/" class="external-link uri">https://thinkr-open.github.io/fakir/</a></p>
 <ul>
-<li>Video presentation of {fakir} by <a href="https://twitter.com/1littlecoder">Abdul Majed</a>: <a href="https://www.youtube.com/watch?v=EhhljL5zaWs" class="uri">https://www.youtube.com/watch?v=EhhljL5zaWs</a>
+<li>Video presentation of {fakir} by <a href="https://twitter.com/1littlecoder" class="external-link">Abdul Majed</a>: <a href="https://www.youtube.com/watch?v=EhhljL5zaWs" class="external-link uri">https://www.youtube.com/watch?v=EhhljL5zaWs</a>
 </li>
 </ul>
-<div id="characteristics" class="section level2">
-<h2 class="hasAnchor">
-<a href="#characteristics" class="anchor"></a>Characteristics</h2>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># From r-universe.dev (No need for GITHUB_PAT)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"fakir"</span>, 
+                 repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"thinkropen"</span> <span class="op">=</span> <span class="st">"https://thinkr-open.r-universe.dev"</span><span class="op">)</span><span class="op">)</span>
+
+<span class="co"># With {remotes} using GitHub API</span>
+<span class="co"># install.packages("remotes")</span>
+<span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"ThinkR-open/fakir"</span><span class="op">)</span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="characteristics">Characteristics<a class="anchor" aria-label="anchor" href="#characteristics"></a>
+</h2>
 <p>This package is designed for teaching data wrangling and data visualisation:</p>
 <ul>
 <li>some datasets follow the tidy-data principles, others don’t.</li>
@@ -138,110 +145,116 @@
 <p>These datasets are suitable to introduce to the {tidyverse} and to provide examples for main functions.<br>
 Supported languages are, for now, French and US English.</p>
 </div>
-<div id="examples" class="section level2">
-<h2 class="hasAnchor">
-<a href="#examples" class="anchor"></a>Examples</h2>
-<div id="fake-support-ticket-base" class="section level3">
-<h3 class="hasAnchor">
-<a href="#fake-support-ticket-base" class="anchor"></a>Fake support ticket base :</h3>
+<div class="section level2">
+<h2 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
+</h2>
+<div class="section level3">
+<h3 id="fake-support-ticket-base-">Fake support ticket base :<a class="anchor" aria-label="anchor" href="#fake-support-ticket-base-"></a>
+</h3>
 <ul>
 <li>All tickets</li>
 </ul>
-<!-- end list --><div class="sourceCode" id="cb1"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">fakir</span>)
-<span class="fu"><a href="reference/fake_ticket_client.html">fake_ticket_client</a></span>(<span class="kw">vol</span> <span class="kw">=</span> <span class="fl">10</span>)
-<span class="co">#&gt; # A tibble: 10 x 25</span>
-<span class="co">#&gt;    ref   num_client first last  job     age region id_dpt departement</span>
-<span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;      </span>
-<span class="co">#&gt;  1 DOSS… 79         Jovan O'Ke… Gene…    22 &lt;NA&gt;   68     Haut-Rhin  </span>
-<span class="co">#&gt;  2 DOSS… 69         Miss  Lean… Emer…    68 Midi-… 32     Gers       </span>
-<span class="co">#&gt;  3 DOSS… 120        Odell Stok… Engi…    24 Rhône… 01     Ain        </span>
-<span class="co">#&gt;  4 DOSS… 31         Loren Lars… &lt;NA&gt;     NA Midi-… 31     Haute-Garo…</span>
-<span class="co">#&gt;  5 DOSS… 59         Mayb… Maye… Furt…    18 Poito… 86     Vienne     </span>
-<span class="co">#&gt;  6 DOSS… 118        Jama… Ober… Engi…    18 Rhône… 07     Ardèche    </span>
-<span class="co">#&gt;  7 DOSS… 77         Lee   Scha… Admi…    NA Alsace 68     Haut-Rhin  </span>
-<span class="co">#&gt;  8 DOSS… 65         Deme… Auer  Cont…    21 Poito… 17     Charente-M…</span>
-<span class="co">#&gt;  9 DOSS… 141        Wilf… Harv… Educ…    53 Pays … 53     Mayenne    </span>
-<span class="co">#&gt; 10 DOSS… 182        Addy… Nien… Earl…    65 Basse… 14     Calvados   </span>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/Thinkr-open/fakir" class="external-link">fakir</a></span><span class="op">)</span>
+<span class="fu"><a href="reference/fake_ticket_client.html">fake_ticket_client</a></span><span class="op">(</span>vol <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>
+<span class="co">#&gt; # A tibble: 10 × 25</span>
+<span class="co">#&gt;    ref           num_client first    last  job     age region id_dpt departement</span>
+<span class="co">#&gt;    &lt;chr&gt;         &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;      </span>
+<span class="co">#&gt;  1 DOSS-AMQN-002 79         Jovan    O'Ke… Gene…    22 Langu… 30     Gard       </span>
+<span class="co">#&gt;  2 DOSS-NCKJ-010 69         Miss     Lean… Emer…    68 Île-d… 78     Yvelines   </span>
+<span class="co">#&gt;  3 DOSS-GPBE-009 120        Odell    Stok… Engi…    24 Auver… 15     Cantal     </span>
+<span class="co">#&gt;  4 DOSS-GRLN-001 31         Loren    Lars… &lt;NA&gt;     NA Midi-… 81     Tarn       </span>
+<span class="co">#&gt;  5 DOSS-LEPJ-004 59         Maybelle Maye… Furt…    18 Franc… 70     Haute-Saône</span>
+<span class="co">#&gt;  6 DOSS-DUCL-005 118        Jamarion Ober… Engi…    18 Breta… 22     Côtes-d'Ar…</span>
+<span class="co">#&gt;  7 DOSS-OCED-003 77         Lee      Scha… Admi…    NA Corse  2A     Corse-du-S…</span>
+<span class="co">#&gt;  8 DOSS-KXSJ-007 65         Demetric Auer  Cont…    21 Bourg… 71     Saône-et-L…</span>
+<span class="co">#&gt;  9 DOSS-UITD-006 141        Wilfrid  Harv… Educ…    53 Prove… 13     Bouches-du…</span>
+<span class="co">#&gt; 10 DOSS-SHKL-008 182        Addyson  Nien… Earl…    65 Bourg… 21     &lt;NA&gt;       </span>
 <span class="co">#&gt; # … with 16 more variables: cb_provider &lt;chr&gt;, name &lt;chr&gt;, entry_date &lt;dttm&gt;,</span>
 <span class="co">#&gt; #   fidelity_points &lt;dbl&gt;, priority_encoded &lt;dbl&gt;, priority &lt;fct&gt;,</span>
 <span class="co">#&gt; #   timestamp &lt;date&gt;, year &lt;dbl&gt;, month &lt;dbl&gt;, day &lt;int&gt;, supported &lt;chr&gt;,</span>
 <span class="co">#&gt; #   supported_encoded &lt;int&gt;, type &lt;chr&gt;, type_encoded &lt;int&gt;, state &lt;fct&gt;,</span>
-<span class="co">#&gt; #   source_call &lt;fct&gt;</span></pre></div>
+<span class="co">#&gt; #   source_call &lt;fct&gt;</span></code></pre></div>
 <ul>
 <li>Separate tickets and client databases</li>
 </ul>
-<!-- end list --><div class="sourceCode" id="cb2"><pre class="r"><span class="no">tickets_db</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/fake_ticket_client.html">fake_ticket_client</a></span>(<span class="kw">vol</span> <span class="kw">=</span> <span class="fl">100</span>, <span class="kw">split</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
-<span class="no">tickets_db</span>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">tickets_db</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/fake_ticket_client.html">fake_ticket_client</a></span><span class="op">(</span>vol <span class="op">=</span> <span class="fl">100</span>, split <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="va">tickets_db</span>
 <span class="co">#&gt; $clients</span>
-<span class="co">#&gt; # A tibble: 200 x 14</span>
-<span class="co">#&gt;    num_client first last  job     age region id_dpt departement cb_provider</span>
-<span class="co">#&gt;  * &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;       &lt;chr&gt;      </span>
-<span class="co">#&gt;  1 1          Solo… Hean… Civi…    53 Midi-… 82     &lt;NA&gt;        Diners Clu…</span>
-<span class="co">#&gt;  2 2          Karma Will… Scie…    81 Midi-… 81     Tarn        VISA 13 di…</span>
-<span class="co">#&gt;  3 3          Press Kulas Anim…    NA Haute… 27     Eure        &lt;NA&gt;       </span>
-<span class="co">#&gt;  4 4          Laken McDe… &lt;NA&gt;     NA Breta… 29     Finistère   &lt;NA&gt;       </span>
-<span class="co">#&gt;  5 5          Sydn… Jask… Hort…    30 Centre 37     Indre-et-L… &lt;NA&gt;       </span>
-<span class="co">#&gt;  6 6          Clay… Runo… Comm…    NA Rhône… 42     Loire       Diners Clu…</span>
-<span class="co">#&gt;  7 7          Robe… Purd… Fina…    60 Prove… 04     Alpes-de-H… &lt;NA&gt;       </span>
-<span class="co">#&gt;  8 8          Dr.   Rona… Astr…    30 &lt;NA&gt;   24     Dordogne    &lt;NA&gt;       </span>
-<span class="co">#&gt;  9 9          Miss  Alon… Occu…    18 Langu… 30     Gard        Diners Clu…</span>
-<span class="co">#&gt; 10 10         Vern… Ondr… Clin…    19 &lt;NA&gt;   01     Ain         &lt;NA&gt;       </span>
+<span class="co">#&gt; # A tibble: 200 × 14</span>
+<span class="co">#&gt;    num_client first   last   job      age region  id_dpt departement cb_provider</span>
+<span class="co">#&gt;  * &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;       &lt;chr&gt;      </span>
+<span class="co">#&gt;  1 1          Solomon Heaney Civil…    53 Rhône-… 73     Savoie      Diners Clu…</span>
+<span class="co">#&gt;  2 2          Karma   Willi… Scien…    81 Centre  41     Loir-et-Ch… VISA 13 di…</span>
+<span class="co">#&gt;  3 3          Press   Kulas  Anima…    NA &lt;NA&gt;    01     Ain         &lt;NA&gt;       </span>
+<span class="co">#&gt;  4 4          Laken   McDer… &lt;NA&gt;      NA Centre  18     Cher        &lt;NA&gt;       </span>
+<span class="co">#&gt;  5 5          Sydnie  Jasko… Horti…    30 Basse-… 50     &lt;NA&gt;        &lt;NA&gt;       </span>
+<span class="co">#&gt;  6 6          Clayton Runol… Commi…    NA Bretag… 56     Morbihan    Diners Clu…</span>
+<span class="co">#&gt;  7 7          Roberta Purdy… Finan…    60 &lt;NA&gt;    69     Rhône       &lt;NA&gt;       </span>
+<span class="co">#&gt;  8 8          Dr.     Ronal… Astro…    30 Langue… 48     Lozère      &lt;NA&gt;       </span>
+<span class="co">#&gt;  9 9          Miss    Alond… Occup…    18 Franch… 25     Doubs       Diners Clu…</span>
+<span class="co">#&gt; 10 10         Vernice Ondri… Clini…    19 Bourgo… 58     Nièvre      &lt;NA&gt;       </span>
 <span class="co">#&gt; # … with 190 more rows, and 5 more variables: name &lt;chr&gt;, entry_date &lt;dttm&gt;,</span>
 <span class="co">#&gt; #   fidelity_points &lt;dbl&gt;, priority_encoded &lt;dbl&gt;, priority &lt;fct&gt;</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $tickets</span>
-<span class="co">#&gt; # A tibble: 100 x 10</span>
-<span class="co">#&gt;    ref   num_client  year month   day timestamp  supported type  state</span>
-<span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;date&gt;     &lt;chr&gt;     &lt;chr&gt; &lt;fct&gt;</span>
-<span class="co">#&gt;  1 DOSS… 1           2014     4     1 2014-04-01 Non       Inst… Term…</span>
-<span class="co">#&gt;  2 DOSS… 22          2018     1    21 2018-01-21 Non       Inst… Atte…</span>
-<span class="co">#&gt;  3 DOSS… 9           2018     2    25 2018-02-25 Non       Inst… Term…</span>
-<span class="co">#&gt;  4 DOSS… 8           2018     3    11 2018-03-11 Non       Box   Atte…</span>
-<span class="co">#&gt;  5 DOSS… 30          2018     3    29 2018-03-29 Oui       Inst… Inte…</span>
-<span class="co">#&gt;  6 DOSS… 10          2018     4    10 2018-04-10 Oui       Inst… Atte…</span>
-<span class="co">#&gt;  7 DOSS… 37          2018     5     8 2018-05-08 Non       Ligne Atte…</span>
-<span class="co">#&gt;  8 DOSS… 37          2018     6    28 2018-06-28 Non       Box   Atte…</span>
-<span class="co">#&gt;  9 DOSS… 24          2018     7     5 2018-07-05 Non       &lt;NA&gt;  En c…</span>
-<span class="co">#&gt; 10 DOSS… 12          2018     7    22 2018-07-22 Non       Inst… Atte…</span>
+<span class="co">#&gt; # A tibble: 100 × 10</span>
+<span class="co">#&gt;    ref            num_client  year month   day timestamp  supported type   state</span>
+<span class="co">#&gt;    &lt;chr&gt;          &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;date&gt;     &lt;chr&gt;     &lt;chr&gt;  &lt;fct&gt;</span>
+<span class="co">#&gt;  1 DOSS-GFEL-0028 1           2015    11    27 2015-11-27 Non       Insta… Term…</span>
+<span class="co">#&gt;  2 DOSS-UWYV-0016 22          2019     9    18 2019-09-18 Non       Insta… Atte…</span>
+<span class="co">#&gt;  3 DOSS-DKFC-0073 9           2019    10    23 2019-10-23 Non       Insta… Term…</span>
+<span class="co">#&gt;  4 DOSS-SAYJ-0047 8           2019    11     7 2019-11-07 Non       Box    Atte…</span>
+<span class="co">#&gt;  5 DOSS-GSMZ-0080 30          2019    11    24 2019-11-24 Oui       Insta… Inte…</span>
+<span class="co">#&gt;  6 DOSS-UIOZ-0085 10          2019    12     6 2019-12-06 Oui       Insta… Atte…</span>
+<span class="co">#&gt;  7 DOSS-DSMI-0065 37          2020     1     3 2020-01-03 Non       Ligne  Atte…</span>
+<span class="co">#&gt;  8 DOSS-JOYV-0029 37          2020     2    23 2020-02-23 Non       Box    Atte…</span>
+<span class="co">#&gt;  9 DOSS-WPSG-0013 24          2020     3     1 2020-03-01 Non       &lt;NA&gt;   En c…</span>
+<span class="co">#&gt; 10 DOSS-NHFG-0036 12          2020     3    18 2020-03-18 Non       Insta… Atte…</span>
 <span class="co">#&gt; # … with 90 more rows, and 1 more variable: source_call &lt;fct&gt;</span>
-<span class="fu">ggplot</span>(<span class="no">tickets_db</span>$<span class="no">clients</span>) +
-  <span class="fu">aes</span>(<span class="no">entry_date</span>, <span class="no">fidelity_points</span>) +
-  <span class="fu">geom_point</span>() +
-  <span class="fu">geom_smooth</span>()</pre></div>
+<span class="fu">ggplot</span><span class="op">(</span><span class="va">tickets_db</span><span class="op">$</span><span class="va">clients</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">aes</span><span class="op">(</span><span class="va">entry_date</span>, <span class="va">fidelity_points</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_smooth</span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-2-1.png" width="50%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb3"><pre class="r"><span class="fu">ggplot</span>(<span class="no">tickets_db</span>$<span class="no">tickets</span>) + <span class="fu">aes</span>(<span class="no">type</span>) + <span class="fu">geom_bar</span>()</pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">tickets_db</span><span class="op">$</span><span class="va">tickets</span><span class="op">)</span> <span class="op">+</span> <span class="fu">aes</span><span class="op">(</span><span class="va">type</span><span class="op">)</span> <span class="op">+</span> <span class="fu">geom_bar</span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-2-2.png" width="50%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb4"><pre class="r"><span class="fu">ggplot</span>(<span class="no">tickets_db</span>$<span class="no">tickets</span>) + <span class="fu">aes</span>(<span class="no">state</span>) + <span class="fu">geom_bar</span>()</pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">tickets_db</span><span class="op">$</span><span class="va">tickets</span><span class="op">)</span> <span class="op">+</span> <span class="fu">aes</span><span class="op">(</span><span class="va">state</span><span class="op">)</span> <span class="op">+</span> <span class="fu">geom_bar</span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-2-3.png" width="50%" style="display: block; margin: auto;"></p>
 <ul>
 <li>Join with internal {sf} spatial dataset</li>
 </ul>
-<!-- end list --><div class="sourceCode" id="cb5"><pre class="r"><span class="no">clients_map</span> <span class="kw">&lt;-</span> <span class="no">tickets_db</span>$<span class="no">clients</span> <span class="kw">%&gt;%</span>
-  <span class="fu">group_by</span>(<span class="no">id_dpt</span>) <span class="kw">%&gt;%</span>
-  <span class="fu">summarise</span>(
-    <span class="kw">number_of_clients</span> <span class="kw">=</span> <span class="fu">n</span>(),
-    <span class="kw">average_fidelity</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span>(<span class="no">fidelity_points</span>, <span class="kw">na.rm</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
-  ) <span class="kw">%&gt;%</span>
-  <span class="fu">full_join</span>(<span class="no">fra_sf</span>, <span class="kw">by</span> <span class="kw">=</span> <span class="st">"id_dpt"</span>) <span class="kw">%&gt;%</span>
-  <span class="fu">st_sf</span>()
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">clients_map</span> <span class="op">&lt;-</span> <span class="va">tickets_db</span><span class="op">$</span><span class="va">clients</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu">group_by</span><span class="op">(</span><span class="va">id_dpt</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu">summarise</span><span class="op">(</span>
+    number_of_clients <span class="op">=</span> <span class="fu">n</span><span class="op">(</span><span class="op">)</span>,
+    average_fidelity <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">fidelity_points</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+  <span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu">full_join</span><span class="op">(</span><span class="va">fra_sf</span>, by <span class="op">=</span> <span class="st">"id_dpt"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu">st_sf</span><span class="op">(</span><span class="op">)</span>
 
-<span class="fu">ggplot</span>(<span class="no">clients_map</span>) +
-  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="kw">fill</span> <span class="kw">=</span> <span class="no">average_fidelity</span>)) +
-  <span class="fu">scale_fill_viridis_c</span>() +
-  <span class="fu">coord_sf</span>(
-    <span class="kw">crs</span> <span class="kw">=</span> <span class="fl">2154</span>,
-    <span class="kw">datum</span> <span class="kw">=</span> <span class="fl">4326</span>
-  )</pre></div>
+<span class="fu">ggplot</span><span class="op">(</span><span class="va">clients_map</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_sf</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>fill <span class="op">=</span> <span class="va">average_fidelity</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">scale_fill_viridis_c</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">coord_sf</span><span class="op">(</span>
+    crs <span class="op">=</span> <span class="fl">2154</span>,
+    datum <span class="op">=</span> <span class="fl">4326</span>
+  <span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-3-1.png" width="50%" style="display: block; margin: auto;"></p>
 </div>
-<div id="fake-products" class="section level3">
-<h3 class="hasAnchor">
-<a href="#fake-products" class="anchor"></a>Fake products</h3>
+<div class="section level3">
+<h3 id="fake-products">Fake products<a class="anchor" aria-label="anchor" href="#fake-products"></a>
+</h3>
 <ul>
 <li>Create a fake dataset of connected wearables</li>
 </ul>
-<!-- end list --><div class="sourceCode" id="cb6"><pre class="r"><span class="fu"><a href="reference/fake_products.html">fake_products</a></span>(<span class="fl">10</span>)
-<span class="co">#&gt; # A tibble: 10 x 8</span>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/fake_products.html">fake_products</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span>
+<span class="co">#&gt; # A tibble: 10 × 8</span>
 <span class="co">#&gt;    name          brand     color   price body_location category  sent_from    id</span>
 <span class="co">#&gt;    &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;   &lt;int&gt; &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;     &lt;int&gt;</span>
 <span class="co">#&gt;  1 Step and Dis… Larkin, … Pink        3 Waist         Industri… Taiwan        1</span>
@@ -253,13 +266,14 @@ Supported languages are, for now, French and US English.</p>
 <span class="co">#&gt;  7 Action Camer… Mann and… Maroon      5 Feet          Entertai… Finland       7</span>
 <span class="co">#&gt;  8 Microcontrol… Moen, Mo… Pink        3 Neck          Fitness   Finland       8</span>
 <span class="co">#&gt;  9 Microcontrol… Moen, Mo… Plum        5 Arms          Awesome   France        9</span>
-<span class="co">#&gt; 10 Wearable AUS… Moen, Mo… DarkRed     9 Torso         Medical   Italy        10</span></pre></div>
+<span class="co">#&gt; 10 Wearable AUS… Moen, Mo… DarkRed     9 Torso         Medical   Italy        10</span></code></pre></div>
 </div>
-<div id="fake-website-visits" class="section level3">
-<h3 class="hasAnchor">
-<a href="#fake-website-visits" class="anchor"></a>Fake website visits</h3>
-<div class="sourceCode" id="cb7"><pre class="r"><span class="fu"><a href="reference/fake_visits.html">fake_visits</a></span>(<span class="kw">from</span> <span class="kw">=</span> <span class="st">"2017-01-01"</span>, <span class="kw">to</span> <span class="kw">=</span> <span class="st">"2017-01-31"</span>)
-<span class="co">#&gt; # A tibble: 31 x 8</span>
+<div class="section level3">
+<h3 id="fake-website-visits">Fake website visits<a class="anchor" aria-label="anchor" href="#fake-website-visits"></a>
+</h3>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/fake_visits.html">fake_visits</a></span><span class="op">(</span>from <span class="op">=</span> <span class="st">"2017-01-01"</span>, to <span class="op">=</span> <span class="st">"2017-01-31"</span><span class="op">)</span>
+<span class="co">#&gt; # A tibble: 31 × 8</span>
 <span class="co">#&gt;    timestamp   year month   day  home about  blog contact</span>
 <span class="co">#&gt;  * &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;   &lt;int&gt;</span>
 <span class="co">#&gt;  1 2017-01-01  2017     1     1   369   220   404     210</span>
@@ -272,53 +286,55 @@ Supported languages are, for now, French and US English.</p>
 <span class="co">#&gt;  8 2017-01-08  2017     1     8   461   103   441      NA</span>
 <span class="co">#&gt;  9 2017-01-09  2017     1     9   337   113   673     379</span>
 <span class="co">#&gt; 10 2017-01-10  2017     1    10    NA   169   308     139</span>
-<span class="co">#&gt; # … with 21 more rows</span></pre></div>
+<span class="co">#&gt; # … with 21 more rows</span></code></pre></div>
 </div>
-<div id="fake-questionnaire-on-mean-of-transport-goal" class="section level3">
-<h3 class="hasAnchor">
-<a href="#fake-questionnaire-on-mean-of-transport-goal" class="anchor"></a>Fake questionnaire on mean of transport / goal</h3>
+<div class="section level3">
+<h3 id="fake-questionnaire-on-mean-of-transport--goal">Fake questionnaire on mean of transport / goal<a class="anchor" aria-label="anchor" href="#fake-questionnaire-on-mean-of-transport--goal"></a>
+</h3>
 <ul>
 <li>All answers</li>
 </ul>
-<!-- end list --><div class="sourceCode" id="cb8"><pre class="r"><span class="fu"><a href="reference/fake_sondage_answers.html">fake_sondage_answers</a></span>(<span class="kw">n</span> <span class="kw">=</span> <span class="fl">10</span>)
-<span class="co">#&gt; # A tibble: 30 x 12</span>
-<span class="co">#&gt;    id_individu   age sexe  region id_departement nom_departement</span>
-<span class="co">#&gt;    &lt;chr&gt;       &lt;int&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;          &lt;chr&gt;          </span>
-<span class="co">#&gt;  1 ID-NYDZ-010    NA &lt;NA&gt;  &lt;NA&gt;   36             Indre          </span>
-<span class="co">#&gt;  2 ID-NYDZ-010    NA &lt;NA&gt;  &lt;NA&gt;   36             Indre          </span>
-<span class="co">#&gt;  3 ID-NYDZ-010    NA &lt;NA&gt;  &lt;NA&gt;   36             Indre          </span>
-<span class="co">#&gt;  4 ID-PWLB-009    71 F     Rhône… 26             Drôme          </span>
-<span class="co">#&gt;  5 ID-PWLB-009    71 F     Rhône… 26             Drôme          </span>
-<span class="co">#&gt;  6 ID-PWLB-009    71 F     Rhône… 26             Drôme          </span>
-<span class="co">#&gt;  7 ID-NMQG-001    42 M     Rhône… 74             Haute-Savoie   </span>
-<span class="co">#&gt;  8 ID-NMQG-001    42 M     Rhône… 74             Haute-Savoie   </span>
-<span class="co">#&gt;  9 ID-NMQG-001    42 M     Rhône… 74             Haute-Savoie   </span>
-<span class="co">#&gt; 10 ID-RJXN-002    71 O     Picar… 80             &lt;NA&gt;           </span>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/fake_sondage_answers.html">fake_sondage_answers</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>
+<span class="co">#&gt; # A tibble: 30 × 12</span>
+<span class="co">#&gt;    id_individu   age sexe  region           id_departement nom_departement</span>
+<span class="co">#&gt;    &lt;chr&gt;       &lt;int&gt; &lt;chr&gt; &lt;chr&gt;            &lt;chr&gt;          &lt;chr&gt;          </span>
+<span class="co">#&gt;  1 ID-NYDZ-010    NA &lt;NA&gt;  Corse            2A             Corse-du-Sud   </span>
+<span class="co">#&gt;  2 ID-NYDZ-010    NA &lt;NA&gt;  Corse            2A             Corse-du-Sud   </span>
+<span class="co">#&gt;  3 ID-NYDZ-010    NA &lt;NA&gt;  Corse            2A             Corse-du-Sud   </span>
+<span class="co">#&gt;  4 ID-PWLB-009    71 F     Basse-Normandie  14             Calvados       </span>
+<span class="co">#&gt;  5 ID-PWLB-009    71 F     Basse-Normandie  14             Calvados       </span>
+<span class="co">#&gt;  6 ID-PWLB-009    71 F     Basse-Normandie  14             Calvados       </span>
+<span class="co">#&gt;  7 ID-NMQG-001    42 M     Poitou-Charentes 86             &lt;NA&gt;           </span>
+<span class="co">#&gt;  8 ID-NMQG-001    42 M     Poitou-Charentes 86             &lt;NA&gt;           </span>
+<span class="co">#&gt;  9 ID-NMQG-001    42 M     Poitou-Charentes 86             &lt;NA&gt;           </span>
+<span class="co">#&gt; 10 ID-RJXN-002    71 O     Auvergne         15             Cantal         </span>
 <span class="co">#&gt; # … with 20 more rows, and 6 more variables: question_date &lt;dttm&gt;, year &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   type &lt;chr&gt;, distance_km &lt;dbl&gt;, transport &lt;fct&gt;,</span>
-<span class="co">#&gt; #   temps_trajet_en_heures &lt;dbl&gt;</span></pre></div>
+<span class="co">#&gt; #   temps_trajet_en_heures &lt;dbl&gt;</span></code></pre></div>
 <ul>
 <li>Separate individuals and their answers</li>
 </ul>
-<!-- end list --><div class="sourceCode" id="cb9"><pre class="r"><span class="fu"><a href="reference/fake_sondage_answers.html">fake_sondage_answers</a></span>(<span class="kw">n</span> <span class="kw">=</span> <span class="fl">10</span>, <span class="kw">split</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/fake_sondage_answers.html">fake_sondage_answers</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">10</span>, split <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co">#&gt; $individus</span>
-<span class="co">#&gt; # A tibble: 10 x 8</span>
-<span class="co">#&gt;    id_individu   age sexe  region id_departement nom_departement</span>
-<span class="co">#&gt;    &lt;chr&gt;       &lt;int&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;          &lt;chr&gt;          </span>
-<span class="co">#&gt;  1 ID-NYDZ-010    NA &lt;NA&gt;  Haute… 76             Seine-Maritime </span>
-<span class="co">#&gt;  2 ID-PWLB-009    71 F     Prove… 84             &lt;NA&gt;           </span>
-<span class="co">#&gt;  3 ID-NMQG-001    42 M     Breta… 29             Finistère      </span>
-<span class="co">#&gt;  4 ID-RJXN-002    71 O     Aquit… 33             Gironde        </span>
-<span class="co">#&gt;  5 ID-MROK-007    41 M     Breta… 35             Ille-et-Vilaine</span>
-<span class="co">#&gt;  6 ID-VMKS-004    33 O     Rhône… 26             Drôme          </span>
-<span class="co">#&gt;  7 ID-XEMZ-003    81 O     Midi-… 82             Tarn-et-Garonne</span>
-<span class="co">#&gt;  8 ID-EUDQ-005    44 M     Prove… 84             Vaucluse       </span>
-<span class="co">#&gt;  9 ID-DCIZ-008    92 O     Centre 18             Cher           </span>
-<span class="co">#&gt; 10 ID-KPUS-006    57 O     &lt;NA&gt;   67             Bas-Rhin       </span>
+<span class="co">#&gt; # A tibble: 10 × 8</span>
+<span class="co">#&gt;    id_individu   age sexe  region               id_departement nom_departement</span>
+<span class="co">#&gt;    &lt;chr&gt;       &lt;int&gt; &lt;chr&gt; &lt;chr&gt;                &lt;chr&gt;          &lt;chr&gt;          </span>
+<span class="co">#&gt;  1 ID-NYDZ-010    NA &lt;NA&gt;  Pays de la Loire     49             Maine-et-Loire </span>
+<span class="co">#&gt;  2 ID-PWLB-009    71 F     Basse-Normandie      14             Calvados       </span>
+<span class="co">#&gt;  3 ID-NMQG-001    42 M     Bourgogne            58             Nièvre         </span>
+<span class="co">#&gt;  4 ID-RJXN-002    71 O     Centre               41             Loir-et-Cher   </span>
+<span class="co">#&gt;  5 ID-MROK-007    41 M     Languedoc-Roussillon 48             Lozère         </span>
+<span class="co">#&gt;  6 ID-VMKS-004    33 O     Poitou-Charentes     86             Vienne         </span>
+<span class="co">#&gt;  7 ID-XEMZ-003    81 O     &lt;NA&gt;                 77             Seine-et-Marne </span>
+<span class="co">#&gt;  8 ID-EUDQ-005    44 M     Champagne-Ardenne    51             &lt;NA&gt;           </span>
+<span class="co">#&gt;  9 ID-DCIZ-008    92 O     Picardie             60             Oise           </span>
+<span class="co">#&gt; 10 ID-KPUS-006    57 O     Picardie             60             Oise           </span>
 <span class="co">#&gt; # … with 2 more variables: question_date &lt;dttm&gt;, year &lt;dbl&gt;</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $answers</span>
-<span class="co">#&gt; # A tibble: 30 x 5</span>
+<span class="co">#&gt; # A tibble: 30 × 5</span>
 <span class="co">#&gt;    id_individu type      distance_km transport temps_trajet_en_heures</span>
 <span class="co">#&gt;    &lt;chr&gt;       &lt;chr&gt;           &lt;dbl&gt; &lt;fct&gt;                      &lt;dbl&gt;</span>
 <span class="co">#&gt;  1 ID-NYDZ-010 travail         12.2  voiture                     0.15</span>
@@ -331,65 +347,66 @@ Supported languages are, for now, French and US English.</p>
 <span class="co">#&gt;  8 ID-NMQG-001 commerces       14.9  voiture                     0.18</span>
 <span class="co">#&gt;  9 ID-NMQG-001 loisirs        446.   train                       0.89</span>
 <span class="co">#&gt; 10 ID-RJXN-002 travail          6.18 mobylette                   0.75</span>
-<span class="co">#&gt; # … with 20 more rows</span></pre></div>
+<span class="co">#&gt; # … with 20 more rows</span></code></pre></div>
 </div>
-<div id="fake-transport-use" class="section level3">
-<h3 class="hasAnchor">
-<a href="#fake-transport-use" class="anchor"></a>fake transport use</h3>
-<div class="sourceCode" id="cb10"><pre class="r"><span class="no">answers</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/fake_sondage_answers.html">fake_sondage_answers</a></span>(<span class="kw">n</span> <span class="kw">=</span> <span class="fl">30</span>)
-<span class="no">answers</span>
-<span class="co">#&gt; # A tibble: 90 x 12</span>
-<span class="co">#&gt;    id_individu   age sexe  region id_departement nom_departement</span>
-<span class="co">#&gt;    &lt;chr&gt;       &lt;int&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;          &lt;chr&gt;          </span>
-<span class="co">#&gt;  1 ID-MROK-007    NA M     &lt;NA&gt;   87             Haute-Vienne   </span>
-<span class="co">#&gt;  2 ID-MROK-007    NA M     &lt;NA&gt;   87             Haute-Vienne   </span>
-<span class="co">#&gt;  3 ID-MROK-007    NA M     &lt;NA&gt;   87             Haute-Vienne   </span>
-<span class="co">#&gt;  4 ID-NYDZ-010    49 M     &lt;NA&gt;   23             Creuse         </span>
-<span class="co">#&gt;  5 ID-NYDZ-010    49 M     &lt;NA&gt;   23             Creuse         </span>
-<span class="co">#&gt;  6 ID-NYDZ-010    49 M     &lt;NA&gt;   23             Creuse         </span>
-<span class="co">#&gt;  7 ID-HXOG-015    50 M     Île-d… 95             Val-d'Oise     </span>
-<span class="co">#&gt;  8 ID-HXOG-015    50 M     Île-d… 95             Val-d'Oise     </span>
-<span class="co">#&gt;  9 ID-HXOG-015    50 M     Île-d… 95             Val-d'Oise     </span>
-<span class="co">#&gt; 10 ID-MZNB-024    70 F     Franc… 90             Territoire de …</span>
+<div class="section level3">
+<h3 id="fake-transport-use">fake transport use<a class="anchor" aria-label="anchor" href="#fake-transport-use"></a>
+</h3>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">answers</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/fake_sondage_answers.html">fake_sondage_answers</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">30</span><span class="op">)</span>
+<span class="va">answers</span>
+<span class="co">#&gt; # A tibble: 90 × 12</span>
+<span class="co">#&gt;    id_individu   age sexe  region      id_departement nom_departement</span>
+<span class="co">#&gt;    &lt;chr&gt;       &lt;int&gt; &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;          &lt;chr&gt;          </span>
+<span class="co">#&gt;  1 ID-MROK-007    NA M     &lt;NA&gt;        16             &lt;NA&gt;           </span>
+<span class="co">#&gt;  2 ID-MROK-007    NA M     &lt;NA&gt;        16             &lt;NA&gt;           </span>
+<span class="co">#&gt;  3 ID-MROK-007    NA M     &lt;NA&gt;        16             &lt;NA&gt;           </span>
+<span class="co">#&gt;  4 ID-NYDZ-010    49 M     Rhône-Alpes 07             Ardèche        </span>
+<span class="co">#&gt;  5 ID-NYDZ-010    49 M     Rhône-Alpes 07             Ardèche        </span>
+<span class="co">#&gt;  6 ID-NYDZ-010    49 M     Rhône-Alpes 07             Ardèche        </span>
+<span class="co">#&gt;  7 ID-HXOG-015    50 M     &lt;NA&gt;        39             Jura           </span>
+<span class="co">#&gt;  8 ID-HXOG-015    50 M     &lt;NA&gt;        39             Jura           </span>
+<span class="co">#&gt;  9 ID-HXOG-015    50 M     &lt;NA&gt;        39             Jura           </span>
+<span class="co">#&gt; 10 ID-MZNB-024    70 F     &lt;NA&gt;        51             Marne          </span>
 <span class="co">#&gt; # … with 80 more rows, and 6 more variables: question_date &lt;dttm&gt;, year &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   type &lt;chr&gt;, distance_km &lt;dbl&gt;, transport &lt;fct&gt;,</span>
 <span class="co">#&gt; #   temps_trajet_en_heures &lt;dbl&gt;</span>
 
-<span class="fu">ggplot</span>(<span class="no">answers</span>) + <span class="fu">aes</span>(<span class="no">age</span>, <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span>(<span class="no">distance_km</span>), <span class="kw">colour</span> <span class="kw">=</span> <span class="no">type</span>) + <span class="fu">geom_point</span>() +
-  <span class="fu">geom_smooth</span>() + <span class="fu">facet_wrap</span>(~<span class="no">type</span>, <span class="kw">scales</span> <span class="kw">=</span> <span class="st">"free_y"</span>)
+<span class="fu">ggplot</span><span class="op">(</span><span class="va">answers</span><span class="op">)</span> <span class="op">+</span> <span class="fu">aes</span><span class="op">(</span><span class="va">age</span>, <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">distance_km</span><span class="op">)</span>, colour <span class="op">=</span> <span class="va">type</span><span class="op">)</span> <span class="op">+</span> <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_smooth</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu">facet_wrap</span><span class="op">(</span><span class="op">~</span><span class="va">type</span>, scales <span class="op">=</span> <span class="st">"free_y"</span><span class="op">)</span>
 <span class="co">#&gt; Warning: Removed 6 rows containing non-finite values (stat_smooth).</span>
-<span class="co">#&gt; Warning: Removed 6 rows containing missing values (geom_point).</span></pre></div>
+<span class="co">#&gt; Warning: Removed 6 rows containing missing values (geom_point).</span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-8-1.png" width="50%" style="display: block; margin: auto;"></p>
 </div>
 </div>
-<div id="prior-work" class="section level2">
-<h2 class="hasAnchor">
-<a href="#prior-work" class="anchor"></a>Prior work</h2>
-<p>This package is heavily inspired by <a href="https://github.com/ropensci/charlatan">{charlatan}</a>.</p>
-<p>Scott Chamberlain (2017). charlatan: Make Fake Data. R package version 0.1.0. <a href="https://CRAN.R-project.org/package=charlatan" class="uri">https://CRAN.R-project.org/package=charlatan</a></p>
+<div class="section level2">
+<h2 id="prior-work">Prior work<a class="anchor" aria-label="anchor" href="#prior-work"></a>
+</h2>
+<p>This package is heavily inspired by <a href="https://github.com/ropensci/charlatan" class="external-link">{charlatan}</a>.</p>
+<p>Scott Chamberlain (2017). charlatan: Make Fake Data. R package version 0.1.0. <a href="https://CRAN.R-project.org/package=charlatan" class="external-link uri">https://CRAN.R-project.org/package=charlatan</a></p>
 </div>
-<div id="contribute" class="section level2">
-<h2 class="hasAnchor">
-<a href="#contribute" class="anchor"></a>Contribute</h2>
+<div class="section level2">
+<h2 id="contribute">Contribute<a class="anchor" aria-label="anchor" href="#contribute"></a>
+</h2>
 <p>You can contribute to {fakir} in two ways:</p>
-<div id="translate" class="section level3">
-<h3 class="hasAnchor">
-<a href="#translate" class="anchor"></a>Translate</h3>
+<div class="section level3">
+<h3 id="translate">Translate<a class="anchor" aria-label="anchor" href="#translate"></a>
+</h3>
 <p>You can translate to other locales by providing :</p>
 <ul>
 <li>new <code>vec</code> in “R/utils”</li>
 <li>new <code>local</code> in “R/fake_client” and “R/fake_transport”</li>
 </ul>
 </div>
-<div id="new-dataset" class="section level3">
-<h3 class="hasAnchor">
-<a href="#new-dataset" class="anchor"></a>New dataset</h3>
+<div class="section level3">
+<h3 id="new-dataset">New dataset<a class="anchor" aria-label="anchor" href="#new-dataset"></a>
+</h3>
 <p>Feel free to create new datasets generators.</p>
 </div>
 </div>
-<div id="coc" class="section level2">
-<h2 class="hasAnchor">
-<a href="#coc" class="anchor"></a>COC</h2>
+<div class="section level2">
+<h2 id="coc">COC<a class="anchor" aria-label="anchor" href="#coc"></a>
+</h2>
 <p>Please note that this project is released with a <a href="CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By participating in this project you agree to abide by its terms.</p>
 </div>
 </div>
@@ -397,57 +414,66 @@ Supported languages are, for now, French and US English.</p>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Browse source code at <br><a href="https://github.com/Thinkr-open/fakir/">https://​github.com/​Thinkr-open/​fakir/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/Thinkr-open/fakir/issues">https://​github.com/​Thinkr-open/​fakir/​issues</a>
-</li>
+<li><a href="https://github.com/Thinkr-open/fakir/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/Thinkr-open/fakir/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
-<li><small><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
+<li><small><a href="https://opensource.org/licenses/mit-license.php" class="external-link">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
 </ul>
 </div>
+
 <div class="community">
-<h2>Community</h2>
+<h2 data-toc-skip>Community</h2>
 <ul class="list-unstyled">
 <li><a href="CODE_OF_CONDUCT.html">Code of conduct</a></li>
 </ul>
 </div>
-<div class="developers">
-<h2>Developers</h2>
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
 <ul class="list-unstyled">
-<li>Colin Fay <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0001-7343-1846" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>Sebastien Rochette <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-1565-9313" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li><a href="authors.html">All authors...</a></li>
+<li><a href="authors.html#citation">Citing fakir</a></li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li><a href="http://www.repostatus.org/#wip"><img src="http://www.repostatus.org/badges/latest/wip.svg" alt="Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public."></a></li>
-<li><a href="https://travis-ci.org/ThinkR-open/fakir"><img src="https://travis-ci.org/ThinkR-open/fakir.svg?branch=master" alt="Travis build status"></a></li>
-<li><a href="https://ci.appveyor.com/project/ThinkR-open/fakir"><img src="https://ci.appveyor.com/api/projects/status/github/ThinkR-open/fakir?branch=master&amp;svg=true" alt="AppVeyor build status"></a></li>
-<li><a href="https://codecov.io/gh/ThinkR-open/fakir?branch=master"><img src="https://codecov.io/gh/ThinkR-open/fakir/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li>Colin Fay <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0001-7343-1846" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Sebastien Rochette <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-1565-9313" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li><a href="authors.html">More about authors...</a></li>
 </ul>
 </div>
+
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="http://www.repostatus.org/#wip" class="external-link"><img src="http://www.repostatus.org/badges/latest/wip.svg" alt="Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public."></a></li>
+<li><a href="https://github.com/ThinkR-open/fakir/actions" class="external-link"><img src="https://github.com/ThinkR-open/fakir/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://codecov.io/gh/ThinkR-open/fakir?branch=master" class="external-link"><img src="https://codecov.io/gh/ThinkR-open/fakir/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
+</ul>
 </div>
+
+  </div>
 </div>
 
 
       <footer><div class="thinkr">
-  <p>fakir is a  <strong>ThinkR</strong> package. Learn more at <a href="https://rtask.thinkr.fr">rtask.thinkr.fr</a>.</p>
+  <p></p>
+<p>Developed by Colin Fay, Sebastien Rochette.</p>,<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
 <div class="author">
   <p>
-    Developed by Colin Fay, Sebastien Rochette.
-    Site built by <a href="https://pkgdown.r-lib.org">pkgdown</a>.
+    Developed by .
+    Site built by <a href="https://pkgdown.r-lib.org" class="external-link">pkgdown</a>.
   </p>
 </div>
 
@@ -456,6 +482,8 @@ Supported languages are, for now, French and US English.</p>
 
   
 
+
+  
 
   </body>
 </html>
