@@ -61,12 +61,14 @@ Supported languages are, for now, French and US English.
 ### Fake support ticket base : 
 
 - All tickets
+
 ```{r}
 library(fakir)
 fake_ticket_client(vol = 10)
 ```
 
 - Separate tickets and client databases
+
 ```{r}
 tickets_db <- fake_ticket_client(vol = 100, split = TRUE)
 tickets_db
@@ -79,6 +81,7 @@ ggplot(tickets_db$tickets) + aes(state) + geom_bar()
 ```
 
 - Join with internal {sf} spatial dataset
+
 ```{r}
 clients_map <- tickets_db$clients %>% 
   group_by(id_dpt) %>% 
@@ -98,6 +101,13 @@ ggplot(clients_map) +
   )
 ```
 
+### Fake products
+
+- Create a fake dataset of connected wearables
+
+```{r}
+fake_products(10)
+```
 
 
 ### Fake website visits
