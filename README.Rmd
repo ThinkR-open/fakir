@@ -22,8 +22,7 @@ library(sf)
 
 <!-- badges: start -->
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](http://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip)
-[![Travis build status](https://travis-ci.org/ThinkR-open/fakir.svg?branch=master)](https://travis-ci.org/ThinkR-open/fakir)
-[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/ThinkR-open/fakir?branch=master&svg=true)](https://ci.appveyor.com/project/ThinkR-open/fakir)
+[![R-CMD-check](https://github.com/ThinkR-open/fakir/workflows/R-CMD-check/badge.svg)](https://github.com/ThinkR-open/fakir/actions)
 [![Codecov test coverage](https://codecov.io/gh/ThinkR-open/fakir/branch/master/graph/badge.svg)](https://codecov.io/gh/ThinkR-open/fakir?branch=master)
 <!-- badges: end -->
 
@@ -32,6 +31,19 @@ The goal of {fakir} is to provide fake datasets that can be used to teach R.
 The full documentation is in this {pkgdown} site: <https://thinkr-open.github.io/fakir/>
 
 - Video presentation of {fakir} by [Abdul Majed](https://twitter.com/1littlecoder): https://www.youtube.com/watch?v=EhhljL5zaWs
+
+## Installation
+
+```r
+# From r-universe.dev (No need for GITHUB_PAT)
+install.packages("fakir", 
+                 repos = c("thinkropen" = "https://thinkr-open.r-universe.dev"))
+
+# With {remotes} using GitHub API
+# install.packages("remotes")
+remotes::install_github("ThinkR-open/fakir")
+```
+
 
 ## Characteristics
 

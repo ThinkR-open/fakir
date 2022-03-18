@@ -12,3 +12,4 @@
 ^pkgdown$
 ^appveyor\.yml$
 ^img$
+^\.github$
