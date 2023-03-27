@@ -11,19 +11,18 @@
 #'
 #' @examples
 #' fake_visits()
-
 fake_visits <- function(
-  from = "2017-01-01",
-  to = "2017-12-31",
-  local = c("en_US", "fr_FR"),
-  seed = 2811
-){
-
+    from = "2017-01-01",
+    to = "2017-12-31",
+    local = c("en_US", "fr_FR"),
+    seed = 2811) {
   from <- attempt(ymd(from), "Please provide a YMD date format", silent = TRUE)
   to <- attempt(ymd(to), "Please provide a YMD date format", silent = TRUE)
 
-  stop_if_any(list(from, to), ~ inherits(.x, "try-error"),
-              "Please provide a date format")
+  stop_if_any(
+    list(from, to), ~ inherits(.x, "try-error"),
+    "Please provide a date format"
+  )
 
   stop_if(from > to, msg = "`from` should be before `to`")
 
@@ -37,17 +36,16 @@ fake_visits <- function(
       res <- data.frame(
         timestamp = dates
       )
-      res$year = year(res$timestamp)
-      res$month = month(res$timestamp)
-      res$day = day(res$timestamp)
-      res$home = with_random_na(sample(100:500, vol, replace = TRUE))
-      res$about = with_random_na(sample(50:300, vol, replace = TRUE))
-      res$blog = with_random_na(sample(300:700, vol, replace = TRUE))
-      res$contact = with_random_na(sample(50:500, vol, replace = TRUE))
+      res$year <- year(res$timestamp)
+      res$month <- month(res$timestamp)
+      res$day <- day(res$timestamp)
+      res$home <- with_random_na(sample(100:500, vol, replace = TRUE))
+      res$about <- with_random_na(sample(50:300, vol, replace = TRUE))
+      res$blog <- with_random_na(sample(300:700, vol, replace = TRUE))
+      res$contact <- with_random_na(sample(50:500, vol, replace = TRUE))
     }
-
   )
-  if (local == "fr_FR"){
+  if (local == "fr_FR") {
     res <- data.frame(
       dates = res$timestamp,
       an = res$year,

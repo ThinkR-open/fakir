@@ -47,21 +47,21 @@ ggplot(tickets_db$clients) +
 ggplot(tickets_db$tickets) +
   aes(x = type) +
   geom_bar()
-ggplot(tickets_db$tickets) + 
-  aes(x = state) + 
+ggplot(tickets_db$tickets) +
+  aes(x = state) +
   geom_bar()
 ```
 
 - Join with internal {sf} spatial dataset `fra_sf`. _{sf} package must be loaded._
 
 ```{r}
-clients_map <- tickets_db$clients %>% 
-  group_by(id_dpt) %>% 
+clients_map <- tickets_db$clients %>%
+  group_by(id_dpt) %>%
   summarise(
     number_of_clients = n(),
     average_fidelity = mean(fidelity_points, na.rm = TRUE)
-  ) %>% 
-  full_join(fra_sf, by = "id_dpt") %>% 
+  ) %>%
+  full_join(fra_sf, by = "id_dpt") %>%
   st_sf()
 
 ggplot(clients_map) +

@@ -14,7 +14,7 @@
 #' @details
 #' \itemize{
 #'   \item id_individu Unique identification of people with "ID-AAAA-1111" pattern
-#'   \item sexe. sex. c("F" = "Female", "M" = "Male", "O" = "Other"). Some are missing 
+#'   \item sexe. sex. c("F" = "Female", "M" = "Male", "O" = "Other"). Some are missing
 #'   \item age age. Some are missing
 #'   \item region. some regions have NA values that may be fill with left_join with fra_sf dataset. Some regions are more represented than others
 #'   \item id_departement. number identifying French department
@@ -38,7 +38,8 @@ fake_sondage_people <- function(n, seed = 2811, local = c("fr_FR")) {
       tibble(
         region = unique(.$region),
         freq = runif(length(unique(.$region)), 0, 100)
-      ), by = "region"
+      ),
+      by = "region"
     ) %>%
     sample_n(n, weight = freq, replace = TRUE) %>%
     select(-freq) %>%
@@ -46,27 +47,30 @@ fake_sondage_people <- function(n, seed = 2811, local = c("fr_FR")) {
       region = with_random_na(region),
       departement = with_random_na(departement)
     )
-  
+
   withr::with_seed(
     seed = seed,
     suppressWarnings(
       tibble(
-        id_individu = paste0("ID-", 
-                             as_vector(rerun(n, sample(LETTERS, 4)) %>% 
-                                         map(paste0, collapse = "")), "-", 
-                             formatC(1:n, width = nchar(n) + 1, flag = "0")),
+        id_individu = paste0(
+          "ID-",
+          as_vector(rerun(n, sample(LETTERS, 4)) %>%
+            map(paste0, collapse = "")), "-",
+          formatC(1:n, width = nchar(n) + 1, flag = "0")
+        ),
         # job = with_random_na(ch_job(n = n, locale = "fr_FR")),
         sexe = with_random_na(sample(c("F", "M", "O"), n, replace = TRUE)),
         age = with_random_na(sample(18:95, n, replace = TRUE)),
         region = reg_dpt$region,
         id_departement = reg_dpt$id_dpt,
         nom_departement = reg_dpt$departement,
-        question_date = Sys.time() - abs(rnorm(n, 0, sd = 2)*365*24*3600),
+        question_date = Sys.time() - abs(rnorm(n, 0, sd = 2) * 365 * 24 * 3600),
         year = year(question_date)
       ) %>%
         arrange(question_date) %>%
         select(id_individu, age, sexe, region, id_departement, nom_departement, everything())
-    ))
+    )
+  )
 }
 
 #' Create fake transport sondage
@@ -76,12 +80,12 @@ fake_sondage_people <- function(n, seed = 2811, local = c("fr_FR")) {
 #' @param seed fixe la graine aleatoire
 #' @param split Logical. Split database in individuals and answers
 #' @param local the local of the base. Currently supported : "fr_FR" and "en_US".
-#' 
+#'
 #' @importFrom withr with_seed
 #' @importFrom dplyr mutate n tibble rename
 #' @importFrom stats rlnorm
 #' @importFrom tidyr unnest
-#' 
+#'
 #' @details
 #' \itemize{
 #'   \item 3 types for each individuals: travail, commerces, loisirs
@@ -89,29 +93,33 @@ fake_sondage_people <- function(n, seed = 2811, local = c("fr_FR")) {
 #'   \item transport. Mean of transport to go to target location. Depends on distance.
 #'   \item time_travel_hours. Average duration (hours) to target location. Depends on distance and transport.
 #' }
-#' 
-#' @examples 
+#'
+#' @examples
 #' answers <- fake_sondage_answers()
 #' \dontrun{
-#' ggplot(answers) + aes(age, log(distance_km), colour = type) + geom_point() +
-#'  geom_smooth() + facet_wrap(~type, scales = "free_y")
+#' ggplot(answers) +
+#'   aes(age, log(distance_km), colour = type) +
+#'   geom_point() +
+#'   geom_smooth() +
+#'   facet_wrap(~type, scales = "free_y")
 #' }
-#' 
+#'
 #' @export
 fake_sondage_answers <- function(n = 200, x, seed = 2811, split = FALSE, local = c("fr_FR")) {
-  
   local <- match.arg(local)
   types <- c("travail" = 5, "commerces" = 20, "loisirs" = 150)
-  
+
   # transports and max dists
-  transports <- c("pied" = 2, "velo" = 5, "mobylette" = 8, 
-                  "bus" = 10, "voiture" = 80, "train" = 500, "avion" = 2000,
-                  "navette_spatiale" = 10000)
-  
+  transports <- c(
+    "pied" = 2, "velo" = 5, "mobylette" = 8,
+    "bus" = 10, "voiture" = 80, "train" = 500, "avion" = 2000,
+    "navette_spatiale" = 10000
+  )
+
   if (missing(x)) {
     x <- fake_sondage_people(n = n, seed = seed, local = local)
   }
-  
+
   with_seed(
     seed = seed,
     res <- suppressWarnings(
@@ -119,28 +127,33 @@ fake_sondage_answers <- function(n = 200, x, seed = 2811, split = FALSE, local =
         mutate(answers = list(
           tibble(
             type = names(types)
-          ))) %>%
-        unnest(answers) %>% 
+          )
+        )) %>%
+        unnest(answers) %>%
         mutate(
-          distance_km = rlnorm(nrow(.), log(types[type]*(1 + (100 - ifelse(is.na(age), 0, age))/100)), 0.6),
+          distance_km = rlnorm(nrow(.), log(types[type] * (1 + (100 - ifelse(is.na(age), 0, age)) / 100)), 0.6),
           transport = cut(distance_km, breaks = c(0, transports), labels = names(transports), include.lowest = TRUE),
           time_travel_hours = round(distance_km / rlnorm(nrow(.), log(transports[transport]), 0.05), digits = 2)
         )
     )
   )
-  
-  if (local == "fr_FR")  {
-    res <- res %>% 
+
+  if (local == "fr_FR") {
+    res <- res %>%
       rename(temps_trajet_en_heures = time_travel_hours)
   }
-  
-  if (!split) {return(res)
-  } else if (local == "fr_FR")  {
-    list(individus = x,
-         answers = res %>% select(id_individu, type, distance_km, transport, temps_trajet_en_heures))
+
+  if (!split) {
+    return(res)
+  } else if (local == "fr_FR") {
+    list(
+      individus = x,
+      answers = res %>% select(id_individu, type, distance_km, transport, temps_trajet_en_heures)
+    )
   } else {
-    list(individuals = x,
-         answers = res %>% select(id_individu, type, distance_km, transport, time_travel_hours))
-  } 
-  
+    list(
+      individuals = x,
+      answers = res %>% select(id_individu, type, distance_km, transport, time_travel_hours)
+    )
+  }
 }

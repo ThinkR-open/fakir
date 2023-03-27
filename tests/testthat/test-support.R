@@ -4,22 +4,26 @@ test_that("fake ticket client generation works", {
   us <- fake_ticket_client(10, local = "en_US", split = FALSE)
   expect_equal(nrow(us), 10)
   expect_equal(ncol(us), 25)
-  expect_equal(names(us), c("ref", "num_client", "first", "last",
-                            "job", "age", "region", "id_dpt", "departement",
-                            "cb_provider", "name", "entry_date", "fidelity_points",
-                            "priority_encoded", "priority", "timestamp", "year",
-                            "month", "day", "supported", "supported_encoded",
-                            "type", "type_encoded", "state", "source_call"))
+  expect_equal(names(us), c(
+    "ref", "num_client", "first", "last",
+    "job", "age", "region", "id_dpt", "departement",
+    "cb_provider", "name", "entry_date", "fidelity_points",
+    "priority_encoded", "priority", "timestamp", "year",
+    "month", "day", "supported", "supported_encoded",
+    "type", "type_encoded", "state", "source_call"
+  ))
 
   fr <- fake_ticket_client(10, local = "fr_FR", split = FALSE)
   expect_equal(nrow(fr), 10)
   expect_equal(ncol(fr), 25)
-  expect_equal(names(fr), c("ref", "num_client", "prenom", "nom", "job", "age",
-                            "region", "id_dpt", "departement", "gestionnaire_cb",
-                            "nom_complet", "entry_date", "points_fidelite",
-                            "priorite_encodee", "priorite", "timestamp", "annee",
-                            "mois", "jour", "pris_en_charge", "pris_en_charge_code",
-                            "type", "type_encoded", "etat", "source_appel"))
+  expect_equal(names(fr), c(
+    "ref", "num_client", "prenom", "nom", "job", "age",
+    "region", "id_dpt", "departement", "gestionnaire_cb",
+    "nom_complet", "entry_date", "points_fidelite",
+    "priorite_encodee", "priorite", "timestamp", "annee",
+    "mois", "jour", "pris_en_charge", "pris_en_charge_code",
+    "type", "type_encoded", "etat", "source_appel"
+  ))
 
   expect_error(fake_ticket_client(10, local = "sp_SP"))
 })
@@ -44,12 +48,14 @@ test_that("fake website generation works", {
 
 test_that("fake transport generation works", {
   fr <- fake_sondage_answers(10)
-  
+
   expect_equal(nrow(fr), 30)
   expect_equal(ncol(fr), 12)
-  expect_equal(names(fr), c("id_individu", "age", "sexe", "region", 
-                            "id_departement", "nom_departement", "question_date",
-                            "year", "type", "distance_km", "transport", "temps_trajet_en_heures"))
-  
+  expect_equal(names(fr), c(
+    "id_individu", "age", "sexe", "region",
+    "id_departement", "nom_departement", "question_date",
+    "year", "type", "distance_km", "transport", "temps_trajet_en_heures"
+  ))
+
   expect_error(fake_sondage_answers(10, local = "en_US"))
 })

@@ -15,14 +15,14 @@
 #' @examples
 #' fake_base_clients(n = 10)
 #' fake_base_clients(n = 10, local = "fr_FR")
-#' 
+#'
 #' @export
 
 fake_base_clients <- function(n, local = c("en_US", "fr_FR"), seed = 2811) {
   stop_if_not(n, is.numeric, "Please provide a numeric value for `n`")
   priority_levels <- c("Bronze", "Silver", "Gold", "Platinium")
   local <- match.arg(local)
-  
+
   # Sample region/dpt with frequency according to region
   # Comment: Best random number is when vector is size of data
   # Hence, runif on unique(.$region)
@@ -33,7 +33,8 @@ fake_base_clients <- function(n, local = c("en_US", "fr_FR"), seed = 2811) {
       tibble(
         region = unique(.$region),
         freq = runif(length(unique(.$region)), 0, 100)
-      ), by = "region"
+      ),
+      by = "region"
     ) %>%
     sample_n(n, weight = freq, replace = TRUE) %>%
     select(-freq) %>%
@@ -41,7 +42,7 @@ fake_base_clients <- function(n, local = c("en_US", "fr_FR"), seed = 2811) {
       region = with_random_na(region),
       departement = with_random_na(departement)
     )
-  
+
   with_seed(
     seed = seed,
     {
@@ -53,12 +54,14 @@ fake_base_clients <- function(n, local = c("en_US", "fr_FR"), seed = 2811) {
           region = reg_dpt$region,
           id_dpt = reg_dpt$id_dpt,
           departement = reg_dpt$departement,
-          entry_date = Sys.time() - abs(rnorm(n, 0, sd = 2)*365*24*3600),
+          entry_date = Sys.time() - abs(rnorm(n, 0, sd = 2) * 365 * 24 * 3600),
           cb_provider = with_random_na(ch_credit_card_provider(n = n))
         ) %>%
           # separate(col = name, into = c("first", "last"), sep = " ", extra = "merge", fill = "right") %>%
-          mutate(first = gsub("([^ ]*).*","\\1", name),
-                 last = gsub("[^ ]* ([^ ]*)","\\1", name)) %>%
+          mutate(
+            first = gsub("([^ ]*).*", "\\1", name),
+            last = gsub("[^ ]* ([^ ]*)", "\\1", name)
+          ) %>%
           arrange(entry_date) %>%
           # Client info
           mutate(
@@ -66,31 +69,34 @@ fake_base_clients <- function(n, local = c("en_US", "fr_FR"), seed = 2811) {
             fidelity_points = round(
               # rlnorm(n, log(as.numeric(Sys.Date() - as.Date(entry_date))), sdlog = 0.5)
               abs(rnorm(n, as.numeric(Sys.Date() - as.Date(entry_date)),
-                        sd = 0.5*max(as.numeric(Sys.Date() - as.Date(.$entry_date)))))
+                sd = 0.5 * max(as.numeric(Sys.Date() - as.Date(.$entry_date)))
+              ))
             )
           ) %>%
           mutate(
             # Age depending on point_fidelite with beta noise
-            age = round(18 + (85 - 18)*rbeta(
+            age = round(18 + (85 - 18) * rbeta(
               n,
-              (5 * fidelity_points/max(.$fidelity_points))/
-                (1 - fidelity_points/max(.$fidelity_points)),
-              5)) %>% with_random_na(),
+              (5 * fidelity_points / max(.$fidelity_points)) /
+                (1 - fidelity_points / max(.$fidelity_points)),
+              5
+            )) %>% with_random_na(),
             # priorite = sample(c("Gold","Silver","Bronze", "Platinium"), vol, replace = TRUE),
             # priorite_encoded = recode(priorite, Bronze = 1L, Silver = 2L, Gold = 3L, Platinium = 4L),
             # priorite depending on fidelite
             priority_encoded = pmax(pmin(as.numeric(cut(.$fidelity_points, breaks = 4)) +
-                                           round(rnorm(n, 0, 0.5)), 4), 1),
+              round(rnorm(n, 0, 0.5)), 4), 1),
             priority = factor(priority_levels[priority_encoded],
-                              levels = priority_levels)
+              levels = priority_levels
+            )
           ) %>%
           select(num_client, first, last, job, age, region, id_dpt, departement, cb_provider, everything())
       )
     }
   )
-  
+
   if (local == "fr_FR") {
-    res <- res %>% 
+    res <- res %>%
       rename(
         prenom = first,
         nom = last,
@@ -141,17 +147,16 @@ fake_base_clients <- function(n, local = c("en_US", "fr_FR"), seed = 2811) {
 #'
 #' @export
 
-fake_ticket_client <- function(vol, x, n = 200, split = FALSE, seed = 2811, local = c("en_US", "fr_FR")){
-  
+fake_ticket_client <- function(vol, x, n = 200, split = FALSE, seed = 2811, local = c("en_US", "fr_FR")) {
   local <- match.arg(local)
-  
-  state_level <- c("En cours","Attente confirmation client", "Attente validation", "Intervention technicien", "Termine")
-  source_level <- c("Local","France","Europe", "International")
-  
+
+  state_level <- c("En cours", "Attente confirmation client", "Attente validation", "Intervention technicien", "Termine")
+  source_level <- c("Local", "France", "Europe", "International")
+
   if (missing(x)) {
     x <- fake_base_clients(n = n, seed = seed, local = local)
   }
-  
+
   withr::with_seed(
     seed = seed,
     res <- suppressWarnings(
@@ -160,7 +165,7 @@ fake_ticket_client <- function(vol, x, n = 200, split = FALSE, seed = 2811, loca
         sample_n(vol, weight = runif(nrow(.), 0.5, 1), replace = TRUE) %>%
         # Ticket info
         mutate(
-          ref = paste0("DOSS-", as_vector(rerun(vol, sample(LETTERS, 4)) %>% map(paste0, collapse = "")), "-",  formatC(1:vol, width = nchar(vol) + 1, flag = "0")),
+          ref = paste0("DOSS-", as_vector(rerun(vol, sample(LETTERS, 4)) %>% map(paste0, collapse = "")), "-", formatC(1:vol, width = nchar(vol) + 1, flag = "0")),
           timestamp = as.Date(entry_date) + round(runif(nrow(.), 0, Sys.Date() - as.Date(entry_date))),
           year = year(timestamp),
           month = month(timestamp),
@@ -173,23 +178,25 @@ fake_ticket_client <- function(vol, x, n = 200, split = FALSE, seed = 2811, loca
           # point_fidelite = sample(1:10000, vol, replace = TRUE),
           # fidelity depending on date
           # timestamp = paste(an, mois, jour, sep = "-"),
-          supported = sample(c("Oui","Non"), vol, TRUE),
+          supported = sample(c("Oui", "Non"), vol, TRUE),
           supported_encoded = recode(supported, Oui = 1L, Non = 0L),
-          type = with_random_na(sample(c("Installation","Box","Ligne"), vol, prob = runif(3, 0.25, 1), replace = TRUE)),
+          type = with_random_na(sample(c("Installation", "Box", "Ligne"), vol, prob = runif(3, 0.25, 1), replace = TRUE)),
           type_encoded = recode(type, Installation = 1L, Box = 2L, Ligne = 3L),
           state = factor(sample(state_level, vol, prob = runif(5, 0.25, 1), replace = TRUE),
-                         levels = state_level),
-          source_call = factor(sample(source_level, vol, replace = TRUE),
-                               source_level)
+            levels = state_level
+          ),
+          source_call = factor(
+            sample(source_level, vol, replace = TRUE),
+            source_level
+          )
         ) %>%
         arrange(year, month, day) %>%
         select(ref, everything())
-      
     )
   )
-  
+
   if (local == "fr_FR") {
-    res <- res %>% 
+    res <- res %>%
       rename(
         pris_en_charge = supported,
         pris_en_charge_code = supported_encoded,
@@ -200,16 +207,18 @@ fake_ticket_client <- function(vol, x, n = 200, split = FALSE, seed = 2811, loca
         jour = day
       )
   }
-  
-  if (!split) {return(res)
-  } else if (local == "fr_FR")  {
-    list(clients = x,
-         tickets = res %>% select(ref, num_client, annee, mois, jour, timestamp, pris_en_charge, type, etat, source_appel))
+
+  if (!split) {
+    return(res)
+  } else if (local == "fr_FR") {
+    list(
+      clients = x,
+      tickets = res %>% select(ref, num_client, annee, mois, jour, timestamp, pris_en_charge, type, etat, source_appel)
+    )
   } else {
-    list(clients = x,
-         tickets = res %>% select(ref, num_client, year, month, day, timestamp, supported, type, state, source_call))
-  } 
+    list(
+      clients = x,
+      tickets = res %>% select(ref, num_client, year, month, day, timestamp, supported, type, state, source_call)
+    )
+  }
 }
-
-
-
