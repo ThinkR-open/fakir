@@ -6,38 +6,62 @@ output: github_document
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
+  comment = "",
   fig.path = "man/figures/README-",
   out.width = "50%",
   fig.align = "center",
-  message = FALSE
+  message = FALSE,
+  eval = TRUE
 )
-library(ggplot2)
-library(dplyr)
-library(sf)
 ```
 
 # fakir <img src="man/figures/logo.png" align="right" alt="" width="120" />
 
 <!-- badges: start -->
-[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](http://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip)
-[![R-CMD-check](https://github.com/ThinkR-open/fakir/workflows/R-CMD-check/badge.svg)](https://github.com/ThinkR-open/fakir/actions)
 [![Codecov test coverage](https://codecov.io/gh/ThinkR-open/fakir/branch/master/graph/badge.svg)](https://codecov.io/gh/ThinkR-open/fakir?branch=master)
+[![R-CMD-check](https://github.com/ThinkR-open/fakir/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ThinkR-open/fakir/actions/workflows/R-CMD-check.yaml)
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 <!-- badges: end -->
 
-The goal of {fakir} is to provide fake datasets that can be used to teach R.  
+The goal of `{fakir}` is to provide fake datasets that can be used to teach R.
 
 The full documentation is in this {pkgdown} site: <https://thinkr-open.github.io/fakir/>
 
-- Video presentation of {fakir} by [Abdul Majed](https://twitter.com/1littlecoder): https://www.youtube.com/watch?v=EhhljL5zaWs
+- Video presentation of `{fakir}` by [Abdul Majed](https://twitter.com/1littlecoder): https://www.youtube.com/watch?v=EhhljL5zaWs
+
+## About
+
+You're reading the doc about version : `r pkgload::pkg_version()`
+
+This README has been compiled on the
+
+```{r}
+Sys.time()
+```
+
+Here are the test & coverage results :
+
+```{r}
+devtools::check(quiet = TRUE)
+```
+
+```{r echo = FALSE}
+unloadNamespace("fakir")
+```
+
+```{r eval = TRUE, message = TRUE}
+covr::package_coverage()
+```
 
 ## Installation
 
 ```r
 # From r-universe.dev (No need for GITHUB_PAT)
-install.packages("fakir", 
-                 repos = c("thinkropen" = "https://thinkr-open.r-universe.dev"))
+install.packages(
+  "fakir",
+  repos = c("thinkropen" = "https://thinkr-open.r-universe.dev")
+)
 
 # With {remotes} using GitHub API
 # install.packages("remotes")
@@ -49,21 +73,24 @@ remotes::install_github("ThinkR-open/fakir")
 
 This package is designed for teaching data wrangling and data visualisation:
 
-- some datasets follow the tidy-data principles, others don't. 
+- some datasets follow the tidy-data principles, others don't.
 - Some missing values are set for numeric and categorical variables
 - Some variables values are correlated
 
-These datasets are suitable to introduce to the {tidyverse} and to provide examples for main functions.  
+These datasets are suitable to introduce to the {tidyverse} and to provide examples for main functions.
 Supported languages are, for now, French and US English.
 
 ## Examples
 
-### Fake support ticket base : 
+### Fake support ticket base :
 
 - All tickets
 
 ```{r}
 library(fakir)
+library(ggplot2)
+library(dplyr)
+library(sf)
 fake_ticket_client(vol = 10)
 ```
 
@@ -76,20 +103,24 @@ ggplot(tickets_db$clients) +
   aes(entry_date, fidelity_points) +
   geom_point() +
   geom_smooth()
-ggplot(tickets_db$tickets) + aes(type) + geom_bar()
-ggplot(tickets_db$tickets) + aes(state) + geom_bar()
+ggplot(tickets_db$tickets) +
+  aes(type) +
+  geom_bar()
+ggplot(tickets_db$tickets) +
+  aes(state) +
+  geom_bar()
 ```
 
 - Join with internal {sf} spatial dataset
 
 ```{r}
-clients_map <- tickets_db$clients %>% 
-  group_by(id_dpt) %>% 
+clients_map <- tickets_db$clients %>%
+  group_by(id_dpt) %>%
   summarise(
     number_of_clients = n(),
     average_fidelity = mean(fidelity_points, na.rm = TRUE)
-  ) %>% 
-  full_join(fra_sf, by = "id_dpt") %>% 
+  ) %>%
+  full_join(fra_sf, by = "id_dpt") %>%
   st_sf()
 
 ggplot(clients_map) +
@@ -135,24 +166,27 @@ fake_sondage_answers(n = 10, split = TRUE)
 answers <- fake_sondage_answers(n = 30)
 answers
 
-ggplot(answers) + aes(age, log(distance_km), colour = type) + geom_point() +
-  geom_smooth() + facet_wrap(~type, scales = "free_y")
+ggplot(answers) +
+  aes(age, log(distance_km), colour = type) +
+  geom_point() +
+  geom_smooth() +
+  facet_wrap(~type, scales = "free_y")
 ```
 
-## Prior work 
+## Prior work
 
-This package is heavily inspired by [{charlatan}](https://github.com/ropensci/charlatan). 
+This package is heavily inspired by [{charlatan}](https://github.com/ropensci/charlatan).
 
 Scott Chamberlain (2017). charlatan: Make Fake Data. R package version 0.1.0.
 https://CRAN.R-project.org/package=charlatan
 
-## Contribute 
+## Contribute
 
-You can contribute to {fakir} in two ways: 
+You can contribute to ``{fakir}`` in two ways:
 
-### Translate 
+### Translate
 
-You can translate to other locales by providing : 
+You can translate to other locales by providing :
 
 + new `vec` in "R/utils"
 + new `local` in "R/fake_client" and "R/fake_transport"

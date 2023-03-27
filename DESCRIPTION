@@ -1,7 +1,7 @@
 Package: fakir
 Title: Create Fake Data in R for tutorials
-Version: 0.2.0.9000
-Authors@R: 
+Version: 1.0.0
+Authors@R:
     c(person(given = "Colin",
              family = "Fay",
              role = c("aut", "cre"),
@@ -18,9 +18,9 @@ Description: Create fake datasets that can be used to teach R.
 License: MIT + file LICENSE
 URL: https://github.com/Thinkr-open/fakir
 BugReports: https://github.com/Thinkr-open/fakir/issues
-Depends: 
+Depends:
     R (>= 2.10)
-Imports: 
+Imports:
     attempt,
     charlatan,
     dplyr,
@@ -32,7 +32,7 @@ Imports:
     tibble,
     tidyr,
     withr
-Suggests: 
+Suggests:
     covr,
     ggplot2,
     knitr,
@@ -40,7 +40,7 @@ Suggests:
     rmarkdown,
     sf,
     testthat
-VignetteBuilder: 
+VignetteBuilder:
     knitr
 Encoding: UTF-8
 LazyData: true

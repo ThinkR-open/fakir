@@ -13,3 +13,4 @@
 ^appveyor\.yml$
 ^img$
 ^\.github$
+^README\.html$
