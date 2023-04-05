@@ -127,7 +127,7 @@ test_that("deprecated fun still works generation works", {
   )
   expect_equal(
     names(fr),
-    fake_survey_answers(10)
+    names(fake_survey_answers(10))
   )
 
   expect_warning({

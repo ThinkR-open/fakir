@@ -79,7 +79,7 @@ fake_survey_people <- function(n, seed = 2811, local = c("fr_FR")) {
 #' @keywords internal
 #' @export
 fake_sondage_people <- function(...){
-    .Deprecated("fake_survey_people")
+  warning("fake_sondage_people() is deprecated. \nUse fake_survey_people() instead.")
   fake_survey_people(...)
 }
 
@@ -107,7 +107,7 @@ fake_sondage_people <- function(...){
 #'
 #' @examples
 #' answers <- fake_sondage_answers()
-#' \dontrun{
+#' if (FALSE){
 #' ggplot(answers) +
 #'   aes(age, log(distance_km), colour = type) +
 #'   geom_point() +
@@ -185,6 +185,6 @@ fake_survey_answers <- function(
 #' @keywords internal
 #' @export
 fake_sondage_answers <- function(...){
-  .Deprecated("fake_survey_answers")
+  warning("fake_survey_answers() is deprecated. \nUse fake_survey_answers() instead.")
   fake_survey_answers(...)
 }

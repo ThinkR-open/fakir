@@ -56,7 +56,7 @@ Create fake transport sondage
 \examples{
 fake_survey_people(10)
 answers <- fake_sondage_answers()
-\dontrun{
+if (FALSE){
 ggplot(answers) +
   aes(age, log(distance_km), colour = type) +
   geom_point() +

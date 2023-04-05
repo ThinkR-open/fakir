@@ -1,6 +1,6 @@
 # Map of France
 fra_sf <- raster::getData("GADM", country = "FRA", level = 2, path = "data-raw") %>%
-  sf::st_as_sf(fra.sp) %>%
+  sf::st_crs(fra.sp) %>%
   rename(
     pays = NAME_0,
     region = NAME_1,

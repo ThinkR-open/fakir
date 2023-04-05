@@ -15,9 +15,6 @@ A data frame with 96 rows, 5 variables and a spatial geometry (MULTIPOLYGON):
   \item{geometry}{polygon geometry}
 }
 }
-\source{
-\url{GADM}
-}
 \usage{
 fra_sf
 }
