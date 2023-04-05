@@ -14,3 +14,4 @@
 ^img$
 ^\.github$
 ^README\.html$
+^cran-comments\.md$
