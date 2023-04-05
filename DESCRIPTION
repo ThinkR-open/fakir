@@ -1,11 +1,11 @@
 Package: fakir
-Title: Create Fake Data in R for tutorials
+Title: Generate Fake Datasets for Prototyping and Teaching
 Version: 1.0.0
 Authors@R:
     c(person(given = "Colin",
              family = "Fay",
              role = c("aut", "cre"),
-             email = "colin@thinkr.fr",
+             email = "contact@colinfay.me",
              comment = c(ORCID = "0000-0001-7343-1846")),
       person(given = "Sebastien",
              family = "Rochette",
@@ -14,7 +14,11 @@ Authors@R:
              comment = c(ORCID = "0000-0002-1565-9313")),
       person(given = "ThinkR",
              role = "cph"))
-Description: Create fake datasets that can be used to teach R.
+Description: Create fake datasets that can be used for prototyping and teaching.
+    This package provides a set of functions to generate fake data
+    for a variety of data types, such as dates, addresses,
+    and names. It can be used for prototyping (notably in 'shiny') or as a tool
+    to teach data manipulation and data visualization.
 License: MIT + file LICENSE
 URL: https://github.com/Thinkr-open/fakir
 BugReports: https://github.com/Thinkr-open/fakir/issues
@@ -44,4 +48,4 @@ VignetteBuilder:
     knitr
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.0
+RoxygenNote: 7.2.3
