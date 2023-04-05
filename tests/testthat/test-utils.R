@@ -81,7 +81,7 @@ test_that("sample_priority works", {
   expect_true(
     all(
       output %in% c("Gold", "Silver", "Bronze", "Platinium")
-  )
+    )
   )
   output <- sample_priority(10, "fr_FR")
   expect_true(
