@@ -1,5 +1,5 @@
 ---
-title: "fake client service database"
+title: "fakir examples"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{fake-client-database}
@@ -22,12 +22,16 @@ library(ggplot2)
 library(sf)
 ```
 
-The database fakes an after-sale client database for a Phone company. There is: 
+## Fake client database
+
+The database fakes an after-sale client database for a Phone company. There is:
 
 - a client database with all characteristics of the clients.
+
 - a ticket database which contains all calls to the after-sale service of some clients having problems
 
 - Ticket centered dataset with already joined client characteristics
+
 ```{r}
 fake_ticket_client(vol = 10)
 ```
@@ -71,4 +75,51 @@ ggplot(clients_map) +
     crs = 2154,
     datum = 4326
   )
+```
+
+### Fake products
+
+- Create a fake dataset of connected wearables
+
+```{r}
+count(
+  fake_products(10),
+  category
+)
+```
+
+
+### Fake website visits
+
+```{r}
+fake_visits(
+  from = "2017-01-01",
+  to = "2017-01-31"
+)
+```
+
+### Fake questionnaire on mean of transport / goal
+
+- All answers
+
+```{r}
+fake_survey_answers(n = 10)
+```
+
+- Separate individuals and their answers
+```{r}
+fake_survey_answers(n = 10, split = TRUE)
+```
+
+### fake transport use
+
+```{r}
+answers <- fake_survey_answers(n = 30)
+answers
+
+ggplot(answers) +
+  aes(age, log(distance_km), colour = type) +
+  geom_point() +
+  geom_smooth() +
+  facet_wrap(~type, scales = "free_y")
 ```
