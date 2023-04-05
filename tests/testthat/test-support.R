@@ -110,7 +110,40 @@ test_that("fake transport generation works", {
       "temps_trajet_en_heures"
     )
   )
-
-  expect_error(fake_sondage_answers(10, local = "en_US"))
 })
 
+test_that("deprecated fun still works generation works", {
+  expect_warning({
+    fr <- fake_sondage_answers(10)
+  })
+
+  expect_equal(
+    nrow(fr),
+    nrow(fake_survey_answers(10))
+  )
+  expect_equal(
+    ncol(fr),
+    ncol(fake_survey_answers(10))
+  )
+  expect_equal(
+    names(fr),
+    fake_survey_answers(10)
+  )
+
+  expect_warning({
+    fr <- fake_sondage_people(10)
+  })
+
+  expect_equal(
+    nrow(fr),
+    nrow(fake_survey_people(10))
+  )
+  expect_equal(
+    ncol(fr),
+    ncol(fake_survey_people(10))
+  )
+  expect_equal(
+    names(fr),
+    names(fake_survey_people(10))
+  )
+})

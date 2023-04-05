@@ -79,6 +79,7 @@ fake_survey_people <- function(n, seed = 2811, local = c("fr_FR")) {
 #' @keywords internal
 #' @export
 fake_sondage_people <- function(...){
+    .Deprecated("fake_survey_people")
   fake_survey_people(...)
 }
 
@@ -184,5 +185,6 @@ fake_survey_answers <- function(
 #' @keywords internal
 #' @export
 fake_sondage_answers <- function(...){
+  .Deprecated("fake_survey_answers")
   fake_survey_answers(...)
 }
