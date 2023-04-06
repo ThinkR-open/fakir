@@ -18,17 +18,16 @@ knitr::opts_chunk$set(
 # fakir <img src="man/figures/logo.png" align="right" alt="" width="120" />
 
 <!-- badges: start -->
-[![Codecov test coverage](https://codecov.io/gh/ThinkR-open/fakir/branch/master/graph/badge.svg)](https://codecov.io/gh/ThinkR-open/fakir?branch=master)
+[![Codecov test coverage](https://codecov.io/gh/ThinkR-open/fakir/branch/master/graph/badge.svg)](https://app.codecov.io/gh/ThinkR-open/fakir?branch=master)
 [![R-CMD-check](https://github.com/ThinkR-open/fakir/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ThinkR-open/fakir/actions/workflows/R-CMD-check.yaml)
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 <!-- badges: end -->
 
-The goal of `{fakir}` is to provide fake datasets that can be used to teach R.
+The goal of `{fakir}` is to provide fake datasets that can be used for prototyping or teaching purpose.
 
-The full documentation is in this {pkgdown} site: <https://thinkr-open.github.io/fakir/>
+The full documentation is in this `{pkgdown} `site: <https://thinkr-open.github.io/fakir/>.
 
-- Video presentation of `{fakir}` by [Abdul Majed](https://twitter.com/1littlecoder): https://www.youtube.com/watch?v=EhhljL5zaWs
+`{fakir}` is part of the [golemverse](https://golemverse.org/).
 
 ## About
 
@@ -56,6 +55,14 @@ covr::package_coverage()
 
 ## Installation
 
+You can install the released version of `{fakir}` from [CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages("fakir")
+```
+
+Or the development version from GitHub with:
+
 ```r
 # From r-universe.dev (No need for GITHUB_PAT)
 install.packages(
@@ -68,110 +75,17 @@ install.packages(
 remotes::install_github("ThinkR-open/fakir")
 ```
 
+## Characteristics & usage
 
-## Characteristics
-
-This package is designed for teaching data wrangling and data visualisation:
+This package is designed for simulating real life datasets:
 
 - some datasets follow the tidy-data principles, others don't.
 - Some missing values are set for numeric and categorical variables
 - Some variables values are correlated
 
-These datasets are suitable to introduce to the {tidyverse} and to provide examples for main functions.
 Supported languages are, for now, French and US English.
 
-## Examples
-
-### Fake support ticket base :
-
-- All tickets
-
-```{r}
-library(fakir)
-library(ggplot2)
-library(dplyr)
-library(sf)
-fake_ticket_client(vol = 10)
-```
-
-- Separate tickets and client databases
-
-```{r}
-tickets_db <- fake_ticket_client(vol = 100, split = TRUE)
-tickets_db
-ggplot(tickets_db$clients) +
-  aes(entry_date, fidelity_points) +
-  geom_point() +
-  geom_smooth()
-ggplot(tickets_db$tickets) +
-  aes(type) +
-  geom_bar()
-ggplot(tickets_db$tickets) +
-  aes(state) +
-  geom_bar()
-```
-
-- Join with internal {sf} spatial dataset
-
-```{r}
-clients_map <- tickets_db$clients %>%
-  group_by(id_dpt) %>%
-  summarise(
-    number_of_clients = n(),
-    average_fidelity = mean(fidelity_points, na.rm = TRUE)
-  ) %>%
-  full_join(fra_sf, by = "id_dpt") %>%
-  st_sf()
-
-ggplot(clients_map) +
-  geom_sf(aes(fill = average_fidelity)) +
-  scale_fill_viridis_c() +
-  coord_sf(
-    crs = 2154,
-    datum = 4326
-  )
-```
-
-### Fake products
-
-- Create a fake dataset of connected wearables
-
-```{r}
-fake_products(10)
-```
-
-
-### Fake website visits
-
-```{r}
-fake_visits(from = "2017-01-01", to = "2017-01-31")
-```
-
-### Fake questionnaire on mean of transport / goal
-
-- All answers
-
-```{r}
-fake_sondage_answers(n = 10)
-```
-
-- Separate individuals and their answers
-```{r}
-fake_sondage_answers(n = 10, split = TRUE)
-```
-
-### fake transport use
-
-```{r}
-answers <- fake_sondage_answers(n = 30)
-answers
-
-ggplot(answers) +
-  aes(age, log(distance_km), colour = type) +
-  geom_point() +
-  geom_smooth() +
-  facet_wrap(~type, scales = "free_y")
-```
+See the Vignette for examples.
 
 ## Prior work
 
@@ -195,7 +109,6 @@ You can translate to other locales by providing :
 
 Feel free to create new datasets generators.
 
-## COC
+## Code of Conduct
 
-Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md).
-By participating in this project you agree to abide by its terms.
+Please note that the fakir project is released with a [Contributor Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/). By contributing to this project, you agree to abide by its terms.
