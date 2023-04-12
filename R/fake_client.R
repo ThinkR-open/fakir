@@ -19,7 +19,11 @@
 #' @return A dataframe of fake clients.
 #' @export
 
-fake_base_clients <- function(n, local = c("en_US", "fr_FR"), seed = 2811) {
+fake_base_clients <- function(
+  n,
+  local = c("en_US", "fr_FR"),
+  seed = 2811
+    ) {
   stop_if_not(n, is.numeric, "Please provide a numeric value for `n`")
   priority_levels <- c("Bronze", "Silver", "Gold", "Platinium")
   local <- match.arg(local)
@@ -156,8 +160,15 @@ fake_base_clients <- function(n, local = c("en_US", "fr_FR"), seed = 2811) {
 #' barplot(table(x$tickets$state))
 #'
 #' @export
-
-fake_ticket_client <- function(vol, x, n = 200, split = FALSE, seed = 2811, local = c("en_US", "fr_FR")) {
+#' @return A dataframe of fake tickets.
+fake_ticket_client <- function(
+  vol,
+  x,
+  n = 200,
+  split = FALSE,
+  seed = 2811,
+  local = c("en_US", "fr_FR")
+    ) {
   local <- match.arg(local)
 
   state_level <- c("En cours", "Attente confirmation client", "Attente validation", "Intervention technicien", "Termine")

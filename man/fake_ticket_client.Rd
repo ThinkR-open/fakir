@@ -26,6 +26,9 @@ fake_ticket_client(
 
 \item{local}{the local of the base. Currently supported : "fr_FR" and "en_US".}
 }
+\value{
+A dataframe of fake tickets.
+}
 \description{
 Une fausse base client de ticket Telecom
 }
