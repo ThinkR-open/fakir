@@ -9,18 +9,22 @@
 #'
 #' @export
 #'
+#' @return A dataframe of fake web visits.
+#'
 #' @examples
 #' fake_visits()
 fake_visits <- function(
-    from = "2017-01-01",
-    to = "2017-12-31",
-    local = c("en_US", "fr_FR"),
-    seed = 2811) {
+  from = "2017-01-01",
+  to = "2017-12-31",
+  local = c("en_US", "fr_FR"),
+  seed = 2811
+    ) {
   from <- attempt(ymd(from), "Please provide a YMD date format", silent = TRUE)
   to <- attempt(ymd(to), "Please provide a YMD date format", silent = TRUE)
 
   stop_if_any(
-    list(from, to), ~ inherits(.x, "try-error"),
+    list(from, to),
+    ~ inherits(.x, "try-error"),
     "Please provide a date format"
   )
 

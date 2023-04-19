@@ -18,6 +18,9 @@ fake_visits(
 
 \item{seed}{fixe la graine aleatoire}
 }
+\value{
+A dataframe of fake web visits.
+}
 \description{
 Create a fake support ticket base
 }

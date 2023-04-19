@@ -16,9 +16,14 @@
 #' fake_base_clients(n = 10)
 #' fake_base_clients(n = 10, local = "fr_FR")
 #'
+#' @return A dataframe of fake clients.
 #' @export
 
-fake_base_clients <- function(n, local = c("en_US", "fr_FR"), seed = 2811) {
+fake_base_clients <- function(
+  n,
+  local = c("en_US", "fr_FR"),
+  seed = 2811
+    ) {
   stop_if_not(n, is.numeric, "Please provide a numeric value for `n`")
   priority_levels <- c("Bronze", "Silver", "Gold", "Platinium")
   local <- match.arg(local)
@@ -68,7 +73,9 @@ fake_base_clients <- function(n, local = c("en_US", "fr_FR"), seed = 2811) {
             num_client = as.character(1:n),
             fidelity_points = round(
               # rlnorm(n, log(as.numeric(Sys.Date() - as.Date(entry_date))), sdlog = 0.5)
-              abs(rnorm(n, as.numeric(Sys.Date() - as.Date(entry_date)),
+              abs(rnorm(
+                n,
+                as.numeric(Sys.Date() - as.Date(entry_date)),
                 sd = 0.5 * max(as.numeric(Sys.Date() - as.Date(.$entry_date)))
               ))
             )
@@ -84,9 +91,16 @@ fake_base_clients <- function(n, local = c("en_US", "fr_FR"), seed = 2811) {
             # priorite = sample(c("Gold","Silver","Bronze", "Platinium"), vol, replace = TRUE),
             # priorite_encoded = recode(priorite, Bronze = 1L, Silver = 2L, Gold = 3L, Platinium = 4L),
             # priorite depending on fidelite
-            priority_encoded = pmax(pmin(as.numeric(cut(.$fidelity_points, breaks = 4)) +
-              round(rnorm(n, 0, 0.5)), 4), 1),
-            priority = factor(priority_levels[priority_encoded],
+            priority_encoded = pmax(
+              pmin(
+                as.numeric(cut(.$fidelity_points, breaks = 4)) +
+                  round(rnorm(n, 0, 0.5)),
+                4
+              ),
+              1
+            ),
+            priority = factor(
+              priority_levels[priority_encoded],
               levels = priority_levels
             )
           ) %>%
@@ -146,8 +160,15 @@ fake_base_clients <- function(n, local = c("en_US", "fr_FR"), seed = 2811) {
 #' barplot(table(x$tickets$state))
 #'
 #' @export
-
-fake_ticket_client <- function(vol, x, n = 200, split = FALSE, seed = 2811, local = c("en_US", "fr_FR")) {
+#' @return A dataframe of fake tickets.
+fake_ticket_client <- function(
+  vol,
+  x,
+  n = 200,
+  split = FALSE,
+  seed = 2811,
+  local = c("en_US", "fr_FR")
+    ) {
   local <- match.arg(local)
 
   state_level <- c("En cours", "Attente confirmation client", "Attente validation", "Intervention technicien", "Termine")
@@ -182,7 +203,8 @@ fake_ticket_client <- function(vol, x, n = 200, split = FALSE, seed = 2811, loca
           supported_encoded = recode(supported, Oui = 1L, Non = 0L),
           type = with_random_na(sample(c("Installation", "Box", "Ligne"), vol, prob = runif(3, 0.25, 1), replace = TRUE)),
           type_encoded = recode(type, Installation = 1L, Box = 2L, Ligne = 3L),
-          state = factor(sample(state_level, vol, prob = runif(5, 0.25, 1), replace = TRUE),
+          state = factor(
+            sample(state_level, vol, prob = runif(5, 0.25, 1), replace = TRUE),
             levels = state_level
           ),
           source_call = factor(

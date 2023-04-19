@@ -13,6 +13,9 @@ fake_base_clients(n, local = c("en_US", "fr_FR"), seed = 2811)
 
 \item{seed}{the random seed, default is 2811}
 }
+\value{
+A dataframe of fake clients.
+}
 \description{
 A fake base of customer support tickets
 }

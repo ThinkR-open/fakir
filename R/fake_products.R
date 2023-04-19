@@ -12,15 +12,30 @@ fake_name <- function() {
     ifelse(runif(1) < 0.05, "Smart ", ""),
     sample(
       c(
-        "Activity Tracker", "Watch", "Sleep/Heart Rate Monitor",
-        "Activity Monitor", "Digital Video Wear", "Wearable",
-        "Multi-Sport Cardio", "Running Tracker", "Swimming Tracker",
-        "Biking Tracker", "Fitness Tracker", "Pedometer",
-        "Step and Distance Pedometer", "Microcontroller",
-        "Action Video Camera", "Multifunction Tracker",
-        "Footpod", "Wearable Transmitter", "Exercise Tracker",
-        "Training System", "Loop Activity Tracker", "Action Camera",
-        "Strapless Heart Rate Monitor", "Health ring"
+        "Activity Tracker",
+        "Watch",
+        "Sleep/Heart Rate Monitor",
+        "Activity Monitor",
+        "Digital Video Wear",
+        "Wearable",
+        "Multi-Sport Cardio",
+        "Running Tracker",
+        "Swimming Tracker",
+        "Biking Tracker",
+        "Fitness Tracker",
+        "Pedometer",
+        "Step and Distance Pedometer",
+        "Microcontroller",
+        "Action Video Camera",
+        "Multifunction Tracker",
+        "Footpod",
+        "Wearable Transmitter",
+        "Exercise Tracker",
+        "Training System",
+        "Loop Activity Tracker",
+        "Action Camera",
+        "Strapless Heart Rate Monitor",
+        "Health ring"
       ),
       1
     ),
@@ -28,15 +43,22 @@ fake_name <- function() {
     fake_symbol(),
     " ",
     ifelse(runif(1) < 0.5, "Pro ", ""),
-    ifelse(runif(1) < 0.5,
+    ifelse(
+      runif(1) < 0.5,
       sprintf(
         "with %s",
         sample(
           c(
-            "Bluetooth", "GPS", "WiFi", "heart rate sensor",
-            "Calorie Counter", "MP3 Player",
-            "Automatic Lap Counter", "Health Management Software",
-            "Wearable Magneat", "Wi-Fi and GPS",
+            "Bluetooth",
+            "GPS",
+            "WiFi",
+            "heart rate sensor",
+            "Calorie Counter",
+            "MP3 Player",
+            "Automatic Lap Counter",
+            "Health Management Software",
+            "Wearable Magneat",
+            "Wi-Fi and GPS",
             "Activity/Sleep Tracking"
           )
         )
@@ -60,6 +82,8 @@ fake_name <- function() {
 #' @importFrom charlatan ch_company ch_color_name
 #' @importFrom tibble tibble
 #'
+#' @return A dataframe of fake products.
+#'
 #' @examples
 #' fake_products(10)
 fake_products <- function(n, seed = 2811) {
@@ -72,15 +96,19 @@ fake_products <- function(n, seed = 2811) {
         color = ch_color_name(n),
         price = sample(1:n, n, TRUE),
         body_location = sample(
-          c("Wrist", "Arms", "Head", "Waist", "Chest", "Hands", "Neck", "Feet", "Torso", "Brain"), n, TRUE
+          c("Wrist", "Arms", "Head", "Waist", "Chest", "Hands", "Neck", "Feet", "Torso", "Brain"),
+          n,
+          TRUE
         ),
         category = sample(
           c("Fitness", "Medical", "Lifestyle", "Entertainment", "Industrial", "Pets and Animals", "Gaming", "Awesome"),
-          n, TRUE
+          n,
+          TRUE
         ),
         sent_from = sample(
           c("United States", "Japan", "Taiwan", "Canada", "Finland", "South Korea", "Netherlands", "France", "China", "Italy", "Austria"),
-          n, TRUE
+          n,
+          TRUE
         ),
         id = 1:n
       )

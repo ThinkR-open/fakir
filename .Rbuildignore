@@ -14,3 +14,5 @@
 ^img$
 ^\.github$
 ^README\.html$
+^cran-comments\.md$
+^CRAN-SUBMISSION$

@@ -22,11 +22,12 @@
 #'   \item question_date. Date/hour when questionnaire has been answered.
 #'   \item year. year extracted from question_date
 #' }
-#'
+#' @return A dataframe of fake result from a .
 #' @examples
-#' fake_sondage_people(10)
+#' fake_survey_people(10)
 #' @export
-fake_sondage_people <- function(n, seed = 2811, local = c("fr_FR")) {
+#' @rdname fake_survey
+fake_survey_people <- function(n, seed = 2811, local = c("fr_FR")) {
   local <- match.arg(local)
   # Sample region/dpt with frequency according to region
   # Comment: Best random number is when vector is size of data
@@ -55,7 +56,8 @@ fake_sondage_people <- function(n, seed = 2811, local = c("fr_FR")) {
         id_individu = paste0(
           "ID-",
           as_vector(rerun(n, sample(LETTERS, 4)) %>%
-            map(paste0, collapse = "")), "-",
+            map(paste0, collapse = "")),
+          "-",
           formatC(1:n, width = nchar(n) + 1, flag = "0")
         ),
         # job = with_random_na(ch_job(n = n, locale = "fr_FR")),
@@ -72,6 +74,15 @@ fake_sondage_people <- function(n, seed = 2811, local = c("fr_FR")) {
     )
   )
 }
+
+#' @rdname fake_survey
+#' @keywords internal
+#' @export
+fake_sondage_people <- function(...){
+  warning("fake_sondage_people() is deprecated. \nUse fake_survey_people() instead.")
+  fake_survey_people(...)
+}
+
 
 #' Create fake transport sondage
 #'
@@ -96,7 +107,7 @@ fake_sondage_people <- function(n, seed = 2811, local = c("fr_FR")) {
 #'
 #' @examples
 #' answers <- fake_sondage_answers()
-#' \dontrun{
+#' if (FALSE){
 #' ggplot(answers) +
 #'   aes(age, log(distance_km), colour = type) +
 #'   geom_point() +
@@ -105,19 +116,31 @@ fake_sondage_people <- function(n, seed = 2811, local = c("fr_FR")) {
 #' }
 #'
 #' @export
-fake_sondage_answers <- function(n = 200, x, seed = 2811, split = FALSE, local = c("fr_FR")) {
+#' @rdname fake_survey
+fake_survey_answers <- function(
+  n = 200,
+  x,
+  seed = 2811,
+  split = FALSE,
+  local = c("fr_FR")
+) {
   local <- match.arg(local)
   types <- c("travail" = 5, "commerces" = 20, "loisirs" = 150)
 
   # transports and max dists
   transports <- c(
-    "pied" = 2, "velo" = 5, "mobylette" = 8,
-    "bus" = 10, "voiture" = 80, "train" = 500, "avion" = 2000,
+    "pied" = 2,
+    "velo" = 5,
+    "mobylette" = 8,
+    "bus" = 10,
+    "voiture" = 80,
+    "train" = 500,
+    "avion" = 2000,
     "navette_spatiale" = 10000
   )
 
   if (missing(x)) {
-    x <- fake_sondage_people(n = n, seed = seed, local = local)
+    x <- fake_survey_people(n = n, seed = seed, local = local)
   }
 
   with_seed(
@@ -156,4 +179,12 @@ fake_sondage_answers <- function(n = 200, x, seed = 2811, split = FALSE, local =
       answers = res %>% select(id_individu, type, distance_km, transport, time_travel_hours)
     )
   }
+}
+
+#' @rdname fake_survey
+#' @keywords internal
+#' @export
+fake_sondage_answers <- function(...){
+  warning("fake_survey_answers() is deprecated. \nUse fake_survey_answers() instead.")
+  fake_survey_answers(...)
 }

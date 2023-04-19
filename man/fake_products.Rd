@@ -13,6 +13,8 @@ fake_products(n, seed = 2811)
 }
 \value{
 a dataframe
+
+A dataframe of fake products.
 }
 \description{
 Fake base of products

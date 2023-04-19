@@ -4,11 +4,11 @@
 \name{fakir-package}
 \alias{fakir}
 \alias{fakir-package}
-\title{fakir: Create Fake Data in R for tutorials}
+\title{fakir: Generate Fake Datasets for Prototyping and Teaching}
 \description{
-\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Create fake datasets that can be used to teach R.
+Create fake datasets that can be used for prototyping and teaching. This package provides a set of functions to generate fake data for a variety of data types, such as dates, addresses, and names. It can be used for prototyping (notably in 'shiny') or as a tool to teach data manipulation and data visualization.
 }
 \seealso{
 Useful links:
@@ -19,7 +19,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Colin Fay \email{colin@thinkr.fr} (\href{https://orcid.org/0000-0001-7343-1846}{ORCID})
+\strong{Maintainer}: Colin Fay \email{contact@colinfay.me} (\href{https://orcid.org/0000-0001-7343-1846}{ORCID})
 
 Authors:
 \itemize{

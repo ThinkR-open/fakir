@@ -1,6 +1,6 @@
 # Map of France
 fra_sf <- raster::getData("GADM", country = "FRA", level = 2, path = "data-raw") %>%
-  sf::st_as_sf(fra.sp) %>%
+  sf::st_crs(fra.sp) %>%
   rename(
     pays = NAME_0,
     region = NAME_1,
@@ -32,7 +32,8 @@ hist(test_age(x))
 fidel <- function(x, n = length(x)) {
   round(
     abs(
-      rnorm(n,
+      rnorm(
+        n,
         as.numeric(Sys.Date() - as.Date(x)),
         sd = 0.3 * max(as.numeric(Sys.Date() - as.Date(x)))
       )

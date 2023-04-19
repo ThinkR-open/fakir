@@ -11,5 +11,4 @@
 #'   \item{id_dpt}{departement id}
 #'   \item{geometry}{polygon geometry}
 #' }
-#' @source \url{GADM}
 "fra_sf"

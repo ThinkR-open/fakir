@@ -16,9 +16,7 @@ fake_user_feedback(
 
 \item{seed}{the random seed, default is 2811}
 
-\item{from}{the date to cover}
-
-\item{to}{the date to cover}
+\item{from, to}{the date to cover}
 }
 \value{
 a dataframe
