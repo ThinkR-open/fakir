@@ -1,3 +1,7 @@
+# fakir 1.0.0
+
+* fix: fixing issue with locals in fake_ticket_client (#9)
+
 # fakir 0.2.0
 
 * New fake dataset with `fake_sondage_answers`: answers to location-transport habits.
