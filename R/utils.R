@@ -15,6 +15,83 @@ sample_yes <- function(vol, local = "en_US") {
   sample(vec, vol, TRUE)
 }
 
+recode_sample_yes <- function(vec, local = "en_US") {
+  if (local == "en_US") {
+    return(recode(vec, Yes = 1L, No = 0L))
+  }
+  if (local == "fr_FR") {
+    return(recode(vec, Oui = 1L, Non = 0L))
+  }
+}
+
+sample_type <- function(vol, local = "en_US") {
+  if (local == "en_US") {
+    vec <- c("Settings", "Box", "Phone")
+  }
+  if (local == "fr_FR") {
+    vec <- c("Installation", "Box", "Ligne")
+  }
+  sample(
+    vec,
+    vol,
+    prob = runif(3, 0.25, 1),
+    replace = TRUE
+  )
+}
+
+recode_sample_types <- function(vec, local = "en_US") {
+  if (local == "en_US") {
+    return(recode(vec, Settings = 1L, Box = 2L, Phone = 3L))
+  }
+  if (local == "fr_FR") {
+    return(recode(vec, Installation = 1L, Box = 2L, Ligne = 3L))
+  }
+}
+
+sample_state_level <- function(vol, local = "en_US") {
+  if (local == "en_US") {
+    state_level <- c(
+      "Running",
+      "Over",
+      "technician",
+      "Waiting for internal validation",
+      "Waiting for client feedback",
+      "Done"
+    )
+  }
+  if (local == "fr_FR") {
+    state_level <- c(
+      "En cours",
+      "Attente confirmation client",
+      "Attente validation",
+      "Intervention technicien",
+      "Termine"
+    )
+  }
+  factor(
+    sample(
+      state_level,
+      vol,
+      prob = runif(length(state_level), 0.25, 1),
+      replace = TRUE
+    ),
+    levels = state_level
+  )
+}
+
+sample_source_call <- function(vol, local = "en_US") {
+  source_level <- c(
+    "Local",
+    "France",
+    "Europe",
+    "International"
+  )
+  factor(
+    sample(source_level, vol, replace = TRUE),
+    source_level
+  )
+}
+
 sample_type <- function(vol, local = "en_US") {
   if (local == "en_US") vec <- c("Settings", "Box", "Phone")
   if (local == "fr_FR") vec <- c("Installation", "Box", "Ligne")
