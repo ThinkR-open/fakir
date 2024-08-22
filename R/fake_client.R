@@ -23,7 +23,7 @@ fake_base_clients <- function(
   n,
   local = c("en_US", "fr_FR"),
   seed = 2811
-    ) {
+) {
   stop_if_not(n, is.numeric, "Please provide a numeric value for `n`")
   priority_levels <- c("Bronze", "Silver", "Gold", "Platinium")
   local <- match.arg(local)
@@ -88,8 +88,6 @@ fake_base_clients <- function(
                 (1 - fidelity_points / max(.$fidelity_points)),
               5
             )) %>% with_random_na(),
-            # priorite = sample(c("Gold","Silver","Bronze", "Platinium"), vol, replace = TRUE),
-            # priorite_encoded = recode(priorite, Bronze = 1L, Silver = 2L, Gold = 3L, Platinium = 4L),
             # priorite depending on fidelite
             priority_encoded = pmax(
               pmin(
@@ -104,7 +102,18 @@ fake_base_clients <- function(
               levels = priority_levels
             )
           ) %>%
-          select(num_client, first, last, job, age, region, id_dpt, departement, cb_provider, everything())
+          select(
+            num_client,
+            first,
+            last,
+            job,
+            age,
+            region,
+            id_dpt,
+            departement,
+            cb_provider,
+            everything()
+          )
       )
     }
   )
@@ -168,11 +177,9 @@ fake_ticket_client <- function(
   split = FALSE,
   seed = 2811,
   local = c("en_US", "fr_FR")
-    ) {
+) {
   local <- match.arg(local)
 
-  state_level <- c("En cours", "Attente confirmation client", "Attente validation", "Intervention technicien", "Termine")
-  source_level <- c("Local", "France", "Europe", "International")
 
   if (missing(x)) {
     x <- fake_base_clients(n = n, seed = seed, local = local)
@@ -186,31 +193,17 @@ fake_ticket_client <- function(
         sample_n(vol, weight = runif(nrow(.), 0.5, 1), replace = TRUE) %>%
         # Ticket info
         mutate(
-          ref = paste0("DOSS-", as_vector(rerun(vol, sample(LETTERS, 4)) %>% map(paste0, collapse = "")), "-", formatC(1:vol, width = nchar(vol) + 1, flag = "0")),
+          ref = random_doss(vol),
           timestamp = as.Date(entry_date) + round(runif(nrow(.), 0, Sys.Date() - as.Date(entry_date))),
           year = year(timestamp),
           month = month(timestamp),
           day = day(timestamp),
-          # an = sample((as.numeric(format(min(entry_date), "%Y")) + 1):
-          #               (as.numeric(format(Sys.Date(), "%Y")) - 1),
-          #             vol, replace = TRUE),
-          # mois = sample(1:12, vol, replace = TRUE),
-          # jour = sample(1:28, vol, replace = TRUE),
-          # point_fidelite = sample(1:10000, vol, replace = TRUE),
-          # fidelity depending on date
-          # timestamp = paste(an, mois, jour, sep = "-"),
-          supported = sample(c("Oui", "Non"), vol, TRUE),
-          supported_encoded = recode(supported, Oui = 1L, Non = 0L),
-          type = with_random_na(sample(c("Installation", "Box", "Ligne"), vol, prob = runif(3, 0.25, 1), replace = TRUE)),
-          type_encoded = recode(type, Installation = 1L, Box = 2L, Ligne = 3L),
-          state = factor(
-            sample(state_level, vol, prob = runif(5, 0.25, 1), replace = TRUE),
-            levels = state_level
-          ),
-          source_call = factor(
-            sample(source_level, vol, replace = TRUE),
-            source_level
-          )
+          supported = sample_yes(vol, local = local),
+          supported_encoded = recode_sample_yes(supported, local = local),
+          type = with_random_na(sample_type(vol, local = local)),
+          type_encoded = recode_sample_types(type, local = local),
+          state = sample_state_level(vol, local = local),
+          source_call = sample_source_call(vol, local = local)
         ) %>%
         arrange(year, month, day) %>%
         select(ref, everything())
@@ -235,12 +228,34 @@ fake_ticket_client <- function(
   } else if (local == "fr_FR") {
     list(
       clients = x,
-      tickets = res %>% select(ref, num_client, annee, mois, jour, timestamp, pris_en_charge, type, etat, source_appel)
+      tickets = res %>% select(
+        ref,
+        num_client,
+        annee,
+        mois,
+        jour,
+        timestamp,
+        pris_en_charge,
+        type,
+        etat,
+        source_appel
+      )
     )
   } else {
     list(
       clients = x,
-      tickets = res %>% select(ref, num_client, year, month, day, timestamp, supported, type, state, source_call)
+      tickets = res %>% select(
+        ref,
+        num_client,
+        year,
+        month,
+        day,
+        timestamp,
+        supported,
+        type,
+        state,
+        source_call
+      )
     )
   }
 }
