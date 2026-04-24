@@ -80,12 +80,11 @@ sample_state_level <- function(vol, local = "en_US") {
 }
 
 sample_source_call <- function(vol, local = "en_US") {
-  source_level <- c(
-    "Local",
-    "France",
-    "Europe",
-    "International"
-  )
+  source_level <- if (local == "fr_FR") {
+    c("Local", "France", "Europe", "International")
+  } else {
+    c("Local", "US", "Europe", "International")
+  }
   factor(
     sample(source_level, vol, replace = TRUE),
     source_level
