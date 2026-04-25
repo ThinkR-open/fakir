@@ -12,6 +12,13 @@ test_that("fake_ticket_client(local = 'fr_FR') keeps French tokens", {
                 "Europe" %in% as.character(df$source_appel))
 })
 
+test_that("sample_source_call rejects unknown locales (#9)", {
+  expect_error(
+    fakir:::sample_source_call(10, local = "de_DE"),
+    regexp = "should be one of"
+  )
+})
+
 test_that("sample_source_call is locale-aware", {
   skip_if_not(exists("sample_source_call", envir = asNamespace("fakir")))
   withr::with_seed(

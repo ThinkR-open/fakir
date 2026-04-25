@@ -79,7 +79,8 @@ sample_state_level <- function(vol, local = "en_US") {
   )
 }
 
-sample_source_call <- function(vol, local = "en_US") {
+sample_source_call <- function(vol, local = c("en_US", "fr_FR")) {
+  local <- match.arg(local)
   source_level <- if (local == "fr_FR") {
     c("Local", "France", "Europe", "International")
   } else {
