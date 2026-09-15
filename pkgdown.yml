@@ -1,7 +1,9 @@
-pandoc: 2.7.3
-pkgdown: 2.0.2
+pandoc: 3.8.3
+pkgdown: 2.2.1
 pkgdown_sha: ~
 articles:
-  fake-client-database: fake-client-database.html
-last_built: 2022-03-18T17:17Z
-
+  fakir-example: fakir-example.html
+last_built: 2026-09-15T10:13Z
+urls:
+  reference: https://thinkr-open.github.io/shinipsum/reference
+  article: https://thinkr-open.github.io/shinipsum/articles
