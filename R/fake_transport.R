@@ -55,7 +55,7 @@ fake_survey_people <- function(n, seed = 2811, local = c("fr_FR")) {
       tibble(
         id_individu = paste0(
           "ID-",
-          as_vector(rerun(n, sample(LETTERS, 4)) %>%
+          as_vector(map(seq_len(n), function(i) sample(LETTERS, 4)) %>%
             map(paste0, collapse = "")),
           "-",
           formatC(1:n, width = nchar(n) + 1, flag = "0")

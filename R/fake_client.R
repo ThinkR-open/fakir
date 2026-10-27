@@ -149,7 +149,7 @@ fake_base_clients <- function(
 #' @importFrom withr with_seed
 #' @importFrom tibble tibble
 #' @importFrom dplyr select recode arrange everything sample_n
-#' @importFrom purrr map rerun as_vector
+#' @importFrom purrr map as_vector
 #' @importFrom magrittr %>%
 #' @importFrom lubridate year month day
 #' @importFrom stats runif rnorm rlnorm

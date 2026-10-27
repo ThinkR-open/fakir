@@ -2,7 +2,7 @@ random_doss <- function(vol) {
   paste0(
     "DOSS-",
     as_vector(
-      rerun(vol, sample(LETTERS, 4)) %>%
+      map(seq_len(vol), function(i) sample(LETTERS, 4)) %>%
         map(paste0, collapse = "")
     ),
     "-",
